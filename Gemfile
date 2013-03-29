@@ -13,10 +13,11 @@ gem "cancan", ">= 1.6.8"
 gem 'chronic' # Date/Time management
 gem 'dalli' # memcache
 gem 'annotate'
-gem 'activerecord-postgres-hstore'
-gem 'ar_pg_array'
 gem 'simple_form'
 gem 'pg_search'
+
+#gem 'wicked_pdf'
+#gem 'pdfkit'
 
 gem 'capistrano'
 gem 'foreman'

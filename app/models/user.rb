@@ -2,6 +2,8 @@
 #
 # Table name: users
 #
+#  address                :string(255)
+#  city                   :string(255)
 #  created_at             :datetime         not null
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string(255)
@@ -10,11 +12,15 @@
 #  id                     :integer          not null, primary key
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string(255)
+#  name                   :string(255)
+#  practice_name          :string(255)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
 #  sign_in_count          :integer          default(0)
+#  state                  :string(255)
 #  updated_at             :datetime         not null
+#  zipcode                :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -26,4 +32,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  has_many :patients
+  has_many :doctors
+  has_many :requisition_forms
 end
