@@ -1,0 +1,17 @@
+h1 Listing requisition_forms
+
+table
+  tr
+    th
+    th
+    th
+
+  - @requisition_forms.each do |requisition_form|
+    tr
+      td = link_to 'Show', requisition_form
+      td = link_to 'Edit', edit_requisition_form_path(requisition_form)
+      td = link_to 'Destroy', requisition_form, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Requisition form', new_requisition_form_path
