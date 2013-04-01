@@ -2,14 +2,22 @@
   .row
     .small-7.columns
       .row
-        .small-6.columns.top-left
+        .small-6.columns.top-left.pad
           - if params[:format] == 'pdf'
-            div = wicked_pdf_image_tag('logo.png')
+            div.logo = wicked_pdf_image_tag('logo.png')
           - else
-            div = image_tag('logo.png')
+            div.logo = image_tag('logo.png')
+          div
+            b Cytology, Biopsy, Microscopy
+          div 18207A Flower Hill Way
+          div Gaithersburg, MD 20879
+          div Phone 301.926.4707, Fax 301.926.4708
+          div www.cbmpath.com
 
-        .small-6.columns.referring-info.bt.bl
-          div referring box
+        .small-6.columns.referring-info.bt.bl.pad
+          div.head
+            b Referring/Ordering M.D.
+          div Dr. Whathecalled
 
       .row
         .small-12.columns.patient-info.bt.bl
@@ -57,12 +65,185 @@
 
   .row
     .small-12.columns.medical-history.ba
-      div Medical history
+      div.head Medical history
+      .row
+        .small-4.columns
+          .input
+            .box
+            span Abdominal pain
+          .input
+            .box X
+            span Anal Lesion
+          .input
+            .box
+            span Anemia
+          .input
+            .box
+            span Barrett's
+          .input
+            .box
+            span Bleeding - RECTAL
+          .input
+            .box
+            span Cancer Personal Type Family Type
+          .input
+            .box
+            span Colitis (Crobn's, UC, IBD, Other )
+          .input
+            .box
+            span Condyloma
+          .input
+            .box
+            span Constipation
+          .input
+            .box
+            span Diarrhea,bloody
+          .input
+            .box
+            span Diarrhea,watery
+          .input
+            .box
+            span Diverticulosis
+        .small-4.columns
+          .input
+            .box
+            span Dysphagia
+          .input
+            .box
+            span Fistula Tract
+          .input
+            .box
+            span Fungi(Candida)
+          .input
+            .box
+            span Gastritis
+          .input
+            .box
+            span GRED(Reflux)
+          .input
+            .box X
+            span Heartburn
+          .input
+            .box
+            span Hemorrhoid
+          .input
+            .box
+            span History of _______________
+          .input
+            .box
+            span Lymphoma
+          .input
+            .box
+            span Malabsorption
+          .input
+            .box
+            span Nausea/ Vomiting
+          .input
+            .box
+            span Pilonidal Cyst
+        .small-4.columns
+          .input
+            .box
+            span Polyp site: _______________
+          .input
+            .box
+            span Screening for: _______________
+          .input
+            .box
+            span Shin Tag
+          .input
+            .box
+            span Weight Loss
+          .input
+            .box
+            span OTHER: _______________
+          .input
+            .box
+            span Rule Out:
+            .row.rule-out
+              .small-6.columns
+                .input
+                  .box
+                  span Barret's
+                .input
+                  .box
+                  span Carcinoma
+                .input
+                  .box
+                  span Celiac
+                .input
+                  .box
+                  span Carcinoma
+              .small-6.columns
+                .input
+                  .box
+                  span Dyslplasia
+                .input
+                  .box
+                  span Esophagitis
+                .input
+                  .box
+                  span Giardia
+                .input
+                  .box
+                  span H. Pylori
+
 
   .row
-    .small-12.columns.special-requests.bl.br
-      div Special requests
+    .small-12.columns.special-requests.bl.br.pad
+      b Special requests:
+      span = " Here they are.."
 
   .row
-    .small-12.columns.specimens.ba
-      div Specimens
+    .small-12.columns.specimens.bl.br.bt
+      table cellspacing=0 cellpadding=0
+        tr
+          th.br.bb colspan=1
+            .head Specimen Source
+          th.br.bb colspan=4
+            .head Type
+            .content check only one
+          th.br.bb colspan=13
+            .head Upper GI
+            .content
+              .align-left stomach/duodenum
+              .align-right esophagus
+          th.br.bb colspan=14
+            .head Lower GI
+          th.bb colspan=2
+            .head Endoscopic Findings
+        tr.specimen-grid-row
+          td.bb.br.specimen-first
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box X
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box X
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box X
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-box
+          td.bb.br.specimen-other
+          td.bb

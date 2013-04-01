@@ -1,8 +1,11 @@
 #requisition-form-show {
   font-size: 12px;
 
+  .logo {
+    margin: 0 0 10px 0;
+  }
   .pad {
-    padding: 5px;
+    padding: 7px;
   }
   .ba {
     border: 1px solid #000;
@@ -19,6 +22,14 @@
   .bb {
     border-bottom: 1px solid #000;
   }
+  .box {
+    width: 9px;
+    height: 9px;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 0;
+    font-size: 9px;
+  }
   .top-left {
 
   }
@@ -26,18 +37,23 @@
 
   }
   .referring-info {
-
+    height: 124px;
+    .head {
+      margin: 0 0 5px 0;
+    }
   }
   .top-right {
+    height: 178px;
 
     .top {
       text-transform: uppercase;
       font-size: 16px;
       text-align: center;
+      display: block;
     }
     .bottom {
       text-align: center;
-      font-size: 10px;
+      display: block;
     }
     .head {
       font-weight: bold;
@@ -45,9 +61,67 @@
     }
   }
   .medical-history {
+    padding: 15px;
+    .head {
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+    .input {
+      margin: 0 0 5px 0;
+      font-size: 12px;
+      .box {
+        margin: 0 10px 0 0;
+      }
+    }
+    .rule-out {
+      padding: 10px 0 0 15px;
+    }
   }
   .special-requests {
   }
   .specimens {
+    table {
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+
+      th {
+        font-size: 13px;
+        .head {
+
+        }
+        .content {
+          margin: 10px 0 0 0;
+          font-weight: normal;
+          text-align: left;
+          font-size: 11px;
+
+          .align-left {
+            float: left;
+          }
+          .align-right {
+            float: right;
+          }
+        }
+      }
+    }
+    .specimen-grid-row {
+      td {
+        height: 20px;
+      }
+    }
+    .specimen-first {
+      width: 115px;
+    }
+    .specimen-box {
+      width: 24px;
+      padding: 0;
+      font-size: 17px;
+      padding: 0 0 0 6px;
+    }
+    .specimen-other {
+      width: 35px;
+    }
   }
 }
