@@ -54,3 +54,4 @@ after 'deploy:setup' do
   sudo "chown -R #{user} #{deploy_to} && chmod -R g+s #{deploy_to}"
 end
 after "deploy:update_code", "deploy:update_permissions"
+after "deploy:update", "deploy:link_db_file"
