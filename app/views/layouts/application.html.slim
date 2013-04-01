@@ -18,7 +18,9 @@ head
   title= content_for?(:title) ? yield(:title) : "Untitled"
 
   = stylesheet_link_tag "application"
+
   = javascript_include_tag "vendor/custom.modernizr"
+
   = csrf_meta_tag
 
 body
@@ -30,4 +32,4 @@ body
 
 
 
-  = javascript_include_tag "application"
+  = wicked_pdf_javascript_include_tag "application"

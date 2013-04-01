@@ -30,4 +30,12 @@
 
 class Patient < ActiveRecord::Base
   belongs_to :user
+
+  attr_accessible :first_name, :last_name, :middle_name, :date_of_birth,
+                  :address, :city, :state, :zipcode, :sex, :ssn,
+                  :insurance_date_of_birth, :insurance_group_number,
+                  :insurance_insured_employer, :insurance_insured_name,
+                  :insurance_insured_work_phone, :insurance_name,
+                  :insurance_phone, :insurance_policy_id, :insurance_relation,
+                  :insurance_type
 end
