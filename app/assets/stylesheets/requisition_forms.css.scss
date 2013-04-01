@@ -1,0 +1,53 @@
+#requisition-form-show {
+  font-size: 12px;
+
+  .pad {
+    padding: 5px;
+  }
+  .ba {
+    border: 1px solid #000;
+  }
+  .bl {
+    border-left: 1px solid #000;
+  }
+  .br {
+    border-right: 1px solid #000;
+  }
+  .bt {
+    border-top: 1px solid #000;
+  }
+  .bb {
+    border-bottom: 1px solid #000;
+  }
+  .top-left {
+
+  }
+  .patient-info {
+
+  }
+  .referring-info {
+
+  }
+  .top-right {
+
+    .top {
+      text-transform: uppercase;
+      font-size: 16px;
+      text-align: center;
+    }
+    .bottom {
+      text-align: center;
+      font-size: 10px;
+    }
+    .head {
+      font-weight: bold;
+      margin: 0 0 2px 0;
+    }
+  }
+  .medical-history {
+  }
+  .special-requests {
+  }
+  .specimens {
+  }
+}

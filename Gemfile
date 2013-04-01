@@ -16,7 +16,7 @@ gem 'annotate'
 gem 'simple_form'
 gem 'pg_search'
 
-#gem 'wicked_pdf'
+gem 'wicked_pdf'
 #gem 'pdfkit'
 
 gem 'capistrano'

@@ -1,0 +1,68 @@
+#requisition-form-show
+  .row
+    .small-7.columns
+      .row
+        .small-6.columns.top-left
+          - if params[:format] == 'pdf'
+            div = wicked_pdf_image_tag('logo.png')
+          - else
+            div = image_tag('logo.png')
+
+        .small-6.columns.referring-info.bt.bl
+          div referring box
+
+      .row
+        .small-12.columns.patient-info.bt.bl
+          .row
+            .small-5.columns.pad
+              b Patient Last Name:
+              = " MacLeod"
+            .small-4.columns.pad
+              b First:
+              = " Marc"
+            .small-3.columns.pad
+              b MI:
+              = " B"
+          .row
+            .small-6.columns.pad
+              b Sex:
+              = " Male"
+            .small-6.columns.pad
+              b Date of Birth:
+              = " 04/07/1987"
+
+    .small-5.columns.top-right.bt.br.bl
+      .row
+        .small-12.columns.bb.pad
+          b.top GI PATHOLOGY REQUISITION FORM
+      .row
+        .small-12.columns.bb.pad
+          span.head Additional MD:
+          span.content = " Dr Who"
+      .row
+        .small-5.columns
+          .row
+            .small-12.columns.bb.br.pad
+              .head Collection Date:
+              .content 1/1/2013
+            .small-12.columns.br.pad
+              div.head Patient SSN#:
+              .content 43-438-2384
+        .small-7.columns.pad
+          .head ICD-9 Codes:
+          .content 134, 589, 340, 20384, 490
+      .row
+        .small-12.columns.bt.pad
+          b.bottom Please attach demographic and insurance information sheet
+
+  .row
+    .small-12.columns.medical-history.ba
+      div Medical history
+
+  .row
+    .small-12.columns.special-requests.bl.br
+      div Special requests
+
+  .row
+    .small-12.columns.specimens.ba
+      div Specimens

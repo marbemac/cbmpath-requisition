@@ -11,5 +11,6 @@
 
 class Doctor < ActiveRecord::Base
   belongs_to :user
-  belongs_to :requisition_form
+
+  attr_accessible :name
 end

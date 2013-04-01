@@ -18,6 +18,9 @@ class RequisitionFormsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @requisition_form }
+      format.pdf do
+        render :pdf => "file_name"
+      end
     end
   end
 
