@@ -51,3 +51,21 @@
   .specimens {
   }
 }
+
+.requisition-form-form {
+  .form-inputs {
+    >.row {
+      >.columns {
+        padding: 10px;
+        border: 1px black solid ;
+      }
+    }
+  }
+  .patient-info {
+    .input {
+      width: 22%;
+      float: left;
+      margin-right: 3%;
+    }
+  }
+}

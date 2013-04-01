@@ -1,21 +1,56 @@
-= simple_form_for(@requisition_form) do |f|
+= simple_form_for @requisition_form, :html => { :class => "requisition-form-form" } do |f|
   = f.error_notification
 
   .form-inputs
-    = simple_fields_for :doctor do |d|
-      = d.input :name
+    .row
+      .small-4.columns
+        | CBM Pathology
+      .small-4.columns
+        = simple_fields_for :doctor do |d|
+          = d.input :name
 
-    = simple_fields_for :doctor2 do |d2|
-      = d2.input :name
+        = simple_fields_for :doctor2 do |d2|
+          = d2.input :name
 
-    = f.input :icd9_codes
+        = f.input :collection_date, as: :date
 
-    = simple_fields_for :patient do |p|
-      = p.input :name
-      = p.input :date_of_birth, as: :date
+      .small-4.columns
+        = f.input :icd9_codes
 
-  .form-actions
-    = f.button :submit
+    .row
+      = simple_fields_for :patient do |p|
+        .small-6.columns.patient-info
+          = p.input :first_name
+          = p.input :middle_name
+          = p.input :last_name
+          .checkboxes
+            == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
+              - b.label { b.radio_button + b.text.html_safe }
+          = p.input :date_of_birth, as: :date
+          = p.input :ssn
+          = p.input :address
+          = p.input :city
+          = p.input :state
+          = p.input :zipcode
+        .small-6.columns.insurance-info
+          .checkboxes
+            == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
+              - b.label { b.radio_button + b.text.html_safe }
+            = p.input :insurance_name
+            .row
+              .small-6.columns
+                = p.input :insurance_insured_name
+                = p.input :insurance_group_number
+                = p.input :insurance_date_of_birth
+                = p.input :insurance_insured_employer
+              .small-6.columns
+                = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation"
+                = p.input :insurance_policy_id
+                = p.input :insurance_insured_work_phone
+                = p.input :insurance_phone
+
+    .form-actions
+      = f.button :submit
 
 /= form_for @requisition_form do |f|
 /  = f.fields_for :doctor do |d|
