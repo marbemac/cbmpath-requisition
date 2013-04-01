@@ -36,18 +36,145 @@
           .checkboxes
             == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
               - b.label { b.radio_button + b.text.html_safe }
-            = p.input :insurance_name
-            .row
-              .small-6.columns
-                = p.input :insurance_insured_name
-                = p.input :insurance_group_number
-                = p.input :insurance_date_of_birth
-                = p.input :insurance_insured_employer
-              .small-6.columns
-                = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation"
-                = p.input :insurance_policy_id
-                = p.input :insurance_insured_work_phone
-                = p.input :insurance_phone
+          = p.input :insurance_name
+          .row
+            .small-6.columns
+              = p.input :insurance_insured_name
+              = p.input :insurance_group_number
+              = p.input :insurance_date_of_birth
+              = p.input :insurance_insured_employer
+            .small-6.columns
+              = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation"
+              = p.input :insurance_policy_id
+              = p.input :insurance_insured_work_phone
+              = p.input :insurance_phone
+
+    .row
+      .small-12.columns.medical-history
+        .row
+          .small-4.columns
+            label for="requision_for[medical_history][]"
+              input type="checkbox" name="requisition_form[medical_history][abdominal_pain][checked]" value="Abdominal pain" Abdominal pain
+              input type="checkbox" name="requisition_form[medical_history][abdominal_pain][abdominal_pain]" value="Abdominal pain" Abdominal pain
+
+            .input
+              .box X
+              span Anal Lesion
+            .input
+              .box
+              span Anemia
+            .input
+              .box
+              span Barrett's
+            .input
+              .box
+              span Bleeding - RECTAL
+            .input
+              .box
+              span Cancer Personal Type Family Type
+            .input
+              .box
+              span Colitis (Crobn's, UC, IBD, Other )
+            .input
+              .box
+              span Condyloma
+            .input
+              .box
+              span Constipation
+            .input
+              .box
+              span Diarrhea,bloody
+            .input
+              .box
+              span Diarrhea,watery
+            .input
+              .box
+              span Diverticulosis
+          .small-4.columns
+            .input
+              .box
+              span Dysphagia
+            .input
+              .box
+              span Fistula Tract
+            .input
+              .box
+              span Fungi(Candida)
+            .input
+              .box
+              span Gastritis
+            .input
+              .box
+              span GRED(Reflux)
+            .input
+              .box X
+              span Heartburn
+            .input
+              .box
+              span Hemorrhoid
+            .input
+              .box
+              span History of _______________
+            .input
+              .box
+              span Lymphoma
+            .input
+              .box
+              span Malabsorption
+            .input
+              .box
+              span Nausea/ Vomiting
+            .input
+              .box
+              span Pilonidal Cyst
+          .small-4.columns
+            .input
+              .box
+              span Polyp site: _______________
+            .input
+              .box
+              span Screening for: _______________
+            .input
+              .box
+              span Shin Tag
+            .input
+              .box
+              span Weight Loss
+            .input
+              .box
+              span OTHER: _______________
+            .input
+              .box
+              span Rule Out:
+              .row.rule-out
+                .small-6.columns
+                  .input
+                    .box
+                    span Barret's
+                  .input
+                    .box
+                    span Carcinoma
+                  .input
+                    .box
+                    span Celiac
+                  .input
+                    .box
+                    span Carcinoma
+                .small-6.columns
+                  .input
+                    .box
+                    span Dyslplasia
+                  .input
+                    .box
+                    span Esophagitis
+                  .input
+                    .box
+                    span Giardia
+                  .input
+                    .box
+                    span H. Pylori
+
+
 
     .form-actions
       = f.button :submit

@@ -26,4 +26,6 @@ class RequisitionForm < ActiveRecord::Base
   belongs_to :user
 
   accepts_nested_attributes_for :doctor, :doctor2, :patient
+
+  attr_protected
 end
