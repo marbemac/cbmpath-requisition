@@ -2,6 +2,21 @@
   = f.error_notification
 
   .form-inputs
+    = simple_fields_for :doctor do |d|
+      = d.input :name
+
+    = simple_fields_for :doctor2 do |d2|
+      = d2.input :name
+
+    = f.input :icd9_codes
+
+    = simple_fields_for :patient do |p|
+      = p.input :name
+      = p.input :date_of_birth, as: :date
 
   .form-actions
     = f.button :submit
+
+/= form_for @requisition_form do |f|
+/  = f.fields_for :doctor do |d|
+/    = d.text_field :name
