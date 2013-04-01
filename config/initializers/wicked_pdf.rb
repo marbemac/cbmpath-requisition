@@ -2,5 +2,6 @@ WickedPdf.config = {
     :exe_path => '/bin/wkhtmltopdf',
     :layout => 'pdf.html',
     :orientation => 'Landscape',
-    :page_size => 'Letter'
+    :page_size => 'Letter',
+    :lowquality => false
 }
