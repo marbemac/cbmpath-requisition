@@ -6,3 +6,12 @@ development:
   pool: 5
   username: matt
   password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: cbmpath_requisition_production
+  host: localhost
+  pool: 25
+  username: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
