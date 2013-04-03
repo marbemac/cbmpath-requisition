@@ -1,0 +1,1 @@
+ocra cbmpath-requisition\script\rails cbmpath-requisition --output cbmpath-requisition.exe --add-all-core --gemfile cbmpath-requisition\Gemfile --no-dep-run --chdir-first --gem-all --dll libeay32.dll --dll ssleay32.dll --icon cbmpath_favicon.ico --no-lzma --innosetup cbmpath.iss --windows -- server
