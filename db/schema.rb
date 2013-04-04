@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401194226) do
+ActiveRecord::Schema.define(:version => 20130404214403) do
 
   create_table "doctors", :force => true do |t|
     t.string   "name"
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(:version => 20130401194226) do
     t.text     "icd9_codes"
     t.integer  "patient_id"
     t.integer  "user_id"
-    t.text     "medical_history"
+    t.text     "medical_history",  :default => "{}"
     t.text     "special_requests"
     t.text     "specimens"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.date     "collection_date"
   end
 

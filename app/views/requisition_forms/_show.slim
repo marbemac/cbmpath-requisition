@@ -71,9 +71,9 @@
           .input
             .box = @requisition_form.medical_history['abdominal_pain'] ? 'X' : ''
             span 
-             | Abdominal pain
-             - if @requisition_form.medical_history['abdominal_pain']['location']
-              = " (#{@requisition_form.medical_history['abdominal_pain']['location']})" 
+            | Abdominal pain
+            - if @requisition_form.medical_history['abdominal_pain'] && @requisition_form.medical_history['abdominal_pain']['location']
+              = " (#{@requisition_form.medical_history['abdominal_pain']['location']})"
           .input
             .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
             span Anal Lesion

@@ -35,3 +35,5 @@ jQuery ->
     element = parent.find('.copy-me').clone().removeClass('copy-me').appendTo(parent)
     element.find('input[type=checkbox]').removeAttr('checked')
     element.find('input[type=text]').val('')
+    myDate = new Date();
+    element.find('input').attr('name', element.find('input').first().attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime()/1000)}$3"))
