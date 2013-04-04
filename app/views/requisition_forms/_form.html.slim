@@ -17,8 +17,10 @@
 
         = f.input :collection_date, as: :date
 
-      .small-4.columns
-        = f.input :icd9_codes
+      .small-4.columns.copy-parent
+        label for="requisition_form[icd9_codes][]" ICD-9 CODE(S):
+        input name="requisition_form[icd9_codes][]" class=" copy-me"
+        .small.button.icd9-copy-button Add More
 
     .row
       = f.simple_fields_for :patient do |p|
@@ -57,29 +59,29 @@
       .small-12.columns.medical-history
         .row
           .small-5.columns
-            label for="requision_for[medical_history][abdominal_pain][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][abdominal_pain][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][abdominal_pain][checked]" value="true" autocomplete="off"  Abdominal pain / Epigastric pain / Other (location: &nbsp;
               span.optional
                 input name="requisition_form[medical_history][abdominal_pain][location]" autocomplete="off" disabled="disabled" class="text-input"
               |)
 
-            label for="requision_for[medical_history][anal_lesion][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][anal_lesion][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][anal_lesion][checked]" value="true" autocomplete="off" Anal Lesion
 
-            label for="requision_for[medical_history][anemia][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][anemia][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][anemia][checked]" value="true" autocomplete="off" Anemia
 
-            label for="requision_for[medical_history][barretts][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][barretts][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][barretts][checked]" value="true" autocomplete="off" Barrett's
 
-            label for="requision_for[medical_history][bleeding][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][bleeding][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][bleeding][checked]" value="true" autocomplete="off" Bleeding
               span.optional
                 input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="Rectal" Rectal
                 input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="GI" GI
                 input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="Blood in stool" Blood in stool
 
-            label for="requision_for[medical_history][cancer][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][cancer][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][cancer][checked]" value="true" autocomplete="off" Cancer
               span.optional
                 input name="requisition_form[medical_history][cancer][personal]" class="cancer-check" autocomplete="off" type="checkbox" disabled="disabled" value="true" Personal, Type: &nbsp;
@@ -89,110 +91,110 @@
                 span.optional
                   input name="requisition_form[medical_history][cancer][family_type]" autocomplete="off" disabled="disabled" class="text-input"
 
-            label for="requision_for[medical_history][colitis][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][colitis][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][colitis][checked]" value="true" autocomplete="off" Colitis (Crobn's, UC, IBD, Other )
 
-            label for="requision_for[medical_history][condyloma][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][condyloma][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][condyloma][checked]" value="true" autocomplete="off" Condyloma
 
-            label for="requision_for[medical_history][constipation][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][constipation][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][constipation][checked]" value="true" autocomplete="off" Constipation
 
-            label for="requision_for[medical_history][diarrhea_bloody][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][diarrhea_bloody][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][diarrhea_bloody][checked]" value="true" autocomplete="off" Diarrhea,bloody
               input type="checkbox" class="med-check" name="requisition_form[medical_history][diarrhea_watery][checked]" value="true" autocomplete="off" Diarrhea,watery
 
-            label for="requision_for[medical_history][diverticulosis][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][diverticulosis][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][diverticulosis][checked]" value="true" autocomplete="off" Diverticulosis
 
           .small-3.columns
-            label for="requision_for[medical_history][dysphagia][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][dysphagia][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][dysphagia][checked]" value="true" autocomplete="off" Dysphagia
 
-            label for="requision_for[medical_history][fistula_tract][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][fistula_tract][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][fistula_tract][checked]" value="true" autocomplete="off" Fistula Tract
 
-            label for="requision_for[medical_history][fungi][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][fungi][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][fungi][checked]" value="true" autocomplete="off" Fungi(Candida)
 
-            label for="requision_for[medical_history][gastritis][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][gastritis][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][gastritis][checked]" value="true" autocomplete="off" Gastritis
 
-            label for="requision_for[medical_history][gred][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][gred][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][gred][checked]" value="true" autocomplete="off" GRED(Reflux)
 
-            label for="requision_for[medical_history][heartburn][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][heartburn][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][heartburn][checked]" value="true" autocomplete="off" Heartburn
 
-            label for="requision_for[medical_history][hemorrhoid][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][hemorrhoid][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][hemorrhoid][checked]" value="true" autocomplete="off" Hemorrhoid
 
-            label for="requision_for[medical_history][history][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][history][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][history][checked]" value="true" autocomplete="off" History of &nbsp;
               span.optional
                 input name="requisition_form[medical_history][history][history]" autocomplete="off" disabled="disabled" class="text-input"
 
-            label for="requision_for[medical_history][lymphoma][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][lymphoma][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][lymphoma][checked]" value="true" autocomplete="off" Lymphoma
 
-            label for="requision_for[medical_history][malabsorption][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][malabsorption][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][malabsorption][checked]" value="true" autocomplete="off" Malabsorption
 
-            label for="requision_for[medical_history][nausea][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][nausea][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][nausea][checked]" value="true" autocomplete="off" Nausea/ Vomiting
 
-            label for="requision_for[medical_history][pilonidal_cyst][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][pilonidal_cyst][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][pilonidal_cyst][checked]" value="true" autocomplete="off" Pilonidal Cyst
 
           .small-4.columns
-            label for="requision_for[medical_history][polyp_site][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][polyp_site][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][polyp_site][checked]" value="true" autocomplete="off" Polyp site: &nbsp;
               span.optional
                 input name="requisition_form[medical_history][polyp_site][polyp_site]" autocomplete="off" disabled="disabled" class="text-input"
 
-            label for="requision_for[medical_history][screening_for][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][screening_for][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][screening_for][checked]" value="true" autocomplete="off" Screening for: &nbsp;
               span.optional
                 input name="requisition_form[medical_history][screening_for][screening_for]" autocomplete="off" disabled="disabled" class="text-input"
 
-            label for="requision_for[medical_history][shin_tag][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][shin_tag][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][shin_tag][checked]" value="true" autocomplete="off" Shin Tag
 
-            label for="requision_for[medical_history][weight_loss][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][weight_loss][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][weight_loss][checked]" value="true" autocomplete="off" Weight Loss
 
-            label for="requision_for[medical_history][other][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][other][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][other][checked]" value="true" autocomplete="off" OTHER: &nbsp;
               span.optional
                 input name="requisition_form[medical_history][other][other]" autocomplete="off" disabled="disabled" class="text-input"
 
-            label for="requision_for[medical_history][rule_out][checked]" class="medical-history-field"
+            label for="requisition_form[medical_history][rule_out][checked]" class="medical-history-field"
               input type="checkbox" class="rule-out-check" name="requisition_form[medical_history][rule_out][checked]" value="true" autocomplete="off" RULE OUT:
               .row.rule-out
                 .optional.small-6.columns
-                  label for="requision_for[medical_history][rule_out][barrets][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][barrets][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][barrets][checked]" value="true" autocomplete="off" disabled="disabled" BARRET'S
 
-                  label for="requision_for[medical_history][carcinoma][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][carcinoma][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][carcinoma][checked]" value="true" autocomplete="off" disabled="disabled" CARCINOMA
 
-                  label for="requision_for[medical_history][rule_out][celiac][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][celiac][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][celiac][checked]" value="true" autocomplete="off" disabled="disabled" CELIAC
 
-                  label for="requision_for[medical_history][rule_out][h_pylori][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][h_pylori][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][h_pylori][checked]" value="true" autocomplete="off" disabled="disabled" H. PYLORI
 
                 .optional.small-6.columns
-                  label for="requision_for[medical_history][rule_out][dysplasia][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][dysplasia][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][dysplasia][checked]" value="true" autocomplete="off" disabled="disabled" DYSPLASIA
 
-                  label for="requision_for[medical_history][rule_out][esophagitis][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][esophagitis][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][esophagitis][checked]" value="true" autocomplete="off" disabled="disabled" ESOPHAGITIS
 
-                  label for="requision_for[medical_history][rule_out][giardia][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][giardia][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][giardia][checked]" value="true" autocomplete="off" disabled="disabled" GIARDIA
 
-                  label for="requision_for[medical_history][rule_out][colitis][checked]" class="medical-history-field"
+                  label for="requisition_form[medical_history][rule_out][colitis][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][colitis][checked]" value="true" autocomplete="off" disabled="disabled" COLITIS
 
       .row
@@ -202,158 +204,94 @@
       .row
         .small-12.columns.specimens.bl.br.bt
           table cellspacing=0 cellpadding=0
-            tr
-              th.br.bb colspan=1
-                .head Specimen Source
-              th.br.bb colspan=4
-                .head Type
-                .content check only one
-              th.br.bb colspan=13
-                .head Upper GI
-                .content
-                  .align-left stomach/duodenum
-                  .align-right esophagus
-              th.br.bb colspan=14
-                .head Lower GI
-              th.bb colspan=2
-                .head Endoscopic Findings
-            tr.specimen-headers
-              th.br.bb
-              th.bb
-                .vertical-text Biopsy
-              th.bb
-                .vertical-text Cytology
-              th.bb
-                .vertical-text Polyp
-              th.br.bb
-                .vertical-text Random
-              th.bb
-                .vertical-text CLO Test
-              th.bb
-                .vertical-text Antrum
-              th.bb
-                .vertical-text Fundus
-              th.bb
-                .vertical-text Stomach
-              th.bb
-                .vertical-text Cardia
-              th.bb
-                .vertical-text Duod. Bulb
-              th.bb
-                .vertical-text Duodenum
-              th.br.bb
-                .vertical-text Dist. Duod
-              th.bb
-                .vertical-text Esophagus
-              th.bb
-                .vertical-text Upper Esoph.
-              th.bb
-                .vertical-text Middle Esoph.
-              th.bb
-                .vertical-text Lower Esoph.
-              th.br.bb
-                .vertical-text E.G. Junct.
-              th.bb
-                .vertical-text Ileum
-              th.bb
-                .vertical-text Ileocecal Valve
-              th.bb
-                .vertical-text Colon
-              th.bb
-                .vertical-text Cecum
-              th.bb
-                .vertical-text Ascending
-              th.bb
-                .vertical-text Hepatic Flex.
-              th.bb
-                .vertical-text Transverse
-              th.bb
-                .vertical-text Splenic Flex
-              th.bb
-                .vertical-text Descending
-              th.bb
-                .vertical-text Sigmoid
-              th.bb
-                .vertical-text Rectosigmoid
-              th.bb
-                .vertical-text Rectum
-              th.bb
-                .vertical-text Right Colon
-              th.br.bb
-                .vertical-text Left Colon
-              th.br.bb
-                .vertical-text Other
-              th.bb
+            tbody.copy-parent
+              tr
+                th.br.bb colspan=1
+                  .head Specimen Source
+                th.br.bb colspan=4
+                  .head Type
+                  .content check only one
+                th.br.bb colspan=13
+                  .head Upper GI
+                  .content
+                    .align-left stomach/duodenum
+                    .align-right esophagus
+                th.br.bb colspan=14
+                  .head Lower GI
+                th.bb colspan=2
+                  .head Endoscopic Findings
+              tr.specimen-headers
+                th.br.bb
+                th.bb
+                  .vertical-text Biopsy
+                th.bb
+                  .vertical-text Cytology
+                th.bb
+                  .vertical-text Polyp
+                th.br.bb
+                  .vertical-text Random
+                th.bb
+                  .vertical-text CLO Test
+                th.bb
+                  .vertical-text Antrum
+                th.bb
+                  .vertical-text Fundus
+                th.bb
+                  .vertical-text Stomach
+                th.bb
+                  .vertical-text Cardia
+                th.bb
+                  .vertical-text Duod. Bulb
+                th.bb
+                  .vertical-text Duodenum
+                th.br.bb
+                  .vertical-text Dist. Duod
+                th.bb
+                  .vertical-text Esophagus
+                th.bb
+                  .vertical-text Upper Esoph.
+                th.bb
+                  .vertical-text Middle Esoph.
+                th.bb
+                  .vertical-text Lower Esoph.
+                th.br.bb
+                  .vertical-text E.G. Junct.
+                th.bb
+                  .vertical-text Ileum
+                th.bb
+                  .vertical-text Ileocecal Valve
+                th.bb
+                  .vertical-text Colon
+                th.bb
+                  .vertical-text Cecum
+                th.bb
+                  .vertical-text Ascending
+                th.bb
+                  .vertical-text Hepatic Flex.
+                th.bb
+                  .vertical-text Transverse
+                th.bb
+                  .vertical-text Splenic Flex
+                th.bb
+                  .vertical-text Descending
+                th.bb
+                  .vertical-text Sigmoid
+                th.bb
+                  .vertical-text Rectosigmoid
+                th.bb
+                  .vertical-text Rectum
+                th.bb
+                  .vertical-text Right Colon
+                th.br.bb
+                  .vertical-text Left Colon
+                th.br.bb
+                  .vertical-text Other
+                th.bb
 
-            tr.specimen-grid-row
-              td.bb.br.specimen-first
-                input type="text" name="specimens[source]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[biopsy]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[cytology]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[polyp]"
-              th.br.bb
-                input type="checkbox" value="true" name="specimens[random]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[clo_test]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[antrum]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[fundus]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[stomach]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[cardia]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[duod_bulb]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[duodenum]"
-              th.br.bb
-                input type="checkbox" value="true" name="specimens[dist_duod]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[esophagus]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[upper_esoph]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[middle_esoph]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[lower_esoph]"
-              th.br.bb
-                input type="checkbox" value="true" name="specimens[eg_junct]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[ileum]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[ileocecal_valve]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[colon]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[cecum]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[ascending]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[hepatic_flex.]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[transverse]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[splenic_flex]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[descending]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[sigmoid]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[rectosigmoid]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[rectum]"
-              td.bb.br.specimen-box
-                input type="checkbox" value="true" name="specimens[right_colon]"
-              th.br.bb
-                input type="checkbox" value="true" name="specimens[left_colon]"
-              td.bb.br.specimen-other
-                input type="text" value="true" name="specimens[other]"
-              td.bb
-                input type="text" value="true" name="specimens[other_blank]"
+              == render "specimen_input_row"
+              tr
+                td
+                  .small.button.specimen-copy-button Add More
 
 
   .form-actions

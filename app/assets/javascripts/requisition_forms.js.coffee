@@ -1,4 +1,5 @@
 jQuery ->
+  # Check boxes
   $('.medical-history-field .med-check').change (e) ->
     self = e.target
     if $(self).is(':checked')
@@ -21,3 +22,16 @@ jQuery ->
       $(self).next('.optional').children('input').removeAttr('disabled')
     else
       $(self).next('.optional').children('input').attr('disabled','disabled')
+
+
+  # Copy ICD-9 fields
+  $('.icd9-copy-button').click (e) ->
+    parent = $(e.target).closest('.copy-parent')
+    parent.find('.copy-me').clone().removeClass('copy-me').val('').appendTo(parent).focus()
+
+  # Copy specimen fields
+  $('.specimen-copy-button').click (e) ->
+    parent = $(e.target).closest('.copy-parent')
+    element = parent.find('.copy-me').clone().removeClass('copy-me').appendTo(parent)
+    element.find('input[type=checkbox]').removeAttr('checked')
+    element.find('input[type=text]').val('')
