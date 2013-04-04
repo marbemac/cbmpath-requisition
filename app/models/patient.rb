@@ -38,7 +38,7 @@ class Patient < ActiveRecord::Base
                   :insurance_insured_employer, :insurance_insured_name,
                   :insurance_insured_work_phone, :insurance_name,
                   :insurance_phone, :insurance_policy_id, :insurance_relation,
-                  :insurance_type
+                  :insurance_type, :user_id
 
   def name
     "#{last_name}, #{first_name}"

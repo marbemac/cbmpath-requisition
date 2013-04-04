@@ -31,6 +31,9 @@ class RequisitionFormsController < ApplicationController
   # GET /requisition_forms/new.json
   def new
     @requisition_form = RequisitionForm.new
+    @requisition_form.patient = Patient.new
+    @requisition_form.doctor = Doctor.new
+    @requisition_form.doctor2 = Doctor.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +49,9 @@ class RequisitionFormsController < ApplicationController
   # POST /requisition_forms
   # POST /requisition_forms.json
   def create
-    @requisition_form = RequisitionForm.new(params[:requisition_form])
+    # Get rid of the not-required doctor if they didn't enter one
+    params[:requisition_form].delete(:doctor2_attributes) if params[:requisition_form][:doctor2_attributes][:name].blank?
+    @requisition_form = current_user.requisition_forms.new(params[:requisition_form])
 
     respond_to do |format|
       if @requisition_form.save

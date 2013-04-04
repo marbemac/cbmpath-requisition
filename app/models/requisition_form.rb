@@ -21,11 +21,11 @@ class RequisitionForm < ActiveRecord::Base
   serialize :specimens, JSON
 
   belongs_to :doctor
-  belongs_to :doctor2
+  belongs_to :doctor2, :class_name => 'Doctor'
   belongs_to :patient
   belongs_to :user
 
   accepts_nested_attributes_for :doctor, :doctor2, :patient
 
-  attr_protected
+  attr_protected :user_id
 end

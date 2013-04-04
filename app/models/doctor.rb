@@ -13,5 +13,5 @@ class Doctor < ActiveRecord::Base
   belongs_to :user
   has_many :requisition_forms
 
-  attr_accessible :name
+  attr_accessible :name, :user_id
 end

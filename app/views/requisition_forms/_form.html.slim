@@ -6,11 +6,14 @@
       .small-4.columns
         | CBM Pathology
       .small-4.columns
-        = simple_fields_for :doctor do |d|
-          = d.input :name
+        = f.simple_fields_for :doctor do |d|
+          = d.input :user_id, as: :hidden, value: current_user.id
+          = d.input :name, label: "Referring / Ordering M.D.", required: true
 
-        = simple_fields_for :doctor2 do |d2|
-          = d2.input :name
+        = f.simple_fields_for :doctor2 do |d|
+          = d.input :user_id, as: :hidden, value: current_user.id
+          = d.input :name, label: "Additional M.D."
+
 
         = f.input :collection_date, as: :date
 
@@ -18,7 +21,8 @@
         = f.input :icd9_codes
 
     .row
-      = simple_fields_for :patient do |p|
+      = f.simple_fields_for :patient do |p|
+        = p.input :user_id, as: :hidden, value: current_user.id
         .small-6.columns.patient-info
           = p.input :first_name
           = p.input :middle_name
