@@ -1,7 +1,5 @@
-p#notice = notice
+h1 Welcome #{@user.email}
 
-h1 = @user.email
-
-= link_to 'Edit', edit_user_path(@user)
-'|
-= link_to 'Back', users_path
+a.button href=new_requisition_form_path Create New Form
+a.button href=requisition_forms_path View Old Forms
+a.button href=patients_path Manage Patient Info

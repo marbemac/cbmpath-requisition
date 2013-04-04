@@ -1,8 +1,11 @@
 class RequisitionFormsController < ApplicationController
+  before_filter :authenticate_user!
+  authorize_resource
+
   # GET /requisition_forms
   # GET /requisition_forms.json
   def index
-    @requisition_forms = RequisitionForm.all
+    @requisition_forms = current_user.requisition_forms.all
 
     respond_to do |format|
       format.html # index.html.erb

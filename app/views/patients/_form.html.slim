@@ -1,0 +1,25 @@
+= simple_form_for(@patient) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :middle_name
+    = f.input :date_of_birth
+    = f.input :address
+    = f.input :city
+    = f.input :state
+    = f.input :zipcode
+    = f.input :sex
+    = f.input :ssn
+    = f.input :insurance_type
+    = f.input :insurance_name
+    = f.input :insurance_phone
+    = f.input :insurance_policy_id
+    = f.input :insurance_relation
+    = f.input :insurance_date_of_birth
+    = f.input :insurance_insured_name
+    = f.input :insurance_insured_work_phone
+
+  .form-actions
+    = f.button :submit

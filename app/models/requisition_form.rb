@@ -20,9 +20,9 @@ class RequisitionForm < ActiveRecord::Base
   serialize :medical_history, JSON
   serialize :specimens, JSON
 
-  has_one :doctor
-  has_one :doctor2
-  has_one :patient
+  belongs_to :doctor
+  belongs_to :doctor2
+  belongs_to :patient
   belongs_to :user
 
   accepts_nested_attributes_for :doctor, :doctor2, :patient

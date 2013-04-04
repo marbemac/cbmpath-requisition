@@ -1,0 +1,19 @@
+h1 Listing patients
+
+table.patients
+  tr
+    th Name
+    th DOB
+    th Added On
+    th
+
+  - @patients.each do |patient|
+    tr
+      td = patient.name
+      td = patient.date_of_birth.strftime("%-d/%-m/%Y")
+      td = patient.created_at.strftime("%b %-d, %Y")
+      td = link_to 'Edit', edit_patient_path(patient)
+
+br
+
+= link_to 'New Patient', new_patient_path

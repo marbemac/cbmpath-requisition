@@ -17,3 +17,85 @@
 .columns {
   height: 100%;
 }
+
+.alert-box {
+  text-align: center;
+}
+
+#main-container {
+  width: 960px;
+  margin: auto;
+}
+
+#welcome {
+  width: 600px;
+  margin: 100px auto 0 auto;
+  text-align: center;
+
+  .sign-in {
+    text-align: left;
+    background: #EFEFEF;
+    border: 1px solid #E3E3E3;
+
+    h3 {
+      padding: 10px 25px;
+      background: #F9F9F9;
+      border-bottom: 1px solid #E3E3E3;
+      margin: 0;
+    }
+    form {
+      padding: 25px;
+      margin: 0;
+    }
+    .form-actions {
+      input {
+        margin: 25px 0 0 0;
+      }
+    }
+  }
+}
+
+#mast-nav {
+  overflow: hidden;
+  background: #EFEFEF;
+  border: 1px solid #E3E3E3;
+  border-top: none;
+  padding: 10px 6px 10px 12px;
+
+  .brand {
+    font-size: 24px;
+    font-weight: bold;
+    float: left;
+  }
+  .right {
+    overflow: hidden;
+
+    >span,a {
+      margin: 0 6px;
+      padding: 5px 0;
+      display: inline-block;
+    }
+  }
+}
+
+#main-content {
+  padding: 25px 0;
+}
+
+#users-show {
+  #main-content {
+
+    .button {
+      margin: 0 20px 0 0;
+    }
+  }
+}
+
+.patients,
+.requisition-forms {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+}

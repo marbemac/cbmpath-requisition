@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  authorize_resource
+  skip_authorize_resource :only => [:new, :create]
+
   # GET /users
   # GET /users.json
   def index
