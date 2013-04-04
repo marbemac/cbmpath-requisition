@@ -176,4 +176,91 @@
       font-size: inherit;
     }
   }
+
+  // Specimen Section
+  .pad {
+    padding: 7px;
+  }
+  .ba {
+    border: 1px solid #000;
+  }
+  .bl {
+    border-left: 1px solid #000;
+  }
+  .br {
+    border-right: 1px solid #000;
+  }
+  .bt {
+    border-top: 1px solid #000;
+  }
+  .bb {
+    border-bottom: 1px solid #000;
+  }
+  .vertical-text {
+    writing-mode:tb-rl;
+    -webkit-transform:rotate(-90deg);
+    -moz-transform:rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    white-space:nowrap;
+    display:block;
+  }
+  .specimens {
+    table {
+      width: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+
+      th {
+        font-size: 13px;
+        .head {
+
+        }
+        .content {
+          margin: 10px 0 0 0;
+          font-weight: normal;
+          text-align: left;
+          font-size: 10px;
+
+          .align-left {
+            float: left;
+          }
+          .align-right {
+            float: right;
+          }
+        }
+      }
+    }
+    .specimen-grid-row {
+      td {
+        height: 20px;
+      }
+    }
+    .specimen-first {
+      width: 115px;
+    }
+    .specimen-box {
+      width: 24px;
+      padding: 0;
+      font-size: 17px;
+      padding: 0 0 0 6px;
+      font-weight: bold;
+    }
+    .specimen-other {
+      width: 35px;
+    }
+    .specimen-headers {
+      height: 120px;
+      vertical-align: bottom;
+
+      .vertical-text {
+        width: 6px;
+        margin: auto;
+        font-weight: normal;
+      }
+      th {
+        padding: 0 0 3px 0;
+      }
+    }
+  }
 }
