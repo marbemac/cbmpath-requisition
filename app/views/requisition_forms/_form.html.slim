@@ -52,128 +52,144 @@
     .row
       .small-12.columns.medical-history
         .row
-          .small-4.columns
-            label for="requision_for[medical_history][]"
-              input type="checkbox" name="requisition_form[medical_history][abdominal_pain][checked]" value="Abdominal pain" Abdominal pain
-              input type="checkbox" name="requisition_form[medical_history][abdominal_pain][abdominal_pain]" value="Abdominal pain" Abdominal pain
+          .small-5.columns
+            label for="requision_for[medical_history][abdominal_pain][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][abdominal_pain][checked]" value="true" autocomplete="off"  Abdominal pain / Epigastric pain / Other (location: &nbsp;
+              span.optional
+                input name="requisition_form[medical_history][abdominal_pain][location]" autocomplete="off" disabled="disabled" class="text-input"
+              |)
 
-            .input
-              .box X
-              span Anal Lesion
-            .input
-              .box
-              span Anemia
-            .input
-              .box
-              span Barrett's
-            .input
-              .box
-              span Bleeding - RECTAL
-            .input
-              .box
-              span Cancer Personal Type Family Type
-            .input
-              .box
-              span Colitis (Crobn's, UC, IBD, Other )
-            .input
-              .box
-              span Condyloma
-            .input
-              .box
-              span Constipation
-            .input
-              .box
-              span Diarrhea,bloody
-            .input
-              .box
-              span Diarrhea,watery
-            .input
-              .box
-              span Diverticulosis
+            label for="requision_for[medical_history][anal_lesion][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][anal_lesion][checked]" value="true" autocomplete="off" Anal Lesion
+
+            label for="requision_for[medical_history][anemia][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][anemia][checked]" value="true" autocomplete="off" Anemia
+
+            label for="requision_for[medical_history][barretts][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][barretts][checked]" value="true" autocomplete="off" Barrett's
+
+            label for="requision_for[medical_history][bleeding][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][bleeding][checked]" value="true" autocomplete="off" Bleeding
+              span.optional
+                input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="Rectal" Rectal
+                input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="GI" GI
+                input name="requisition_form[medical_history][bleeding][type]" autocomplete="off" type="radio" disabled="disabled" value="Blood in stool" Blood in stool
+
+            label for="requision_for[medical_history][cancer][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][cancer][checked]" value="true" autocomplete="off" Cancer
+              span.optional
+                input name="requisition_form[medical_history][cancer][personal]" class="cancer-check" autocomplete="off" type="checkbox" disabled="disabled" value="true" Personal, Type: &nbsp;
+                span.optional
+                  input name="requisition_form[medical_history][cancer][personal_type]" class="med-check" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][cancer][family]" class="cancer-check" autocomplete="off" type="checkbox" disabled="disabled" value="true" Family, Type: &nbsp;
+                span.optional
+                  input name="requisition_form[medical_history][cancer][family_type]" autocomplete="off" disabled="disabled" class="text-input"
+
+            label for="requision_for[medical_history][colitis][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][colitis][checked]" value="true" autocomplete="off" Colitis (Crobn's, UC, IBD, Other )
+
+            label for="requision_for[medical_history][condyloma][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][condyloma][checked]" value="true" autocomplete="off" Condyloma
+
+            label for="requision_for[medical_history][constipation][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][constipation][checked]" value="true" autocomplete="off" Constipation
+
+            label for="requision_for[medical_history][diarrhea_bloody][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][diarrhea_bloody][checked]" value="true" autocomplete="off" Diarrhea,bloody
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][diarrhea_watery][checked]" value="true" autocomplete="off" Diarrhea,watery
+
+            label for="requision_for[medical_history][diverticulosis][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][diverticulosis][checked]" value="true" autocomplete="off" Diverticulosis
+
+          .small-3.columns
+            label for="requision_for[medical_history][dysphagia][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][dysphagia][checked]" value="true" autocomplete="off" Dysphagia
+
+            label for="requision_for[medical_history][fistula_tract][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][fistula_tract][checked]" value="true" autocomplete="off" Fistula Tract
+
+            label for="requision_for[medical_history][fungi][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][fungi][checked]" value="true" autocomplete="off" Fungi(Candida)
+
+            label for="requision_for[medical_history][gastritis][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][gastritis][checked]" value="true" autocomplete="off" Gastritis
+
+            label for="requision_for[medical_history][gred][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][gred][checked]" value="true" autocomplete="off" GRED(Reflux)
+
+            label for="requision_for[medical_history][heartburn][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][heartburn][checked]" value="true" autocomplete="off" Heartburn
+
+            label for="requision_for[medical_history][hemorrhoid][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][hemorrhoid][checked]" value="true" autocomplete="off" Hemorrhoid
+
+            label for="requision_for[medical_history][history][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][history][checked]" value="true" autocomplete="off" History of &nbsp;
+              span.optional
+                input name="requisition_form[medical_history][history][history]" autocomplete="off" disabled="disabled" class="text-input"
+
+            label for="requision_for[medical_history][lymphoma][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][lymphoma][checked]" value="true" autocomplete="off" Lymphoma
+
+            label for="requision_for[medical_history][malabsorption][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][malabsorption][checked]" value="true" autocomplete="off" Malabsorption
+
+            label for="requision_for[medical_history][nausea][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][nausea][checked]" value="true" autocomplete="off" Nausea/ Vomiting
+
+            label for="requision_for[medical_history][pilonidal_cyst][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][pilonidal_cyst][checked]" value="true" autocomplete="off" Pilonidal Cyst
+
           .small-4.columns
-            .input
-              .box
-              span Dysphagia
-            .input
-              .box
-              span Fistula Tract
-            .input
-              .box
-              span Fungi(Candida)
-            .input
-              .box
-              span Gastritis
-            .input
-              .box
-              span GRED(Reflux)
-            .input
-              .box X
-              span Heartburn
-            .input
-              .box
-              span Hemorrhoid
-            .input
-              .box
-              span History of _______________
-            .input
-              .box
-              span Lymphoma
-            .input
-              .box
-              span Malabsorption
-            .input
-              .box
-              span Nausea/ Vomiting
-            .input
-              .box
-              span Pilonidal Cyst
-          .small-4.columns
-            .input
-              .box
-              span Polyp site: _______________
-            .input
-              .box
-              span Screening for: _______________
-            .input
-              .box
-              span Shin Tag
-            .input
-              .box
-              span Weight Loss
-            .input
-              .box
-              span OTHER: _______________
-            .input
-              .box
-              span Rule Out:
+            label for="requision_for[medical_history][polyp_site][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][polyp_site][checked]" value="true" autocomplete="off" Polyp site: &nbsp;
+              span.optional
+                input name="requisition_form[medical_history][polyp_site][polyp_site]" autocomplete="off" disabled="disabled" class="text-input"
+
+            label for="requision_for[medical_history][screening_for][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][screening_for][checked]" value="true" autocomplete="off" Screening for: &nbsp;
+              span.optional
+                input name="requisition_form[medical_history][screening_for][screening_for]" autocomplete="off" disabled="disabled" class="text-input"
+
+            label for="requision_for[medical_history][shin_tag][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][shin_tag][checked]" value="true" autocomplete="off" Shin Tag
+
+            label for="requision_for[medical_history][weight_loss][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][weight_loss][checked]" value="true" autocomplete="off" Weight Loss
+
+            label for="requision_for[medical_history][other][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][other][checked]" value="true" autocomplete="off" OTHER: &nbsp;
+              span.optional
+                input name="requisition_form[medical_history][other][other]" autocomplete="off" disabled="disabled" class="text-input"
+
+            label for="requision_for[medical_history][rule_out][checked]" class="medical-history-field"
+              input type="checkbox" class="rule-out-check" name="requisition_form[medical_history][rule_out][checked]" value="true" autocomplete="off" RULE OUT:
               .row.rule-out
-                .small-6.columns
-                  .input
-                    .box
-                    span Barret's
-                  .input
-                    .box
-                    span Carcinoma
-                  .input
-                    .box
-                    span Celiac
-                  .input
-                    .box
-                    span Carcinoma
-                .small-6.columns
-                  .input
-                    .box
-                    span Dyslplasia
-                  .input
-                    .box
-                    span Esophagitis
-                  .input
-                    .box
-                    span Giardia
-                  .input
-                    .box
-                    span H. Pylori
+                .optional.small-6.columns
+                  label for="requision_for[medical_history][rule_out][barrets][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][barrets][checked]" value="true" autocomplete="off" disabled="disabled" BARRET'S
 
+                  label for="requision_for[medical_history][carcinoma][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][carcinoma][checked]" value="true" autocomplete="off" disabled="disabled" CARCINOMA
+
+                  label for="requision_for[medical_history][rule_out][celiac][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][celiac][checked]" value="true" autocomplete="off" disabled="disabled" CELIAC
+
+                  label for="requision_for[medical_history][rule_out][h_pylori][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][h_pylori][checked]" value="true" autocomplete="off" disabled="disabled" H. PYLORI
+
+                .optional.small-6.columns
+                  label for="requision_for[medical_history][rule_out][dysplasia][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][dysplasia][checked]" value="true" autocomplete="off" disabled="disabled" DYSPLASIA
+
+                  label for="requision_for[medical_history][rule_out][esophagitis][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][esophagitis][checked]" value="true" autocomplete="off" disabled="disabled" ESOPHAGITIS
+
+                  label for="requision_for[medical_history][rule_out][giardia][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][giardia][checked]" value="true" autocomplete="off" disabled="disabled" GIARDIA
+
+                  label for="requision_for[medical_history][rule_out][colitis][checked]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][colitis][checked]" value="true" autocomplete="off" disabled="disabled" COLITIS
 
 
     .form-actions

@@ -165,4 +165,15 @@
       margin-right: 3%;
     }
   }
+  .optional {
+    .text-input {
+      width: 100px;
+    }
+  }
+  .rule-out {
+    padding: 10px;
+    label {
+      font-size: inherit;
+    }
+  }
 }
