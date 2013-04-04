@@ -17,7 +17,6 @@ gem 'simple_form'
 gem 'pg_search'
 
 gem 'wicked_pdf'
-#gem 'pdfkit'
 
 gem 'capistrano'
 gem 'foreman'

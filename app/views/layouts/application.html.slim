@@ -23,14 +23,27 @@ head
 
   = csrf_meta_tag
 
-body
+body id="#{params[:controller]}-#{params[:action]}"
   #main-container
+
+    - for name,msg in flash
+      div class="alert-box #{name == :notice ? "success" : "alert"}"
+        = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
     - if signed_in?
-      div
-        = link_to "logout", destroy_user_session_path, 'data-method' => :delete
+      #mast-nav
+        a.brand href=user_path(current_user) CBM Pathology
+        .right
+          span.name logged in as #{current_user.email}
+          | &sdot;
+          = link_to "forms", requisition_forms_path
+          | &sdot;
+          = link_to "patients", patients_path
+          | &sdot;
+          = link_to "logout", destroy_user_session_path, 'data-method' => :delete
 
-    == yield
 
-
+    #main-content
+      == yield
 
     = wicked_pdf_javascript_include_tag "application"

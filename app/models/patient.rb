@@ -30,6 +30,7 @@
 
 class Patient < ActiveRecord::Base
   belongs_to :user
+  has_many :requisition_forms
 
   attr_accessible :first_name, :last_name, :middle_name, :date_of_birth,
                   :address, :city, :state, :zipcode, :sex, :ssn,
@@ -38,4 +39,8 @@ class Patient < ActiveRecord::Base
                   :insurance_insured_work_phone, :insurance_name,
                   :insurance_phone, :insurance_policy_id, :insurance_relation,
                   :insurance_type
+
+  def name
+    "#{last_name}, #{first_name}"
+  end
 end

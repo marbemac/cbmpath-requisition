@@ -1,7 +1,8 @@
 CbmpathRequisition::Application.routes.draw do
 
   devise_for :users
-  resources :users, :requisition_forms
+
+  resources :users, :requisition_forms, :patients
 
   root :to => 'home#welcome'
 
