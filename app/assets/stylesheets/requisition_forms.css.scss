@@ -7,21 +7,6 @@
   .pad {
     padding: 7px;
   }
-  .ba {
-    border: 1px solid #000;
-  }
-  .bl {
-    border-left: 1px solid #000;
-  }
-  .br {
-    border-right: 1px solid #000;
-  }
-  .bt {
-    border-top: 1px solid #000;
-  }
-  .bb {
-    border-bottom: 1px solid #000;
-  }
   .vertical-text {
     writing-mode:tb-rl;
     -webkit-transform:rotate(-90deg);
@@ -152,9 +137,10 @@
 .requisition-form-form {
   .form-inputs {
     >.row {
+      border: 1px black solid ;
+      border-bottom: none;
       >.columns {
         padding: 10px;
-        border: 1px black solid ;
       }
     }
   }
@@ -180,21 +166,6 @@
   // Specimen Section
   .pad {
     padding: 7px;
-  }
-  .ba {
-    border: 1px solid #000;
-  }
-  .bl {
-    border-left: 1px solid #000;
-  }
-  .br {
-    border-right: 1px solid #000;
-  }
-  .bt {
-    border-top: 1px solid #000;
-  }
-  .bb {
-    border-bottom: 1px solid #000;
   }
   .vertical-text {
     writing-mode:tb-rl;
@@ -240,10 +211,10 @@
       width: 115px;
     }
     .specimen-box {
-      width: 24px;
+      width: 20px;
       padding: 0;
       font-size: 17px;
-      padding: 0 0 0 6px;
+      padding: 0;
       font-weight: bold;
     }
     .specimen-other {

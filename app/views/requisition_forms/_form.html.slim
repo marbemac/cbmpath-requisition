@@ -5,7 +5,7 @@
     .row
       .small-4.columns
         | CBM Pathology
-      .small-4.columns
+      .small-4.columns.br.bl
         = f.simple_fields_for :doctor do |d|
           = d.input :user_id, as: :hidden, value: current_user.id
           = d.input :name, label: "Referring / Ordering M.D.", required: true
@@ -38,7 +38,7 @@
           = p.input :city
           = p.input :state
           = p.input :zipcode
-        .small-6.columns.insurance-info
+        .small-6.columns.insurance-info.bl
           .checkboxes
             == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
               - b.label { b.radio_button + b.text.html_safe }
@@ -197,101 +197,101 @@
                   label for="requisition_form[medical_history][rule_out][colitis][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][colitis][checked]" value="true" autocomplete="off" disabled="disabled" COLITIS
 
-      .row
-        .small-12.columns
-          = f.input :special_requests
+    .row
+      .small-12.columns
+        = f.input :special_requests
 
-      .row
-        .small-12.columns.specimens.bl.br.bt
-          table cellspacing=0 cellpadding=0
-            tbody.copy-parent
-              tr
-                th.br.bb colspan=1
-                  .head Specimen Source
-                th.br.bb colspan=4
-                  .head Type
-                  .content check only one
-                th.br.bb colspan=13
-                  .head Upper GI
-                  .content
-                    .align-left stomach/duodenum
-                    .align-right esophagus
-                th.br.bb colspan=14
-                  .head Lower GI
-                th.bb colspan=2
-                  .head Endoscopic Findings
-              tr.specimen-headers
-                th.br.bb
-                th.bb
-                  .vertical-text Biopsy
-                th.bb
-                  .vertical-text Cytology
-                th.bb
-                  .vertical-text Polyp
-                th.br.bb
-                  .vertical-text Random
-                th.bb
-                  .vertical-text CLO Test
-                th.bb
-                  .vertical-text Antrum
-                th.bb
-                  .vertical-text Fundus
-                th.bb
-                  .vertical-text Stomach
-                th.bb
-                  .vertical-text Cardia
-                th.bb
-                  .vertical-text Duod. Bulb
-                th.bb
-                  .vertical-text Duodenum
-                th.br.bb
-                  .vertical-text Dist. Duod
-                th.bb
-                  .vertical-text Esophagus
-                th.bb
-                  .vertical-text Upper Esoph.
-                th.bb
-                  .vertical-text Middle Esoph.
-                th.bb
-                  .vertical-text Lower Esoph.
-                th.br.bb
-                  .vertical-text E.G. Junct.
-                th.bb
-                  .vertical-text Ileum
-                th.bb
-                  .vertical-text Ileocecal Valve
-                th.bb
-                  .vertical-text Colon
-                th.bb
-                  .vertical-text Cecum
-                th.bb
-                  .vertical-text Ascending
-                th.bb
-                  .vertical-text Hepatic Flex.
-                th.bb
-                  .vertical-text Transverse
-                th.bb
-                  .vertical-text Splenic Flex
-                th.bb
-                  .vertical-text Descending
-                th.bb
-                  .vertical-text Sigmoid
-                th.bb
-                  .vertical-text Rectosigmoid
-                th.bb
-                  .vertical-text Rectum
-                th.bb
-                  .vertical-text Right Colon
-                th.br.bb
-                  .vertical-text Left Colon
-                th.br.bb
-                  .vertical-text Other
-                th.bb
+    .row
+      .small-12.columns.specimens.bb
+        table cellspacing=0 cellpadding=0
+          tbody.copy-parent
+            tr
+              th.br.bb colspan=1
+                .head Specimen Source
+              th.br.bb colspan=4
+                .head Type
+                .content check only one
+              th.br.bb colspan=13
+                .head Upper GI
+                .content
+                  .align-left stomach/duodenum
+                  .align-right esophagus
+              th.br.bb colspan=14
+                .head Lower GI
+              th.bb colspan=2
+                .head Endoscopic Findings
+            tr.specimen-headers
+              th.br.bb
+              th.bb
+                .vertical-text Biopsy
+              th.bb
+                .vertical-text Cytology
+              th.bb
+                .vertical-text Polyp
+              th.br.bb
+                .vertical-text Random
+              th.bb
+                .vertical-text CLO Test
+              th.bb
+                .vertical-text Antrum
+              th.bb
+                .vertical-text Fundus
+              th.bb
+                .vertical-text Stomach
+              th.bb
+                .vertical-text Cardia
+              th.bb
+                .vertical-text Duod. Bulb
+              th.bb
+                .vertical-text Duodenum
+              th.br.bb
+                .vertical-text Dist. Duod
+              th.bb
+                .vertical-text Esophagus
+              th.bb
+                .vertical-text Upper Esoph.
+              th.bb
+                .vertical-text Middle Esoph.
+              th.bb
+                .vertical-text Lower Esoph.
+              th.br.bb
+                .vertical-text E.G. Junct.
+              th.bb
+                .vertical-text Ileum
+              th.bb
+                .vertical-text Ileocecal Valve
+              th.bb
+                .vertical-text Colon
+              th.bb
+                .vertical-text Cecum
+              th.bb
+                .vertical-text Ascending
+              th.bb
+                .vertical-text Hepatic Flex.
+              th.bb
+                .vertical-text Transverse
+              th.bb
+                .vertical-text Splenic Flex
+              th.bb
+                .vertical-text Descending
+              th.bb
+                .vertical-text Sigmoid
+              th.bb
+                .vertical-text Rectosigmoid
+              th.bb
+                .vertical-text Rectum
+              th.bb
+                .vertical-text Right Colon
+              th.br.bb
+                .vertical-text Left Colon
+              th.br.bb
+                .vertical-text Other
+              th.bb
 
-              == render "specimen_input_row"
-              tr
-                td
-                  .small.button.specimen-copy-button Add More
+            == render "specimen_input_row"
+            tr
+              td
+                .small.button.specimen-copy-button Add More
 
 
   .form-actions
