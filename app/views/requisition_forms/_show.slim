@@ -58,7 +58,7 @@
               .content = @requisition_form.patient.ssn
         .small-7.columns.pad
           .head ICD-9 Codes:
-          .content TODO
+          .content = @requisition_form.icd9_codes.join(',')
       .row
         .small-12.columns.bt.pad
           b.bottom Please attach demographic and insurance information sheet
@@ -313,38 +313,5 @@
           th.br.bb
             .vertical-text Other
           th.bb
-        tr.specimen-grid-row
-          td.bb.br.specimen-first
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box X
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box X
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box X
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-box
-          td.bb.br.specimen-other
-          td.bb
+        - for specimen in @requisition_form.specimens
+          = render "specimen_row", :specimen => specimen[1]
