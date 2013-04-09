@@ -27,12 +27,12 @@ jQuery ->
   # Copy ICD-9 fields
   $('.icd9-copy-button').click (e) ->
     parent = $(e.target).closest('.copy-parent')
-    parent.find('.copy-me').clone().removeClass('copy-me').val('').appendTo(parent).focus()
+    parent.find('.copy-me').clone().removeClass('copy-me').val('').insertBefore(parent.find('.before-me')).focus()
 
   # Copy specimen fields
   $('.specimen-copy-button').click (e) ->
     parent = $(e.target).closest('.copy-parent')
-    element = parent.find('.copy-me').clone().removeClass('copy-me').appendTo(parent)
+    element = parent.find('.copy-me').clone().removeClass('copy-me').insertBefore(parent.find('.before-me'))
     element.find('input[type=checkbox]').removeAttr('checked')
     element.find('input[type=text]').val('')
     myDate = new Date();

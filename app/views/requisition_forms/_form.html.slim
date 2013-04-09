@@ -3,9 +3,13 @@
 
   .form-inputs
     .row
-      .small-4.columns
-        | CBM Pathology
-      .small-4.columns.br.bl
+      .small-4.columns.info
+        = image_tag "logo.png"
+        div 18207A Flower Hill Way
+        div Gaithersburg, MD 20879
+        div Phone (301) 926 4707 Fax (301) 926 4708
+        div www.CBMPATH.com
+      .small-4.columns.doctors.br.bl
         = f.simple_fields_for :doctor do |d|
           = d.input :user_id, as: :hidden, value: current_user.id
           = d.input :name, label: "Referring / Ordering M.D.", required: true
@@ -15,34 +19,53 @@
           = d.input :name, label: "Additional M.D."
 
 
-        = f.input :collection_date, as: :date
+        = f.input :collection_date, as: :date, order: [:month, :day, :year]
 
-      .small-4.columns.copy-parent
+      .small-4.columns.icd-9s.copy-parent
         label for="requisition_form[icd9_codes][]" ICD-9 CODE(S):
-        input name="requisition_form[icd9_codes][]" class=" copy-me"
-        .small.button.icd9-copy-button Add More
+        input name="requisition_form[icd9_codes][]" type="text" class="copy-me"
+        .small.button.icd9-copy-button.before-me Add More
 
     .row
       = f.simple_fields_for :patient do |p|
         = p.input :user_id, as: :hidden, value: current_user.id
         .small-6.columns.patient-info
-          = p.input :first_name
-          = p.input :middle_name
-          = p.input :last_name
-          .checkboxes
-            == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
-              - b.label { b.radio_button + b.text.html_safe }
-          = p.input :date_of_birth, as: :date
-          = p.input :ssn
-          = p.input :address
-          = p.input :city
-          = p.input :state
-          = p.input :zipcode
+          h4 Patient Information
+          .row
+            .small-4.columns
+              = p.input :first_name
+            .small-3.columns
+              = p.input :middle_name
+            .small-5.columns
+              = p.input :last_name
+          .row
+            .small-3.columns
+              .radio-group
+                == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
+                  - b.label { b.radio_button + b.text.html_safe }
+            .small-6.columns
+              = p.input :date_of_birth, as: :date, order: [:month, :day, :year]
+            .small-3.columns
+              = p.input :ssn
+          br
+          .row
+            .small-5.columns
+              = p.input :address
+            .small-3.columns
+              = p.input :city
+            .small-2.columns
+              = p.input :state
+            .small-2.columns
+              = p.input :zipcode
         .small-6.columns.insurance-info.bl
-          .checkboxes
-            == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
-              - b.label { b.radio_button + b.text.html_safe }
-          = p.input :insurance_name
+          h4 Insurance Information
+          .row
+            .small-4.columns
+              .radio-group
+                == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
+                  - b.label { b.radio_button + b.text.html_safe }
+            .small-8.columns
+              = p.input :insurance_name
           .row
             .small-6.columns
               = p.input :insurance_insured_name
@@ -62,7 +85,7 @@
             label for="requisition_form[medical_history][abdominal_pain][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][abdominal_pain][checked]" value="true" autocomplete="off"  Abdominal pain / Epigastric pain / Other (location: &nbsp;
               span.optional
-                input name="requisition_form[medical_history][abdominal_pain][location]" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][abdominal_pain][location]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
               |)
 
             label for="requisition_form[medical_history][anal_lesion][checked]" class="medical-history-field"
@@ -86,10 +109,10 @@
               span.optional
                 input name="requisition_form[medical_history][cancer][personal]" class="cancer-check" autocomplete="off" type="checkbox" disabled="disabled" value="true" Personal, Type: &nbsp;
                 span.optional
-                  input name="requisition_form[medical_history][cancer][personal_type]" class="med-check" autocomplete="off" disabled="disabled" class="text-input"
+                  input name="requisition_form[medical_history][cancer][personal_type]" class="med-check" autocomplete="off" disabled="disabled" class="text-input" type="text"
                 input name="requisition_form[medical_history][cancer][family]" class="cancer-check" autocomplete="off" type="checkbox" disabled="disabled" value="true" Family, Type: &nbsp;
                 span.optional
-                  input name="requisition_form[medical_history][cancer][family_type]" autocomplete="off" disabled="disabled" class="text-input"
+                  input name="requisition_form[medical_history][cancer][family_type]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][colitis][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][colitis][checked]" value="true" autocomplete="off" Colitis (Crobn's, UC, IBD, Other )
@@ -132,7 +155,7 @@
             label for="requisition_form[medical_history][history][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][history][checked]" value="true" autocomplete="off" History of &nbsp;
               span.optional
-                input name="requisition_form[medical_history][history][history]" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][history][history]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][lymphoma][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][lymphoma][checked]" value="true" autocomplete="off" Lymphoma
@@ -150,12 +173,12 @@
             label for="requisition_form[medical_history][polyp_site][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][polyp_site][checked]" value="true" autocomplete="off" Polyp site: &nbsp;
               span.optional
-                input name="requisition_form[medical_history][polyp_site][polyp_site]" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][polyp_site][polyp_site]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][screening_for][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][screening_for][checked]" value="true" autocomplete="off" Screening for: &nbsp;
               span.optional
-                input name="requisition_form[medical_history][screening_for][screening_for]" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][screening_for][screening_for]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][shin_tag][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][shin_tag][checked]" value="true" autocomplete="off" Shin Tag
@@ -166,7 +189,7 @@
             label for="requisition_form[medical_history][other][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][other][checked]" value="true" autocomplete="off" OTHER: &nbsp;
               span.optional
-                input name="requisition_form[medical_history][other][other]" autocomplete="off" disabled="disabled" class="text-input"
+                input name="requisition_form[medical_history][other][other]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][rule_out][checked]" class="medical-history-field"
               input type="checkbox" class="rule-out-check" name="requisition_form[medical_history][rule_out][checked]" value="true" autocomplete="off" RULE OUT:
@@ -289,7 +312,7 @@
               th.bb
 
             == render "specimen_input_row"
-            tr
+            tr.before-me
               td
                 .small.button.specimen-copy-button Add More
 
