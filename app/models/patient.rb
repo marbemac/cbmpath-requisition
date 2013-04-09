@@ -40,7 +40,22 @@ class Patient < ActiveRecord::Base
                   :insurance_phone, :insurance_policy_id, :insurance_relation,
                   :insurance_type, :user_id
 
-  def name
-    "#{last_name}, #{first_name}"
+  before_save :update_searchable_name
+
+  def update_searchable_name
+    if first_name_changed? || last_name_changed? || !persisted?
+      self.searchable_name = "#{first_name} #{last_name}".parameterize
+    end
+  end
+
+  def self.to_search_json(results)
+    results.map do |result|
+      {
+          :value => "#{result.first_name} #{result.last_name}",
+          :data => {
+              :id => result.id
+          }
+      }
+    end
   end
 end

@@ -45,7 +45,7 @@
           b.top GI PATHOLOGY REQUISITION FORM
       .row
         .small-12.columns.bb.pad
-          span.head Additional MD:
+          span.head = "Additional MD: "
           span.content = @requisition_form.doctor2 ? @requisition_form.doctor2.name : ''
       .row
         .small-5.columns

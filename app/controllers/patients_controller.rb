@@ -2,6 +2,11 @@ class PatientsController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
 
+  def search
+    @patients = current_user.doctors.where('searchable_name LIKE ?', "%#{params[:query].parameterize}%")
+    render :json => {:query => params[:query], :suggestions => Patient.to_search_json(@patients)}
+  end
+
   # GET /patients
   # GET /patients.json
   def index

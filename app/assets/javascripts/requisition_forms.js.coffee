@@ -38,3 +38,13 @@ jQuery ->
     myDate = new Date();
     for input in element.find('input')
       $(input).attr('name', $(input).attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime())}$3"))
+
+  $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').autocomplete
+    serviceUrl: '/search/doctors'
+    minChars: 3
+    deferRequestBy: 50
+    noCache: false
+    onSelect: (suggestion) ->
+      $(@).parent().next().find('input').val(suggestion.data.id)
+  $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').keydown (e) ->
+    $(@).parent().next().find('input').val('')
