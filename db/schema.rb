@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404214403) do
+ActiveRecord::Schema.define(:version => 20130409173755) do
 
   create_table "doctors", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "searchable_name"
   end
 
+  add_index "doctors", ["searchable_name"], :name => "index_doctors_on_searchable_name"
   add_index "doctors", ["user_id"], :name => "index_doctors_on_user_id"
 
   create_table "patients", :force => true do |t|
@@ -46,8 +48,10 @@ ActiveRecord::Schema.define(:version => 20130404214403) do
     t.integer  "user_id"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "searchable_name"
   end
 
+  add_index "patients", ["searchable_name"], :name => "index_patients_on_searchable_name"
   add_index "patients", ["user_id"], :name => "index_patients_on_user_id"
 
   create_table "requisition_forms", :force => true do |t|

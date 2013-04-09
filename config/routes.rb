@@ -2,6 +2,11 @@ CbmpathRequisition::Application.routes.draw do
 
   devise_for :users
 
+  scope 'search' do
+    get 'patients' => 'patients#search'
+    get 'doctors' => 'doctors#search'
+  end
+
   resources :users, :requisition_forms, :patients
 
   root :to => 'home#welcome'

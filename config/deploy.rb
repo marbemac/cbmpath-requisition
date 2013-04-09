@@ -46,7 +46,8 @@ namespace :deploy do
 
   desc "link database file"
   task :link_db_file, :roles => :app do
-    run "ln -s #{shared_path}/assets/database.yml #{release_path}/config/database.yml"
+    run "rm #{release_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 
@@ -54,4 +55,4 @@ after 'deploy:setup' do
   sudo "chown -R #{user} #{deploy_to} && chmod -R g+s #{deploy_to}"
 end
 after "deploy:update_code", "deploy:update_permissions"
-after "deploy:update", "deploy:link_db_file"
+before "deploy:assets:precompile", "deploy:link_db_file"

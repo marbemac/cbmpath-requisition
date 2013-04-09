@@ -14,4 +14,23 @@ class Doctor < ActiveRecord::Base
   has_many :requisition_forms
 
   attr_accessible :name, :user_id
+
+  before_save :update_searchable_name
+
+  def update_searchable_name
+    if name_changed? || !persisted?
+      self.searchable_name = name.parameterize
+    end
+  end
+
+  def self.to_search_json(results)
+    results.map do |result|
+      {
+          :value => result.name,
+          :data => {
+              :id => result.id
+          }
+      }
+    end
+  end
 end

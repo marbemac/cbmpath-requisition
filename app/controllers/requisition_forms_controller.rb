@@ -51,7 +51,32 @@ class RequisitionFormsController < ApplicationController
   def create
     # Get rid of the not-required doctor if they didn't enter one
     params[:requisition_form].delete(:doctor2_attributes) if params[:requisition_form][:doctor2_attributes][:name].blank?
+
+    # build doctor 1
+    if !params[:requisition_form][:doctor2_attributes][:id].blank?
+      @doctor = Doctor.find(params[:requisition_form][:doctor_attributes][:id])
+      authorize! :read, @doctor
+      params[:requisition_form].delete(:doctor_attributes)
+    end
+
+    # build doctor 2
+    if params[:requisition_form][:doctor2_attributes] && !params[:requisition_form][:doctor2_attributes][:id].blank?
+      @doctor2 = Doctor.find(params[:requisition_form][:doctor2_attributes][:id])
+      authorize! :read, @doctor2
+      params[:requisition_form].delete(:doctor2_attributes)
+    end
+
+    # build patient
+    if !params[:requisition_form][:patient_attributes][:id].blank?
+      @patient = Patient.find(params[:requisition_form][:patient_attributes][:id])
+      authorize! :read, @patient
+      params[:requisition_form].delete(:patient_attributes)
+    end
+
     @requisition_form = current_user.requisition_forms.new(params[:requisition_form])
+    @requisition_form.doctor = @doctor if defined? @doctor
+    @requisition_form.doctor2 = @doctor2 if defined? @doctor2
+    @requisition_form.patient = @patient if defined? @patient
 
     respond_to do |format|
       if @requisition_form.save

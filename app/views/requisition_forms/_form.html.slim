@@ -11,12 +11,14 @@
         div www.CBMPATH.com
       .small-4.columns.doctors.br.bl
         = f.simple_fields_for :doctor do |d|
-          = d.input :user_id, as: :hidden, value: current_user.id
+          = d.input :user_id, as: :hidden, :input_html => {value: current_user.id}
           = d.input :name, label: "Referring / Ordering M.D.", required: true
+          = d.input :id, :as => :hidden
 
         = f.simple_fields_for :doctor2 do |d|
-          = d.input :user_id, as: :hidden, value: current_user.id
+          = d.input :user_id, as: :hidden, :input_html => {value: current_user.id}
           = d.input :name, label: "Additional M.D."
+          = d.input :id, :as => :hidden
 
 
         = f.input :collection_date, as: :date, order: [:month, :day, :year]
@@ -28,7 +30,7 @@
 
     .row
       = f.simple_fields_for :patient do |p|
-        = p.input :user_id, as: :hidden, value: current_user.id
+        = p.input :user_id, as: :hidden, :input_html => {value: current_user.id}
         .small-6.columns.patient-info
           h4 Patient Information
           .row

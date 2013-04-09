@@ -8,9 +8,7 @@
 
 user1 = User.where(email: 'user1@example.com').first
 unless user1
-  user1 = User.create(:email => 'user1@example.com', :password => 'password',
-              :name => 'User 1', :practice_name => 'User 1 Practice',
-              :city => 'New York City', :state => 'NY', :zipcode => '10009')
+  user1 = User.create(:email => 'cbmpath@aol.com', :password => 'password', :name => 'User 1', :practice_name => 'User 1 Practice', :city => 'New York City', :state => 'NY', :zipcode => '10009')
 end
 
 patient1 = user1.patients.where(last_name: 'Boggart').first

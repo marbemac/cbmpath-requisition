@@ -36,4 +36,15 @@ jQuery ->
     element.find('input[type=checkbox]').removeAttr('checked')
     element.find('input[type=text]').val('')
     myDate = new Date();
-    element.find('input').attr('name', element.find('input').first().attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime()/1000)}$3"))
+    for input in element.find('input')
+      $(input).attr('name', $(input).attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime())}$3"))
+
+  $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').autocomplete
+    serviceUrl: '/search/doctors'
+    minChars: 3
+    deferRequestBy: 50
+    noCache: false
+    onSelect: (suggestion) ->
+      $(@).parent().next().find('input').val(suggestion.data.id)
+  $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').keydown (e) ->
+    $(@).parent().next().find('input').val('')
