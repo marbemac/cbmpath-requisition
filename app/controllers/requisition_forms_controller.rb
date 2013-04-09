@@ -53,7 +53,7 @@ class RequisitionFormsController < ApplicationController
     params[:requisition_form].delete(:doctor2_attributes) if params[:requisition_form][:doctor2_attributes][:name].blank?
 
     # build doctor 1
-    if !params[:requisition_form][:doctor2_attributes][:id].blank?
+    if !params[:requisition_form][:doctor_attributes][:id].blank?
       @doctor = Doctor.find(params[:requisition_form][:doctor_attributes][:id])
       authorize! :read, @doctor
       params[:requisition_form].delete(:doctor_attributes)

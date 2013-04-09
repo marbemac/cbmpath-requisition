@@ -27,9 +27,6 @@
   .top-left {
 
   }
-  .patient-info {
-
-  }
   .referring-info {
     height: 124px;
     .head {
@@ -279,6 +276,21 @@
           padding: 0 0 3px 0;
         }
       }
+    }
+  }
+  .patient-info,
+  .insurance-info {
+    position: relative;
+
+    .clear {
+      position: absolute;
+      top: 17px;
+      right: 15px;
+      color: #424cb0;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 11px;
+      display: none;
     }
   }
 }
