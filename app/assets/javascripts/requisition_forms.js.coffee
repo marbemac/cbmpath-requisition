@@ -68,3 +68,49 @@ jQuery ->
       $(@).parent().next().find('input').val(suggestion.data.id)
   $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').keydown (e) ->
     $(@).parent().next().find('input').val('')
+
+  $('#requisition_form_patient_attributes_first_name,#requisition_form_patient_attributes_middle_name,#requisition_form_patient_attributes_last_name').autocomplete
+    serviceUrl: '/search/patients'
+    minChars: 3
+    deferRequestBy: 50
+    noCache: false
+    onSelect: (suggestion) ->
+      $('#requisition_form_patient_attributes_id').val(suggestion.data.id)
+      $('#requisition_form_patient_attributes_first_name').val(suggestion.data.first_name)
+      $('#requisition_form_patient_attributes_middle_name').val(suggestion.data.middle_name)
+      $('#requisition_form_patient_attributes_last_name').val(suggestion.data.last_name)
+      $("#requisition_form_patient_attributes_sex_#{suggestion.data.sex}").prop('checked', true)
+      $("#requisition_form_patient_attributes_date_of_birth_1i").val(suggestion.data.date_of_birth[0])
+      $("#requisition_form_patient_attributes_date_of_birth_2i").val(suggestion.data.date_of_birth[1])
+      $("#requisition_form_patient_attributes_date_of_birth_3i").val(suggestion.data.date_of_birth[2])
+      $("#requisition_form_patient_attributes_ssn").val(suggestion.data.ssn)
+      $("#requisition_form_patient_attributes_address").val(suggestion.data.address)
+      $("#requisition_form_patient_attributes_city").val(suggestion.data.city)
+      $("#requisition_form_patient_attributes_state").val(suggestion.data.state)
+      $("#requisition_form_patient_attributes_zipcode").val(suggestion.data.zipcode)
+      $("#requisition_form_patient_attributes_zipcode").val(suggestion.data.zipcode)
+      $("#requisition_form_patient_attributes_insurance_type_#{suggestion.data.insurance_type.toLowerCase()}").prop('checked', true)
+      $("#requisition_form_patient_attributes_insurance_name").val(suggestion.data.insurance_name)
+      $("#requisition_form_patient_attributes_insurance_insured_name").val(suggestion.data.insurance_insured_name)
+      $("#requisition_form_patient_attributes_insurance_group_number").val(suggestion.data.insurance_group_number)
+      $("#requisition_form_patient_attributes_insurance_policy_id").val(suggestion.data.insurance_policy_id)
+      $("#requisition_form_patient_attributes_insurance_date_of_birth_1i").val(suggestion.data.insurance_date_of_birth[0])
+      $("#requisition_form_patient_attributes_insurance_date_of_birth_2i").val(suggestion.data.insurance_date_of_birth[1])
+      $("#requisition_form_patient_attributes_insurance_date_of_birth_3i").val(suggestion.data.insurance_date_of_birth[2])
+      $("#requisition_form_patient_attributes_insurance_relation").val(suggestion.data.insurance_relation)
+      $("#requisition_form_patient_attributes_insurance_insured_work_phone").val(suggestion.data.insurance_insured_work_phone)
+      $("#requisition_form_patient_attributes_insurance_insured_employer").val(suggestion.data.insurance_insured_employer)
+      $("#requisition_form_patient_attributes_insurance_phone").val(suggestion.data.insurance_phone)
+
+      $('.patient-info input,.patient-info select,.insurance-info input,.insurance-info select').attr('disabled','disabled')
+      $('.patient-info .clear,.insurance-info .clear').show()
+
+  $('#requisition_form_patient_attributes_first_name,#requisition_form_patient_attributes_middle_name,#requisition_form_patient_attributes_last_name').keydown (e) ->
+    $('#requisition_form_patient_attributes_user_id').val('')
+
+  $('.patient-info .clear, .insurance-info .clear').click (e) ->
+    $('.patient-info input,.patient-info select,.insurance-info input,.insurance-info select').val('').removeAttr('disabled')
+    $('.patient-info .clear,.insurance-info .clear').hide()
+
+  $('#new_requisition_form').submit (e) ->
+    $('input,select').removeAttr('disabled')
