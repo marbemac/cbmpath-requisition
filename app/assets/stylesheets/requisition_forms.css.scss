@@ -141,6 +141,9 @@
     font-size: inherit;
     font-weight: normal;
     color: #000;
+    &.error {
+      margin: -8px 0 10px;
+    }
   }
   input {
     font-size: inherit;
@@ -151,7 +154,8 @@
     background-color: #F4F4F4;
   }
   select {
-    margin: 0 0 1em;
+    margin: 3px 0 1em;
+    padding: 1px;
   }
   .logo {
     margin: 0 0 10px 0;
@@ -161,122 +165,143 @@
     color: #666;
   }
   .form-inputs {
+    margin: 0 0 10px;
     >.row {
       border: 1px black solid ;
       border-bottom: none;
       >.columns {
         padding: 10px;
       }
-    }
-    select {
-      width: auto;
-    }
-    .radio-group {
-      overflow: hidden;
-      clear: both;
-      label {
-        float: left;
-        margin: 16px 5px 1em
+      select {
+        width: auto;
       }
-    }
-    .info {
-    }
-    .icd-9s {
-      input {
-        margin-bottom: 10px;
+      .radio-group {
+        overflow: hidden;
+        clear: both;
+        label {
+          float: left;
+          margin: 16px 5px 1em
+        }
       }
-      .button {
-        margin-bottom: 10px;
-        width: 80px;
-        display: block;
+      .info {
       }
-    }
-    .patient-info {
-      .input {
-        float: left;
+      .icd-9s {
+        input {
+          margin-bottom: 10px;
+        }
+        .button {
+          margin-bottom: 10px;
+          width: 80px;
+          display: block;
+        }
       }
-    }
-    .optional {
-      .text-input {
-        width: 100px;
+      .patient-info {
+        .input {
+          float: left;
+        }
       }
-    }
-    .rule-out {
-      padding: 10px;
-      label {
-        font-size: inherit;
+      .optional {
+        .text-input {
+          width: 100px;
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+        }
       }
-    }
+      .rule-out {
+        padding: 10px;
+        label {
+          font-size: inherit;
+        }
+      }
 
-    // Specimen Section
+      // Specimen Section
 
-    .pad {
-      padding: 7px;
-    }
-    .vertical-text {
-      writing-mode:tb-rl;
-      -webkit-transform:rotate(-90deg);
-      -moz-transform:rotate(-90deg);
-      -o-transform: rotate(-90deg);
-      white-space:nowrap;
-      display:block;
-    }
-    .specimens {
-      table {
-        width: 100%;
-        border: none;
-        margin: 0;
+      .pad {
+        padding: 7px;
+      }
+      .family-type {
+        margin-left: 62px;
+      }
+      .other {
+        border-bottom: 1px solid black;
+        padding-bottom: 20px;
+      }
+      .vertical-text {
+        writing-mode:tb-rl;
+        -webkit-transform:rotate(-90deg);
+        -moz-transform:rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        white-space:nowrap;
+        display:block;
+      }
+      .specimens {
         padding: 0;
+        input[type="text"] {
+          margin: 0;
+        }
+        table {
+          width: 100%;
+          border: none;
+          margin: 0;
+          padding: 0;
 
-        th {
-          font-size: 13px;
-          .head {
+          th {
+            font-size: 13px;
+            .head {
 
+            }
+            .content {
+              margin: 10px 0 0 0;
+              font-weight: normal;
+              text-align: left;
+              font-size: 10px;
+
+              .align-left {
+                float: left;
+              }
+              .align-right {
+                float: right;
+              }
+            }
           }
-          .content {
-            margin: 10px 0 0 0;
+          .br, .bl, .bb, .bt, .ba {
+            border-color: #BBB;
+          }
+        }
+        .specimen-grid-row {
+          td {
+            height: 20px;
+          }
+        }
+        .specimen-first {
+          width: 115px;
+        }
+        .specimen-box {
+          width: 20px;
+          padding: 0;
+          font-size: 17px;
+          padding: 0;
+          font-weight: bold;
+        }
+        .specimen-other {
+          width: 35px;
+        }
+        .specimen-headers {
+          height: 120px;
+          vertical-align: bottom;
+
+          .vertical-text {
+            width: 6px;
+            margin: auto;
             font-weight: normal;
-            text-align: left;
-            font-size: 10px;
-
-            .align-left {
-              float: left;
-            }
-            .align-right {
-              float: right;
-            }
+          }
+          th {
+            padding: 0 0 3px 0;
           }
         }
-      }
-      .specimen-grid-row {
-        td {
-          height: 20px;
-        }
-      }
-      .specimen-first {
-        width: 115px;
-      }
-      .specimen-box {
-        width: 20px;
-        padding: 0;
-        font-size: 17px;
-        padding: 0;
-        font-weight: bold;
-      }
-      .specimen-other {
-        width: 35px;
-      }
-      .specimen-headers {
-        height: 120px;
-        vertical-align: bottom;
-
-        .vertical-text {
-          width: 6px;
-          margin: auto;
-          font-weight: normal;
-        }
-        th {
-          padding: 0 0 3px 0;
+        .specimen-copy-button {
+          margin: 0;
         }
       }
     }

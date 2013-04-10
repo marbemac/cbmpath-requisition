@@ -1,4 +1,24 @@
 jQuery ->
+  $('.requisition-form-form select').removeClass('date').addClass('my-date')
+  $('.requisition-form-form').validate({
+                                        groups: {
+                                          collection_date: ["requisition_form[collection_date(1i)]",
+                                                            "requisition_form[collection_date(2i)]",
+                                                            "requisition_form[collection_date(3i)]"]
+                                          dob_1: ["requisition_form[patient_attributes][date_of_birth(1i)]",
+                                                  "requisition_form[patient_attributes][date_of_birth(2i)]",
+                                                  "requisition_form[patient_attributes][date_of_birth(3i)]"]
+                                          dob_2: ["requisition_form[patient_attributes][insurance_date_of_birth(1i)]]",
+                                                  "requisition_form[patient_attributes][insurance_date_of_birth(2i)]",
+                                                  "requisition_form[patient_attributes][insurance_date_of_birth(3i)]"]
+                                        },
+                                        errorPlacement: (error, element) ->
+                                          if element.hasClass('my-date')
+                                            error.insertAfter(element.siblings('.my-date').last())
+                                          else
+                                            error.insertAfter(element)
+                                        })
+
   # Check boxes
   $('.medical-history-field .med-check').change (e) ->
     self = e.target

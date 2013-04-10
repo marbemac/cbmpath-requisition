@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require requisition_forms
 //= require jquery.autocomplete
-//= require_tree .
+//= require jquery.validate
+//= require additional-methods
 
 $(document).foundation();

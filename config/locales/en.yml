@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  helpers:
+      submit:
+        requisition_form:
+          create: "Submit Requisition Form"
+          update: "Save Changes"
