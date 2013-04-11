@@ -1,23 +1,23 @@
 jQuery ->
-  $('.requisition-form-form select').removeClass('date').addClass('my-date')
-  $('.requisition-form-form').validate({
-                                        groups: {
-                                          collection_date: ["requisition_form[collection_date(1i)]",
-                                                            "requisition_form[collection_date(2i)]",
-                                                            "requisition_form[collection_date(3i)]"]
-                                          dob_1: ["requisition_form[patient_attributes][date_of_birth(1i)]",
-                                                  "requisition_form[patient_attributes][date_of_birth(2i)]",
-                                                  "requisition_form[patient_attributes][date_of_birth(3i)]"]
-                                          dob_2: ["requisition_form[patient_attributes][insurance_date_of_birth(1i)]]",
-                                                  "requisition_form[patient_attributes][insurance_date_of_birth(2i)]",
-                                                  "requisition_form[patient_attributes][insurance_date_of_birth(3i)]"]
-                                        },
-                                        errorPlacement: (error, element) ->
-                                          if element.hasClass('my-date')
-                                            error.insertAfter(element.siblings('.my-date').last())
-                                          else
-                                            error.insertAfter(element)
-                                        })
+  $('.requisition-form-form select').removeClass('date').addClass('my-date') # So the validator doesnt require a date string from each date select.
+#  $('.requisition-form-form').validate({
+#                                        groups: {
+#                                          collection_date: ["requisition_form[collection_date(1i)]",
+#                                                            "requisition_form[collection_date(2i)]",
+#                                                            "requisition_form[collection_date(3i)]"]
+#                                          dob_1: ["requisition_form[patient_attributes][date_of_birth(1i)]",
+#                                                  "requisition_form[patient_attributes][date_of_birth(2i)]",
+#                                                  "requisition_form[patient_attributes][date_of_birth(3i)]"]
+#                                          dob_2: ["requisition_form[patient_attributes][insurance_date_of_birth(1i)]]",
+#                                                  "requisition_form[patient_attributes][insurance_date_of_birth(2i)]",
+#                                                  "requisition_form[patient_attributes][insurance_date_of_birth(3i)]"]
+#                                        },
+#                                        errorPlacement: (error, element) ->
+#                                          if element.hasClass('my-date')
+#                                            error.insertAfter(element.siblings('.my-date').last())
+#                                          else
+#                                            error.insertAfter(element)
+#                                        })
 
   # Check boxes
   $('.medical-history-field .med-check').change (e) ->
@@ -31,13 +31,20 @@ jQuery ->
   $('.medical-history-field .rule-out-check').change (e) ->
     self = e.target
     if $(self).is(':checked')
-      $(self).siblings('.rule-out').find('input').removeAttr('disabled')
+      $(self).siblings('.rule-out').find('.optional >label >input').removeAttr('disabled')
     else
       $(self).siblings('.rule-out').find('input').attr('disabled','disabled')
+
+  #
+  $('body').on "change", '.specimen-box input[type=radio]', (e) ->
+    self = e.target
+    $(self).closest('.specimen-grid-row').find('input').removeAttr('disabled')
+    $('.specimen-copy-button').removeAttr('disabled')
 
   #  NOTE: Didn't work for this nested one, so made a special case
   $('.medical-history-field .cancer-check').change (e) ->
     self = e.target
+    console.log('foo')
     if $(self).is(':checked')
       $(self).next('.optional').children('input').removeAttr('disabled')
     else
@@ -51,13 +58,23 @@ jQuery ->
 
   # Copy specimen fields
   $('.specimen-copy-button').click (e) ->
-    parent = $(e.target).closest('.copy-parent')
-    element = parent.find('.copy-me').clone().removeClass('copy-me').insertBefore(parent.find('.before-me'))
-    element.find('input[type=checkbox]').removeAttr('checked')
-    element.find('input[type=text]').val('')
-    myDate = new Date();
-    for input in element.find('input')
-      $(input).attr('name', $(input).attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime())}$3"))
+    unless $(e.target).attr('disabled')
+      parent = $(e.target).closest('.copy-parent')
+      value = parent.find('input[type=radio]:checked').attr('value')
+
+      element = parent.find('.copy-me').clone()
+      element.removeClass('copy-me').insertBefore(parent.find('.before-me'))
+      element.find('input[type=checkbox], input[type=radio]').removeAttr('checked')
+      element.find('input[type=text]').val('')
+
+      parent.find(".copy-me input[value='#{value}']").click()
+
+      myDate = new Date()
+      for input in element.find('input')
+        $(input).attr('name', $(input).attr('name').replace(/(.*mens\]\[)(.*)(\]\[.*\])/, "$1#{parseInt(myDate.getTime())}$3"))
+
+      $(e.target).attr('disabled', 'disabled')
+
 
   $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').autocomplete
     serviceUrl: '/search/doctors'

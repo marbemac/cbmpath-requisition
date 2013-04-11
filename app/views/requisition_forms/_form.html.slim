@@ -48,7 +48,7 @@
                 == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
                   - b.label { (b.text == 'M' ? '*' : '').html_safe + b.radio_button + b.text.html_safe }
             .small-6.columns
-              = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}
+              = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 110, :input_html => {:autocomplete => 'off'}
             .small-3.columns
               = p.input :ssn, :input_html => {:autocomplete => 'off'}
           br
@@ -73,15 +73,15 @@
               = p.input :insurance_name, required: true, :input_html => {:autocomplete => 'off'}
           .row
             .small-6.columns
-              = p.input :insurance_insured_name, required: true, :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}
+              = p.input :insurance_insured_name, required: true, :input_html => {:autocomplete => 'off'}, label: "Insured's Name"
+              = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
+              = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 110, :input_html => {:autocomplete => 'off'}, label: "Insured's Date of Birth"
+              = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
             .small-6.columns
-              = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_policy_id, required: true, :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}
-              = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}
+              = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
+              = p.input :insurance_policy_id, required: true, :input_html => {:autocomplete => 'off'}, label: "Policy ID Number"
+              = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
+              = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Number"
 
     .row
       .small-12.columns.medical-history
@@ -121,7 +121,14 @@
                   input name="requisition_form[medical_history][cancer][family_type]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][colitis][checked]" class="medical-history-field"
-              input type="checkbox" class="med-check" name="requisition_form[medical_history][colitis][checked]" value="true" autocomplete="off" Colitis (Crohn's, UC, IBD, Other )
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][colitis][checked]" value="true" autocomplete="off" Colitis
+              span.optional
+                input name="requisition_form[medical_history][colitis][type]" autocomplete="off" type="radio" disabled="disabled" value="Crohn's" Crohn's
+                input name="requisition_form[medical_history][colitis][type]" autocomplete="off" type="radio" disabled="disabled" value="UC" UC
+                input name="requisition_form[medical_history][colitis][type]" autocomplete="off" type="radio" disabled="disabled" value="IBD" IBD
+                input name="requisition_form[medical_history][colitis][type]" autocomplete="off" type="radio" disabled="disabled" value="Other:" class="cancer-check" Other: &nbsp;
+                span.optional
+                  input name="requisition_form[medical_history][colitis][other]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
             label for="requisition_form[medical_history][condyloma][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][condyloma][checked]" value="true" autocomplete="off" Condyloma
@@ -186,8 +193,8 @@
               span.optional
                 input name="requisition_form[medical_history][screening_for][screening_for]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
-            label for="requisition_form[medical_history][shin_tag][checked]" class="medical-history-field"
-              input type="checkbox" class="med-check" name="requisition_form[medical_history][shin_tag][checked]" value="true" autocomplete="off" Shin Tag
+            label for="requisition_form[medical_history][skin_tag][checked]" class="medical-history-field"
+              input type="checkbox" class="med-check" name="requisition_form[medical_history][skin_tag][checked]" value="true" autocomplete="off" Shin Tag
 
             label for="requisition_form[medical_history][weight_loss][checked]" class="medical-history-field"
               input type="checkbox" class="med-check" name="requisition_form[medical_history][weight_loss][checked]" value="true" autocomplete="off" Weight Loss
@@ -225,6 +232,11 @@
 
                   label for="requisition_form[medical_history][rule_out][colitis][checked]" class="medical-history-field"
                     input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][colitis][checked]" value="true" autocomplete="off" disabled="disabled" COLITIS
+                .optional.small-12.columns
+                  label for="requisition_form[medical_history][rule_out][other]" class="medical-history-field"
+                    input type="checkbox" class="med-check" name="requisition_form[medical_history][rule_out][other][checked]" value="true" autocomplete="off" disabled="disabled" OTHER: &nbsp;
+                    span.optional
+                      input name="requisition_form[medical_history][other_text]" autocomplete="off" disabled="disabled" class="text-input" type="text"
 
     .row
       .small-12.columns
@@ -320,7 +332,7 @@
             == render "specimen_input_row"
             tr.before-me
               td
-                .small.button.specimen-copy-button Add More
+                .small.button.specimen-copy-button disabled="disabled" Add More
 
 
   .form-actions

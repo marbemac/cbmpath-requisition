@@ -33,6 +33,9 @@
       margin: 0 0 5px 0;
     }
   }
+  .check-and-label {
+    display: inline-block;
+  }
   .top-right {
     height: 178px;
 
@@ -62,6 +65,11 @@
       font-size: 12px;
       .box {
         margin: 0 10px 0 0;
+      }
+      >span {
+        .box {
+          margin: 0 5px 0 10px;
+        }
       }
     }
     .rule-out {
