@@ -1,23 +1,25 @@
 jQuery ->
+  $number = 1
+
   $('.requisition-form-form select').removeClass('date').addClass('my-date') # So the validator doesnt require a date string from each date select.
-#  $('.requisition-form-form').validate({
-#                                        groups: {
-#                                          collection_date: ["requisition_form[collection_date(1i)]",
-#                                                            "requisition_form[collection_date(2i)]",
-#                                                            "requisition_form[collection_date(3i)]"]
-#                                          dob_1: ["requisition_form[patient_attributes][date_of_birth(1i)]",
-#                                                  "requisition_form[patient_attributes][date_of_birth(2i)]",
-#                                                  "requisition_form[patient_attributes][date_of_birth(3i)]"]
-#                                          dob_2: ["requisition_form[patient_attributes][insurance_date_of_birth(1i)]]",
-#                                                  "requisition_form[patient_attributes][insurance_date_of_birth(2i)]",
-#                                                  "requisition_form[patient_attributes][insurance_date_of_birth(3i)]"]
-#                                        },
-#                                        errorPlacement: (error, element) ->
-#                                          if element.hasClass('my-date')
-#                                            error.insertAfter(element.siblings('.my-date').last())
-#                                          else
-#                                            error.insertAfter(element)
-#                                        })
+  $('.requisition-form-form').validate({
+                                        groups: {
+                                          collection_date: ["requisition_form[collection_date(1i)]",
+                                                            "requisition_form[collection_date(2i)]",
+                                                            "requisition_form[collection_date(3i)]"]
+                                          dob_1: ["requisition_form[patient_attributes][date_of_birth(1i)]",
+                                                  "requisition_form[patient_attributes][date_of_birth(2i)]",
+                                                  "requisition_form[patient_attributes][date_of_birth(3i)]"]
+                                          dob_2: ["requisition_form[patient_attributes][insurance_date_of_birth(1i)]]",
+                                                  "requisition_form[patient_attributes][insurance_date_of_birth(2i)]",
+                                                  "requisition_form[patient_attributes][insurance_date_of_birth(3i)]"]
+                                        },
+                                        errorPlacement: (error, element) ->
+                                          if element.hasClass('my-date')
+                                            error.insertAfter(element.siblings('.my-date').last())
+                                          else
+                                            error.insertAfter(element)
+                                        })
 
   # Check boxes
   $('.medical-history-field .med-check').change (e) ->
@@ -66,6 +68,8 @@ jQuery ->
       element.removeClass('copy-me').insertBefore(parent.find('.before-me'))
       element.find('input[type=checkbox], input[type=radio]').removeAttr('checked')
       element.find('input[type=text]').val('')
+      $number += 1
+      element.find('.specimen-first span').text($number)
 
       parent.find(".copy-me input[value='#{value}']").click()
 

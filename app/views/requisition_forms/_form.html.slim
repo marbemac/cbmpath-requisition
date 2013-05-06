@@ -21,7 +21,7 @@
           = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
 
 
-        = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}
+        = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}, :start_year => Time.now.year, :end_year => 2008
 
       .small-4.columns.icd-9s.copy-parent
         label for="requisition_form[icd9_codes][]" ICD-9 CODE(S):
@@ -48,7 +48,7 @@
                 == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
                   - b.label { (b.text == 'M' ? '*' : '').html_safe + b.radio_button + b.text.html_safe }
             .small-6.columns
-              = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 110, :input_html => {:autocomplete => 'off'}
+              = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}
             .small-3.columns
               = p.input :ssn, :input_html => {:autocomplete => 'off'}
           br
@@ -75,7 +75,7 @@
             .small-6.columns
               = p.input :insurance_insured_name, required: true, :input_html => {:autocomplete => 'off'}, label: "Insured's Name"
               = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
-              = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 110, :input_html => {:autocomplete => 'off'}, label: "Insured's Date of Birth"
+              = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}, label: "Insured's Date of Birth"
               = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
             .small-6.columns
               = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
@@ -97,7 +97,6 @@
 
     - if params[:type] == 'general'
       = render "general_extra_fields"
-
 
   .form-actions
     = f.button :submit, :class => "submit"
