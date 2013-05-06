@@ -5,7 +5,7 @@ ruby '2.0.0'
 gem 'rails', '3.2.13'
 
 gem 'jquery-rails'
-gem "slim-rails"
+gem "slim-rails", '~> 1.1.1'
 gem 'pg'
 gem 'devise' # Authentication
 gem 'yajl-ruby' # json
