@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409173755) do
+ActiveRecord::Schema.define(:version => 20130506200954) do
 
   create_table "doctors", :force => true do |t|
     t.string   "name"
@@ -62,10 +62,13 @@ ActiveRecord::Schema.define(:version => 20130409173755) do
     t.integer  "user_id"
     t.text     "medical_history",  :default => "{}"
     t.text     "special_requests"
-    t.text     "specimens",        :default => "{}"
+    t.text     "specimens"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.date     "collection_date"
+    t.string   "form_type"
+    t.text     "laboratory_tests", :default => "{}"
+    t.text     "general_fields",   :default => "{}"
   end
 
   add_index "requisition_forms", ["doctor2_id"], :name => "index_requisition_forms_on_doctor2_id"

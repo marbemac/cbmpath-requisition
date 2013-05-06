@@ -1,0 +1,91 @@
+.row
+  .small-12.columns.specimens.bb
+    table cellspacing=0 cellpadding=0
+      tbody.copy-parent
+        tr
+          th.br.bb colspan=1
+            .head Specimen Source
+          th.br.bb colspan=4
+            .head Type
+            .content check only one
+          th.br.bb colspan=13
+            .head Upper GI
+            .content
+              .align-left stomach/duodenum
+              .align-right esophagus
+          th.br.bb colspan=14
+            .head Lower GI
+          th.bb colspan=2
+            .head Endoscopic Findings
+        tr.specimen-headers
+          th.br.bb
+          th.bb
+            .vertical-text Biopsy
+          th.bb
+            .vertical-text Cytology
+          th.bb
+            .vertical-text Polyp
+          th.br.bb
+            .vertical-text Random
+          th.bb
+            .vertical-text CLO Test
+          th.bb
+            .vertical-text Antrum
+          th.bb
+            .vertical-text Fundus
+          th.bb
+            .vertical-text Stomach
+          th.bb
+            .vertical-text Cardia
+          th.bb
+            .vertical-text Duod. Bulb
+          th.bb
+            .vertical-text Duodenum
+          th.br.bb
+            .vertical-text Dist. Duod
+          th.bb
+            .vertical-text Esophagus
+          th.bb
+            .vertical-text Upper Esoph.
+          th.bb
+            .vertical-text Middle Esoph.
+          th.bb
+            .vertical-text Lower Esoph.
+          th.br.bb
+            .vertical-text E.G. Junct.
+          th.bb
+            .vertical-text Ileum
+          th.bb
+            .vertical-text Ileocecal Valve
+          th.bb
+            .vertical-text Colon
+          th.bb
+            .vertical-text Cecum
+          th.bb
+            .vertical-text Ascending
+          th.bb
+            .vertical-text Hepatic Flex.
+          th.bb
+            .vertical-text Transverse
+          th.bb
+            .vertical-text Splenic Flex
+          th.bb
+            .vertical-text Descending
+          th.bb
+            .vertical-text Sigmoid
+          th.bb
+            .vertical-text Rectosigmoid
+          th.bb
+            .vertical-text Rectum
+          th.bb
+            .vertical-text Right Colon
+          th.br.bb
+            .vertical-text Left Colon
+          th.br.bb
+            .vertical-text Other
+          th.bb
+
+        == render "specimen_input_row"
+        tr.before-me
+          td
+            .small.button.specimen-copy-button disabled="disabled" Add More

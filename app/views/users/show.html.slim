@@ -1,5 +1,13 @@
 h1 Welcome #{@user.email}
 
-a.button href=new_requisition_form_path Create New Form
-a.button href=requisition_forms_path View Old Forms
-a.button href=patients_path Manage Patient Info
+div
+  a.button href=new_requisition_form_path(:type => 'general') Create New General Form
+  a.button href=new_requisition_form_path(:type => 'gyn') Create New GYN Form
+  a.button href=new_requisition_form_path(:type => 'gi') Create New GI Form
+
+br
+br
+
+div
+  a.button href=requisition_forms_path View Old Forms
+  a.button href=patients_path Manage Patient Info
