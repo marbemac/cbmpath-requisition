@@ -1,4 +1,6 @@
 jQuery ->
+  $number = 1
+
   $('.requisition-form-form select').removeClass('date').addClass('my-date') # So the validator doesnt require a date string from each date select.
 #  $('.requisition-form-form').validate({
 #                                        groups: {
@@ -66,6 +68,8 @@ jQuery ->
       element.removeClass('copy-me').insertBefore(parent.find('.before-me'))
       element.find('input[type=checkbox], input[type=radio]').removeAttr('checked')
       element.find('input[type=text]').val('')
+      $number += 1
+      element.find('.specimen-first span').text($number)
 
       parent.find(".copy-me input[value='#{value}']").click()
 

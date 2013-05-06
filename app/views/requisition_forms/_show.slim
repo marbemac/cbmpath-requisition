@@ -176,71 +176,38 @@
             .box = @requisition_form.medical_history['rule_out'] ? 'X' : ''
             span Rule Out:
             .row.rule-out
-              - if @requisition_form.medical_history['rule_out']
-                .small-6.columns
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['barrets'] ? 'X' : ''
-                    span Barret's
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['carcinoma'] ? 'X' : ''
-                    span Carcinoma
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['celiac'] ? 'X' : ''
-                    span Celiac
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['h_pylori'] ? 'X' : ''
-                    span Carcinoma
-                .small-6.columns
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['dysplasia'] ? 'X' : ''
-                    span Dyslplasia
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['esophagitis'] ? 'X' : ''
-                    span Esophagitis
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['giardia'] ? 'X' : ''
-                    span Giardia
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['colitis'] ? 'X' : ''
-                    span H. Pylori
-                .small-12.columns
-                  .input
-                    .box = @requisition_form.medical_history['rule_out']['other'] ? 'X' : ''
-                    span
-                    | Other: &nbsp;
-                    = @requisition_form.medical_history['rule_out']['other_text']
-
-              - else
-                .small-6.columns
-                  .input
-                    .box
-                    span Barret's
-                  .input
-                    .box
-                    span Carcinoma
-                  .input
-                    .box
-                    span Celiac
-                  .input
-                    .box
-                    span Carcinoma
-                .small-6.columns
-                  .input
-                    .box
-                    span Dyslplasia
-                  .input
-                    .box
-                    span Esophagitis
-                  .input
-                    .box
-                    span Giardia
-                  .input
-                    .box
-                    span H. Pylori
-                .small-12.columns
-                  .input
-                    .box
-                    span Other
+              .small-6.columns
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['barrets'] ? 'X' : ''
+                  span Barret's
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['carcinoma'] ? 'X' : ''
+                  span Carcinoma
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['celiac'] ? 'X' : ''
+                  span Celiac
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['h_pylori'] ? 'X' : ''
+                  span Carcinoma
+              .small-6.columns
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['dysplasia'] ? 'X' : ''
+                  span Dyslplasia
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['esophagitis'] ? 'X' : ''
+                  span Esophagitis
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['giardia'] ? 'X' : ''
+                  span Giardia
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['colitis'] ? 'X' : ''
+                  span H. Pylori
+              .small-12.columns
+                .input
+                  .box = @requisition_form.medical_history['rule_out']['other'] ? 'X' : ''
+                  span
+                  | Other: &nbsp;
+                  = @requisition_form.medical_history['rule_out']['other_text']
 
   .row
     .small-12.columns.special-requests.bl.br.pad
@@ -332,5 +299,5 @@
           th.br.bb
             .vertical-text Other
           th.bb
-        - for specimen in @requisition_form.specimens
-          = render "specimen_row", :specimen => specimen[1]
+        - @requisition_form.specimens.each_with_index do |specimen, i|
+          = render "specimen_row", :specimen => specimen[1], :number => i + 1

@@ -281,6 +281,14 @@
         }
         .specimen-first {
           width: 115px;
+          input {
+            width: 90%;
+            float: right;
+          }
+          span {
+            display: inline-block;
+            padding: 5px 0 0;
+          }
         }
         .specimen-box {
           width: 20px;

@@ -1,5 +1,5 @@
 tr.specimen-grid-row
-  td.bb.br.specimen-first = specimen['source']
+  td.bb.br.specimen-first = "#{number.to_s}. #{specimen['source']}"
   td.bb.br.specimen-box = specimen['type'] == 'biopsy' ? 'X' : ''
   td.bb.br.specimen-box = specimen['type'] == 'cytology' ? 'X' : ''
   td.bb.br.specimen-box = specimen['type'] == 'polyp' ? 'X' : ''
