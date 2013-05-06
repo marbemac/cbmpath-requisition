@@ -42,7 +42,7 @@
     .small-5.columns.top-right.bt.br.bl
       .row
         .small-12.columns.bb.pad
-          b.top GI PATHOLOGY REQUISITION FORM
+          b.top #{@requisition_form.form_type} PATHOLOGY REQUISITION FORM
       .row
         .small-12.columns.bb.pad
           span.head = "Additional MD: "
@@ -63,241 +63,18 @@
         .small-12.columns.bt.pad
           b.bottom Please attach demographic and insurance information sheet
 
-  .row
-    .small-12.columns.medical-history.ba
-      div.head Medical history
-      .row
-        .small-4.columns
-          .input
-            .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
-            span 
-            | Abdominal pain
-            - if @requisition_form.medical_history['abdominal_pain'] && !@requisition_form.medical_history['abdominal_pain']['location'].blank?
-              = " (#{@requisition_form.medical_history['abdominal_pain']['location']})"
-          .input
-            .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
-            span Anal Lesion
-          .input
-            .box = @requisition_form.medical_history['anemia'] ? 'X' : ''
-            span Anemia
-          .input
-            .box = @requisition_form.medical_history['barretts'] ? 'X' : ''
-            span Barrett's
-          .input
-            .box = @requisition_form.medical_history['bleeding'] ? 'X' : ''
-            span Bleeding #{@requisition_form.medical_history['bleeding'] && @requisition_form.medical_history['bleeding']['type'] ? '- '+@requisition_form.medical_history['bleeding']['type'] : ''}
-          .input
-            .box = @requisition_form.medical_history['cancer']['checked'] ? 'X' : ''
-            span 
-              | Cancer
-              - if @requisition_form.medical_history['cancer']['checked']
-                .check-and-label
-                  .box = @requisition_form.medical_history['cancer']['personal'] ? 'X' : ''
-                  | Personal
-                  = ", Type: #{@requisition_form.medical_history['cancer']['personal_type']}" unless @requisition_form.medical_history['cancer']['personal_type'].blank?
-                .check-and-label
-                  .box = @requisition_form.medical_history['cancer']['family'] ? 'X' : ''
-                  | Family
-                  = ", Type: #{@requisition_form.medical_history['cancer']['family_type']}" unless @requisition_form.medical_history['cancer']['family_type'].blank?
-          .input
-            .box = @requisition_form.medical_history['colitis']['checked'] ? 'X' : ''
-            span
-              | Colitis #{@requisition_form.medical_history['colitis']['type'] ? '- ' + @requisition_form.medical_history['colitis']['type'] : ''}
-              = @requisition_form.medical_history['colitis']['other']
-          .input
-            .box = @requisition_form.medical_history['condyloma'] ? 'X' : ''
-            span Condyloma
-          .input
-            .box = @requisition_form.medical_history['constipation'] ? 'X' : ''
-            span Constipation
-          .input
-            .box = @requisition_form.medical_history['diarrhea_bloody'] ? 'X' : ''
-            span Diarrhea,bloody
-          .input
-            .box = @requisition_form.medical_history['diarrhea_watery'] ? 'X' : ''
-            span Diarrhea,watery
-          .input
-            .box = @requisition_form.medical_history['diverticulosis'] ? 'X' : ''
-            span Diverticulosis
-        .small-4.columns
-          .input
-            .box = @requisition_form.medical_history['dysphagia'] ? 'X' : ''
-            span Dysphagia
-          .input
-            .box = @requisition_form.medical_history['fistula_tract'] ? 'X' : ''
-            span Fistula Tract
-          .input
-            .box = @requisition_form.medical_history['fungi'] ? 'X' : ''
-            span Fungi(Candida)
-          .input
-            .box = @requisition_form.medical_history['gastritis'] ? 'X' : ''
-            span Gastritis
-          .input
-            .box = @requisition_form.medical_history['gred'] ? 'X' : ''
-            span GRED(Reflux)
-          .input
-            .box = @requisition_form.medical_history['heartburn'] ? 'X' : ''
-            span Heartburn
-          .input
-            .box = @requisition_form.medical_history['hemorrhoid'] ? 'X' : ''
-            span Hemorrhoid
-          .input
-            .box = @requisition_form.medical_history['history']['checked'] ? 'X' : ''
-            span History of: #{@requisition_form.medical_history['history']['checked'] ? @requisition_form.medical_history['history']['history'] : ''}
-          .input
-            .box = @requisition_form.medical_history['lymphoma'] ? 'X' : ''
-            span Lymphoma
-          .input
-            .box = @requisition_form.medical_history['malabsorption'] ? 'X' : ''
-            span Malabsorption
-          .input
-            .box = @requisition_form.medical_history['nausea'] ? 'X' : ''
-            span Nausea/ Vomiting
-          .input
-            .box = @requisition_form.medical_history['pilonidal_cyst'] ? 'X' : ''
-            span Pilonidal Cyst
-        .small-4.columns
-          .input
-            .box = @requisition_form.medical_history['polyp_site']['checked'] ? 'X' : ''
-            span Polyp site: #{@requisition_form.medical_history['polyp_site']['checked'] ? @requisition_form.medical_history['polyp_site']['polyp_site'] : ''}
-          .input
-            .box = @requisition_form.medical_history['screening_for']['checked'] ? 'X' : ''
-            span Screening for: #{@requisition_form.medical_history['screening_for']['checked'] ? @requisition_form.medical_history['screening_for']['screening_for'] : ''}
-          .input
-            .box = @requisition_form.medical_history['skin_tag'] ? 'X' : ''
-            span Skin Tag
-          .input
-            .box = @requisition_form.medical_history['weight_loss'] ? 'X' : ''
-            span Weight Loss
-          .input
-            .box = @requisition_form.medical_history['other']['checked'] ? 'X' : ''
-            span OTHER: #{@requisition_form.medical_history['other']['checked'] ? @requisition_form.medical_history['other']['other'] : ''}
-          .input
-            .box = @requisition_form.medical_history['rule_out'] ? 'X' : ''
-            span Rule Out:
-            .row.rule-out
-              .small-6.columns
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['barrets'] ? 'X' : ''
-                  span Barret's
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['carcinoma'] ? 'X' : ''
-                  span Carcinoma
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['celiac'] ? 'X' : ''
-                  span Celiac
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['h_pylori'] ? 'X' : ''
-                  span Carcinoma
-              .small-6.columns
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['dysplasia'] ? 'X' : ''
-                  span Dyslplasia
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['esophagitis'] ? 'X' : ''
-                  span Esophagitis
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['giardia'] ? 'X' : ''
-                  span Giardia
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['colitis'] ? 'X' : ''
-                  span H. Pylori
-              .small-12.columns
-                .input
-                  .box = @requisition_form.medical_history['rule_out']['other'] ? 'X' : ''
-                  span
-                  | Other: &nbsp;
-                  = @requisition_form.medical_history['rule_out']['other_text']
+  = render "show_#{@requisition_form.form_type}_medical_history"
 
-  .row
-    .small-12.columns.special-requests.bl.br.pad
-      b Special requests:
-      span = @requisition_form.special_requests
+  - if @requisition_form.form_type == 'gyn'
+    = render "show_gyn_laboratory_tests"
 
-  .row
-    .small-12.columns.specimens.bl.br.bt
-      table cellspacing=0 cellpadding=0
-        tr
-          th.br.bb colspan=1
-            .head Specimen Source
-          th.br.bb colspan=4
-            .head Type
-            .content check only one
-          th.br.bb colspan=13
-            .head Upper GI
-            .content
-              .align-left stomach/duodenum
-              .align-right esophagus
-          th.br.bb colspan=14
-            .head Lower GI
-          th.bb colspan=2
-            .head Endoscopic Findings
-        tr.specimen-headers
-          th.br.bb
-          th.bb
-            .vertical-text Biopsy
-          th.bb
-            .vertical-text Cytology
-          th.bb
-            .vertical-text Polyp
-          th.br.bb
-            .vertical-text Random
-          th.bb
-            .vertical-text CLO Test
-          th.bb
-            .vertical-text Antrum
-          th.bb
-            .vertical-text Fundus
-          th.bb
-            .vertical-text Stomach
-          th.bb
-            .vertical-text Cardia
-          th.bb
-            .vertical-text Duod. Bulb
-          th.bb
-            .vertical-text Duodenum
-          th.br.bb
-            .vertical-text Dist. Duod
-          th.bb
-            .vertical-text Esophagus
-          th.bb
-            .vertical-text Upper Esoph.
-          th.bb
-            .vertical-text Middle Esoph.
-          th.bb
-            .vertical-text Lower Esoph.
-          th.br.bb
-            .vertical-text E.G. Junct.
-          th.bb
-            .vertical-text Ileum
-          th.bb
-            .vertical-text Ileocecal Valve
-          th.bb
-            .vertical-text Colon
-          th.bb
-            .vertical-text Cecum
-          th.bb
-            .vertical-text Ascending
-          th.bb
-            .vertical-text Hepatic Flex.
-          th.bb
-            .vertical-text Transverse
-          th.bb
-            .vertical-text Splenic Flex
-          th.bb
-            .vertical-text Descending
-          th.bb
-            .vertical-text Sigmoid
-          th.bb
-            .vertical-text Rectosigmoid
-          th.bb
-            .vertical-text Rectum
-          th.bb
-            .vertical-text Right Colon
-          th.br.bb
-            .vertical-text Left Colon
-          th.br.bb
-            .vertical-text Other
-          th.bb
-        - @requisition_form.specimens.each_with_index do |specimen, i|
-          = render "specimen_row", :specimen => specimen[1], :number => i + 1
+  - if ['general','gi'].include?(@requisition_form.form_type)
+    .row
+      .small-12.columns.special-requests.bl.br.pad
+        b Special requests:
+        span = @requisition_form.special_requests
+
+  = render "show_#{@requisition_form.form_type}_specimens"
+
+  - if @requisition_form.form_type == 'general'
+    = render "general_extra_fields"

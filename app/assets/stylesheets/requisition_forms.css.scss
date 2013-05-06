@@ -54,7 +54,8 @@
       margin: 0 0 2px 0;
     }
   }
-  .medical-history {
+  .medical-history,
+  .laboratory-tests {
     padding: 15px;
     .head {
       font-weight: bold;
@@ -120,6 +121,9 @@
       padding: 0 0 0 6px;
       font-weight: bold;
     }
+    .gi-other {
+      width: 230px;
+    }
     .specimen-other {
       width: 35px;
     }
@@ -131,6 +135,10 @@
         width: 6px;
         margin: auto;
         font-weight: normal;
+      }
+      .horizontal-text {
+        font-weight: normal;
+        vertical-align: middle;
       }
       th {
         padding: 0 0 3px 0;
