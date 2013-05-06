@@ -2,11 +2,12 @@
 #
 # Table name: doctors
 #
-#  created_at :datetime         not null
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  created_at      :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  searchable_name :string(255)
+#  updated_at      :datetime         not null
+#  user_id         :integer
 #
 
 class Doctor < ActiveRecord::Base

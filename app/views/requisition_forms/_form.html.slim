@@ -1,6 +1,7 @@
 = simple_form_for @requisition_form, :html => { :class => "requisition-form-form" } do |f|
   = f.error_notification
 
+  = f.input :form_type, as: :hidden, :input_html => {value: params[:type]}
   .form-inputs
     .row
       .small-4.columns.info
@@ -19,7 +20,6 @@
           = d.input :user_id, as: :hidden, :input_html => {value: current_user.id}
           = d.input :name, label: "Additional M.D."
           = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
-
 
         = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}, :start_year => Time.now.year, :end_year => 2008
 
@@ -83,17 +83,17 @@
               = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
               = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Number"
 
-    = render "#{params[:type]}_medical_history"
+    = render "form_#{params[:type]}_medical_history"
 
     - if params[:type] == 'gyn'
-      = render "gyn_laboratory_tests"
+      = render "form_gyn_laboratory_tests"
 
     - if ['general','gi'].include?(params[:type])
       .row
         .small-12.columns
           = f.input :special_requests
 
-    = render "#{params[:type]}_specimens"
+    = render "form_#{params[:type]}_specimens"
 
     - if params[:type] == 'general'
       = render "general_extra_fields"
