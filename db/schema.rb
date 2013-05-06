@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20130506200954) do
     t.integer  "user_id"
     t.text     "medical_history",  :default => "{}"
     t.text     "special_requests"
-    t.text     "specimens"
+    t.text     "specimens",        :default => "{}"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.date     "collection_date"

@@ -20,6 +20,7 @@
 #  insurance_type               :string(255)
 #  last_name                    :string(255)
 #  middle_name                  :string(255)
+#  searchable_name              :string(255)
 #  sex                          :string(255)
 #  ssn                          :string(255)
 #  state                        :string(255)
