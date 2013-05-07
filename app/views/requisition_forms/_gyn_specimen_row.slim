@@ -1,0 +1,21 @@
+tr.specimen-grid-row
+  td.bb.br.specimen-first = "#{number.to_s}. #{specimen['source']}"
+  td.bb.br.specimen-box = specimen['type'] == 'biopsy' ? 'X' : ''
+  td.bb.br.specimen-box = specimen['type'] == 'cytology' ? 'X' : ''
+  td.bb.br.specimen-box = specimen['type'] == 'polyp' ? 'X' : ''
+  td.bb.br.specimen-box = specimen['type'] == 'random' ? 'X' : ''
+  td.bb.br.specimen-box = specimen['clo_test'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['antrum'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['fundus'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['stomach'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['cardia'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['duod_bulb'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['duodenum'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['dist_duod'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['esophagus'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['upper_esoph'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['middle_esoph'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['lower_esoph'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['eg_junct'] ? 'X' : ''
+  td.bb.br.specimen-box = specimen['ileum'] ? 'X' : ''
+  td.bb.gi-other = specimen['other_blank']

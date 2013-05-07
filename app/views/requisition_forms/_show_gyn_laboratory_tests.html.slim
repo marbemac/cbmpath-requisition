@@ -1,0 +1,26 @@
+.row
+  .small-12.columns.laboratory-tests.ba
+    div.head Laboratory Tests
+    .row
+      .small-4.columns
+        .input
+          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          span Pap with High-Risk HPV;
+        .input
+          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          span Pap with High-Risk HPV; Reflex 16/18;
+      .small-4.columns
+        .input
+          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          span Pap w/reflex to High-Risk HPV;
+        .input
+          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          span Pap w/reflex High-Risk HPV; Reflex 16/18;
+      .small-4.columns
+        .input
+          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          span GC/Chl/Trich;
+        .input
+          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          span
+            | Other: #{@requisition_form.medical_history['colitis']['type']}
