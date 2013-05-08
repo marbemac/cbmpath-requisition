@@ -233,6 +233,7 @@
         }
       }
 
+
       // Specimen Section
 
       .pad {
@@ -252,6 +253,13 @@
         -o-transform: rotate(-90deg);
         white-space:nowrap;
         display:block;
+      }
+      .gen-specimens {
+        .text-input {
+          display: inline-block;
+          width: 95%;
+          margin-left: 5px;
+        }
       }
       .specimens {
         padding: 0;

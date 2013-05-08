@@ -1,2 +1,103 @@
-div
-  b General extra fields...
+.row
+  h5 Fine Needle Aspiration (FNA),
+  span source:
+  input name="requisition_form[general_fields][other][location]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  h5 Cytology:
+
+  label for="requisition_form[general_fields][urine]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][urine]" value="true" autocomplete="off" Urine
+
+  label for="requisition_form[general_fields][brushing][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][brushing][checked]" value="true" autocomplete="off" Brushing, location: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][brushing][location]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  label for="requisition_form[general_fields][washing][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][washing][checked]" value="true" autocomplete="off" Washing, location: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][discharge][location]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  label for="requisition_form[general_fields][discharge][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][washing][checked]" value="true" autocomplete="off" Discharge, location: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][discharge][location]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  label for="requisition_form[general_fields][cytology_other][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][cytology_other][checked]" value="true" autocomplete="off" Other: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][cytology_other][text]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  h5 Fresh Lymph Node:
+
+  label for="requisition_form[general_fields][histology]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][histology]" value="true" autocomplete="off" Histology
+
+  label for="requisition_form[general_fields][flow]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][flow]" value="true" autocomplete="off" Flow Cytometry
+
+  label for="requisition_form[general_fields][culture]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][culture]" value="true" autocomplete="off" Culture
+
+  h5 Cultures:
+
+  label for="requisition_form[general_fields][fungal]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][fungal]" value="true" autocomplete="off" Fungal
+
+  label for="requisition_form[general_fields][afb]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][afb]" value="true" autocomplete="off" AFB
+
+  label for="requisition_form[general_fields][afb_tb]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][afb_tb]" value="true" autocomplete="off" AFB / TB
+
+  label for="requisition_form[general_fields][aerobic]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][aerobic]" value="true" autocomplete="off" Aerobic
+
+  label for="requisition_form[general_fields][anaerobic]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][anaerobic]" value="true" autocomplete="off" Anaerobic
+
+  label for="requisition_form[general_fields][cultures_other][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][cultures_other][checked]" value="true" autocomplete="off" Other: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][cultures_other][text]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  h5 Stool Studies:
+
+  label for="requisition_form[general_fields][complete]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][complete]" value="true" autocomplete="off" Complete
+
+  label for="requisition_form[general_fields][op]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][op]" value="true" autocomplete="off" O&P
+
+  label for="requisition_form[general_fields][cs]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][cs]" value="true" autocomplete="off" C&S
+
+  label for="requisition_form[general_fields][giardia]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][giardia]" value="true" autocomplete="off" Giardia
+
+  label for="requisition_form[general_fields][wbc]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][wbc]" value="true" autocomplete="off" WBC
+
+  label for="requisition_form[general_fields][c_diff]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][c_diff]" value="true" autocomplete="off" c-Diff
+
+  label for="requisition_form[general_fields][stool_other][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][stool_other][checked]" value="true" autocomplete="off" Other: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][stool_other][text]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  h5 DNA / Molecular Tests:
+
+  label for="requisition_form[general_fields][hpv]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][hpv]" value="true" autocomplete="off" HPV
+
+  label for="requisition_form[general_fields][her2]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][her2]" value="true" autocomplete="off" HER2 / neu
+
+  label for="requisition_form[general_fields][dna_other][checked]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][dna_other][checked]" value="true" autocomplete="off" Other: &nbsp;
+    span.optional
+      input name="requisition_form[general_fields][dna_other][text]" autocomplete="off" disabled="disabled" class="text-input"  type="text"
+
+  label for="requisition_form[general_fields][her2]" class="medical-history-field"
+    input type="checkbox" class="med-check" name="requisition_form[general_fields][her2]" value="true" autocomplete="off" Blood Send Out Request (please include separate requisition form)
