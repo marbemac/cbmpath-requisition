@@ -4,23 +4,23 @@
     .row
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['high']['checked'] ? 'X' : ''
           span Pap with High-Risk HPV;
         .input
-          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          .box = @requisition_form.medical_history['high_16'] ? 'X' : ''
           span Pap with High-Risk HPV; Reflex 16/18;
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['reflex']['checked'] ? 'X' : ''
           span Pap w/reflex to High-Risk HPV;
         .input
-          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          .box = @requisition_form.medical_history['reflex_16'] ? 'X' : ''
           span Pap w/reflex High-Risk HPV; Reflex 16/18;
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['gc']['checked'] ? 'X' : ''
           span GC/Chl/Trich;
         .input
-          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
+          .box = @requisition_form.medical_history['other'] ? 'X' : ''
           span
-            | Other: #{@requisition_form.medical_history['colitis']['type']}
+            | Other: #{@requisition_form.medical_history['other']['text']}
