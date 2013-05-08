@@ -71,7 +71,7 @@
   - if ['general','gi'].include?(@requisition_form.form_type)
     .row
       .small-12.columns.special-requests.bl.br.pad
-        b Special requests:
+        b = 'Special requests: '
         span = @requisition_form.special_requests
 
   = render "show_#{@requisition_form.form_type}_specimens"

@@ -355,4 +355,21 @@
       display: none;
     }
   }
+  .general-extra {
+    label {
+      display: inline-block;
+      margin: 5px 50px 5px 0;
+    }
+  }
+}
+
+.show-general-fields {
+  .input {
+    display: inline-block;
+    margin: 5px 50px 5px 0;
+
+    .box {
+      margin-right: 10px;
+    }
+  }
 }

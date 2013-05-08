@@ -23,6 +23,7 @@ class RequisitionForm < ActiveRecord::Base
   serialize :icd9_codes, JSON
   serialize :medical_history, JSON
   serialize :specimens, JSON
+  serialize :general_fields, JSON
 
   belongs_to :doctor
   belongs_to :doctor2, :class_name => 'Doctor'
