@@ -4,21 +4,21 @@
     .row
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['high']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['high'] ? 'X' : ''
           span Pap with High-Risk HPV;
         .input
           .box = @requisition_form.medical_history['high_16'] ? 'X' : ''
           span Pap with High-Risk HPV; Reflex 16/18;
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['reflex']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['reflex'] ? 'X' : ''
           span Pap w/reflex to High-Risk HPV;
         .input
           .box = @requisition_form.medical_history['reflex_16'] ? 'X' : ''
           span Pap w/reflex High-Risk HPV; Reflex 16/18;
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['gc']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['gc'] ? 'X' : ''
           span GC/Chl/Trich;
         .input
           .box = @requisition_form.medical_history['other'] ? 'X' : ''
