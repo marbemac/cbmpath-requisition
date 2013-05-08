@@ -1,6 +1,8 @@
 h1 Your Requisition Forms
 
-= link_to 'New Requisition form', new_requisition_form_path
+a.button href=new_requisition_form_path(:type => 'general') Create New General Form
+a.button href=new_requisition_form_path(:type => 'gyn') Create New GYN Form
+a.button href=new_requisition_form_path(:type => 'gi') Create New GI Form
 
 br
 br
@@ -11,13 +13,16 @@ br
     tr
       th Patient Name
       th Creation Date
+      th Form Type
       th
       th
 
     - @requisition_forms.each do |requisition_form|
-      tr
-        td
-          a href=edit_patient_path(requisition_form.patient) = requisition_form.patient.name
-        td = requisition_form.created_at.strftime("%b %-d, %Y")
-        td = link_to 'View PDF', requisition_form_path(requisition_form, :format => :pdf)
-        td = link_to 'View HTML', requisition_form_path(requisition_form)
+      - if requisition_form.patient
+        tr
+          td
+            a href=edit_patient_path(requisition_form.patient) = requisition_form.patient.name
+          td = requisition_form.created_at.strftime("%b %-d, %Y")
+          td = requisition_form.form_type ? requisition_form.form_type.upcase : ''
+          td = link_to 'View PDF', requisition_form_path(requisition_form, :format => :pdf)
+          td = link_to 'View HTML', requisition_form_path(requisition_form)

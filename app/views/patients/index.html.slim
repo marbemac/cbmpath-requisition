@@ -10,7 +10,7 @@ table.patients
   - @patients.each do |patient|
     tr
       td = patient.name
-      td = patient.date_of_birth.strftime("%-d/%-m/%Y")
+      td = patient.date_of_birth ? patient.date_of_birth.strftime("%-d/%-m/%Y") : ''
       td = patient.created_at.strftime("%b %-d, %Y")
       td = link_to 'Edit', edit_patient_path(patient)
 
