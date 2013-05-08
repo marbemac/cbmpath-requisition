@@ -1,2 +1,26 @@
-div
-  b Laboratory Tests...
+.row
+  .small-12.columns.laboratory-tests
+    h4 Laboratory Tests
+    .row
+      .small-4.columns.small-inputs
+        label for="requisition_form[medical_history][high][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history][high][checked]" value="true" autocomplete="off" Pap with High-Risk HPV
+
+        label for="requisition_form[medical_history[high_16][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history[high_16][checked]" value="true" autocomplete="off" Pap with High-Risk HPV; Reflex 16/18
+
+      .small-4.columns.small-inputs
+        label for="requisition_form[medical_history[reflex][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history[reflex][checked]" value="true" autocomplete="off" Pap w/reflex to High-Risk HPV
+
+        label for="requisition_form[medical_history[reflex_16][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history[reflex_16][checked]" value="true" autocomplete="off" Pap w/reflex High-Risk HPV; Reflex 16/18
+
+      .small-4.columns.small-inputs
+        label for="requisition_form[medical_history[gc][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history[gc][checked]" value="true" autocomplete="off" GC/Chl/Trich
+
+        label for="requisition_form[medical_history[other][checked]" class="medical-history-field"
+          input type="checkbox" class="med-check" name="requisition_form[medical_history[other][checked]" value="true" autocomplete="off" Other: &nbsp;
+          span.optional
+            input name="requisition_form[medical_history[other][text]" autocomplete="off" disabled="disabled" class="text-input"  type="text"

@@ -88,15 +88,14 @@
     - if params[:type] == 'gyn'
       = render "form_gyn_laboratory_tests"
 
-    - if ['general','gi'].include?(params[:type])
-      .row
-        .small-12.columns
-          = f.input :special_requests
+    .row
+      .small-12.columns
+        = f.input :special_requests
 
     = render "form_#{params[:type]}_specimens"
 
     - if params[:type] == 'general'
-      = render "general_extra_fields"
+      = render "form_general_extra_fields"
 
   .form-actions
     = f.button :submit, :class => "submit"
