@@ -21,6 +21,6 @@
           .box = @requisition_form.medical_history['gc'] ? 'X' : ''
           span GC/Chl/Trich;
         .input
-          .box = @requisition_form.medical_history['other'] ? 'X' : ''
+          .box = @requisition_form.medical_history['other']['checked'] ? 'X' : ''
           span
             | Other: #{@requisition_form.medical_history['other']['text']}

@@ -108,7 +108,7 @@
           .box = @requisition_form.medical_history['other']['checked'] ? 'X' : ''
           span OTHER: #{@requisition_form.medical_history['other']['checked'] ? @requisition_form.medical_history['other']['other'] : ''}
         .input
-          .box = @requisition_form.medical_history['rule_out'] ? 'X' : ''
+          .box = @requisition_form.medical_history['rule_out']['checked'] ? 'X' : ''
           span Rule Out:
           .row.rule-out
             .small-6.columns

@@ -8,13 +8,13 @@
           span
           | LMP: #{@requisition_form.medical_history['lmp']['text']}
         .input
-          .box = @requisition_form.medical_history['menopausal'] ? 'X' : ''
+          .box = @requisition_form.medical_history['menopausal']['checked'] ? 'X' : ''
           span Menopausal, year: #{@requisition_form.medical_history['menopausal']['year']}
         .input
-          .box = @requisition_form.medical_history['pregnant'] ? 'X' : ''
+          .box = @requisition_form.medical_history['pregnant']['checked'] ? 'X' : ''
           span Pregnant (weeks: #{@requisition_form.medical_history['pregnant']['text']})
         .input
-          .box = @requisition_form.medical_history['postpartum'] ? 'X' : ''
+          .box = @requisition_form.medical_history['postpartum']['checked'] ? 'X' : ''
           span Postpartum (weeks: #{@requisition_form.medical_history['postpartum']['text']})
         .input
           .box = @requisition_form.medical_history['normal_exam'] ? 'X' : ''
@@ -39,7 +39,7 @@
           .box = @requisition_form.medical_history['hysterectomy_supracervical'] ? 'X' : ''
           span Hysterectomy, Supracervical
         .input
-          .box = @requisition_form.medical_history['contraceptive'] ? 'X' : ''
+          .box = @requisition_form.medical_history['contraceptive']['checked'] ? 'X' : ''
           span Contraceptive / IUD, type: #{@requisition_form.medical_history['contraceptive']['type']}
       .small-4.columns
         .input
@@ -49,5 +49,5 @@
           .box = @requisition_form.medical_history['previous_cytology']['checked'] ? 'X' : ''
           span Previous Cytology, Date: #{@requisition_form.medical_history['previous_cytology']['date']}; Dx: #{@requisition_form.medical_history['previous_cytology']['dx']}; Lab: #{@requisition_form.medical_history['previous_cytology']['lab']};
         .input
-          .box = @requisition_form.medical_history['previous_biopsy'] ? 'X' : ''
+          .box = @requisition_form.medical_history['previous_biopsy']['checked'] ? 'X' : ''
           span Previous Biopsy, Date: #{@requisition_form.medical_history['previous_biopsy']['date']}; Dx: #{@requisition_form.medical_history['previous_biopsy']['dx']}; Lab: #{@requisition_form.medical_history['previous_biopsy']['lab']};

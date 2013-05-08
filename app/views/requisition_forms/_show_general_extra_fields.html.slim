@@ -63,7 +63,7 @@
         .box = @requisition_form.general_fields['anaerobic'] ? 'X' : ''
         span Anaerobic
       .input
-        .box = @requisition_form.general_fields['cultures_other'] ? 'X' : ''
+        .box = @requisition_form.general_fields['cultures_other']['checked'] ? 'X' : ''
         span
           | Other: #{@requisition_form.general_fields['cultures_other']['text']}
 
@@ -90,7 +90,7 @@
         .box = @requisition_form.general_fields['c_diff'] ? 'X' : ''
         span c-Diff
       .input
-        .box = @requisition_form.general_fields['stool_other'] ? 'X' : ''
+        .box = @requisition_form.general_fields['stool_other']['checked'] ? 'X' : ''
         span
           | Other: #{@requisition_form.general_fields['stool_other']['text']}
 
@@ -105,7 +105,7 @@
         .box = @requisition_form.general_fields['her2'] ? 'X' : ''
         span HER2 / neu
       .input
-        .box = @requisition_form.general_fields['dna_other'] ? 'X' : ''
+        .box = @requisition_form.general_fields['dna_other']['checked'] ? 'X' : ''
         span
           | Other: #{@requisition_form.general_fields['dna_other']['text']}
       .input
