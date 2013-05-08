@@ -4,53 +4,50 @@
     .row
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
+          .box = @requisition_form.medical_history['lmp']['checked'] ? 'X' : ''
           span
-          | LMP:
+          | LMP: #{@requisition_form.medical_history['lmp']['text']}
         .input
-          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
-          span Menopausal, year:
+          .box = @requisition_form.medical_history['menopausal'] ? 'X' : ''
+          span Menopausal, year: #{@requisition_form.medical_history['menopausal']['year']}
         .input
-          .box = @requisition_form.medical_history['anemia'] ? 'X' : ''
-          span Pregnant (weeks: )
+          .box = @requisition_form.medical_history['pregnant'] ? 'X' : ''
+          span Pregnant (weeks: #{@requisition_form.medical_history['pregnant']['text']})
         .input
-          .box = @requisition_form.medical_history['barretts'] ? 'X' : ''
-          span Postpartum (weeks: )
+          .box = @requisition_form.medical_history['postpartum'] ? 'X' : ''
+          span Postpartum (weeks: #{@requisition_form.medical_history['postpartum']['text']})
         .input
-          .box = @requisition_form.medical_history['bleeding'] ? 'X' : ''
+          .box = @requisition_form.medical_history['normal_exam'] ? 'X' : ''
           span Normal exam
         .input
-          .box = @requisition_form.medical_history['cancer']['checked'] ? 'X' : ''
-          span Abnormal Gyn exam:
+          .box = @requisition_form.medical_history['abnormal_exam']['checked'] ? 'X' : ''
+          span Abnormal Gyn exam: #{@requisition_form.medical_history['abnormal_exam']['text']}
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['dysphagia'] ? 'X' : ''
+          .box = @requisition_form.medical_history['abnormal_bleeding'] ? 'X' : ''
           span Abnormal bleeding, vaginal
         .input
-          .box = @requisition_form.medical_history['fistula_tract'] ? 'X' : ''
+          .box = @requisition_form.medical_history['postmenopausal_bleeding'] ? 'X' : ''
           span Postmenopausal bleeding
         .input
-          .box = @requisition_form.medical_history['fungi'] ? 'X' : ''
+          .box = @requisition_form.medical_history['hormonal_therapy'] ? 'X' : ''
           span Hormonal therapy
         .input
-          .box = @requisition_form.medical_history['gastritis'] ? 'X' : ''
+          .box = @requisition_form.medical_history['hysterectomy_total'] ? 'X' : ''
           span Hysterectomy, Total
         .input
-          .box = @requisition_form.medical_history['gred'] ? 'X' : ''
+          .box = @requisition_form.medical_history['hysterectomy_supracervical'] ? 'X' : ''
           span Hysterectomy, Supracervical
         .input
-          .box = @requisition_form.medical_history['heartburn'] ? 'X' : ''
-          span Contraceptive / IUD, type:
+          .box = @requisition_form.medical_history['contraceptive'] ? 'X' : ''
+          span Contraceptive / IUD, type: #{@requisition_form.medical_history['contraceptive']['type']}
       .small-4.columns
         .input
-          .box = @requisition_form.medical_history['polyp_site']['checked'] ? 'X' : ''
-          span Other Medical History:
+          .box = @requisition_form.medical_history['other_medical_history']['checked'] ? 'X' : ''
+          span Other Medical History: #{@requisition_form.medical_history['other_medical_history']['text']}
         .input
-          .box = @requisition_form.medical_history['screening_for']['checked'] ? 'X' : ''
-          span Previous Cytology, Date: ; Dx: ; Lab: ;
+          .box = @requisition_form.medical_history['previous_cytology']['checked'] ? 'X' : ''
+          span Previous Cytology, Date: #{@requisition_form.medical_history['previous_cytology']['date']}; Dx: #{@requisition_form.medical_history['previous_cytology']['dx']}; Lab: #{@requisition_form.medical_history['previous_cytology']['lab']};
         .input
-          .box = @requisition_form.medical_history['skin_tag'] ? 'X' : ''
-          span Previous Biopsy, Date: ; Dx: ; Lab: ;
-        .input
-          .box = @requisition_form.medical_history['weight_loss'] ? 'X' : ''
-          span Special Requests
+          .box = @requisition_form.medical_history['previous_biopsy'] ? 'X' : ''
+          span Previous Biopsy, Date: #{@requisition_form.medical_history['previous_biopsy']['date']}; Dx: #{@requisition_form.medical_history['previous_biopsy']['dx']}; Lab: #{@requisition_form.medical_history['previous_biopsy']['lab']};
