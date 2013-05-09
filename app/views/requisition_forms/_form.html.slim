@@ -12,12 +12,12 @@
         div www.CBMPATH.com
       .small-4.columns.doctors.br.bl
         = f.simple_fields_for :doctor do |d|
-          = d.input :user_id, as: :hidden, :input_html => {value: current_user.id}
+          = d.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
           = d.input :name, label: "Referring / Ordering M.D.", required: true
           = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
 
         = f.simple_fields_for :doctor2 do |d|
-          = d.input :user_id, as: :hidden, :input_html => {value: current_user.id}
+          = d.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
           = d.input :name, label: "Additional M.D."
           = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
 
@@ -30,7 +30,7 @@
 
     .row
       = f.simple_fields_for :patient do |p|
-        = p.input :user_id, as: :hidden, :input_html => {value: current_user.id}
+        = p.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
         .small-6.columns.patient-info
           = p.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
           h4 Patient Information

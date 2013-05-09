@@ -88,7 +88,9 @@ jQuery ->
     onSelect: (suggestion) ->
       $(@).parent().next().find('input').val(suggestion.data.id)
   $('#requisition_form_doctor_attributes_name,#requisition_form_doctor2_attributes_name').keydown (e) ->
-    $(@).parent().next().find('input').val('')
+    keycode = if e.keyCode then e.keyCode else e.which
+    unless keycode == 9 # tab key
+      $(@).parent().next().find('input').val('')
 
   $('#requisition_form_patient_attributes_first_name,#requisition_form_patient_attributes_middle_name,#requisition_form_patient_attributes_last_name').autocomplete
     serviceUrl: '/search/patients'
@@ -127,7 +129,9 @@ jQuery ->
       $('.patient-info .clear,.insurance-info .clear').show()
 
   $('#requisition_form_patient_attributes_first_name,#requisition_form_patient_attributes_middle_name,#requisition_form_patient_attributes_last_name').keydown (e) ->
-    $('#requisition_form_patient_attributes_user_id').val('')
+    keycode = if e.keyCode then e.keyCode else e.which
+    unless keycode == 9 # tab key
+      $('#requisition_form_patient_attributes_id').val('')
 
   $('.patient-info .clear, .insurance-info .clear').click (e) ->
     $('.patient-info input,.patient-info select,.insurance-info input,.insurance-info select').val('').removeAttr('disabled')
