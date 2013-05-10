@@ -15,6 +15,7 @@ gem 'dalli' # memcache
 gem 'annotate'
 gem 'simple_form'
 gem 'pg_search'
+gem 'activeadmin', "~> 0.6.0", :git => "git://github.com/gregbell/active_admin.git"
 
 gem 'wicked_pdf'
 

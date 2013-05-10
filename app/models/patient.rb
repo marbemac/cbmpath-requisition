@@ -38,7 +38,7 @@ class Patient < ActiveRecord::Base
                   :insurance_date_of_birth, :insurance_group_number,
                   :insurance_insured_employer, :insurance_insured_name,
                   :insurance_insured_work_phone, :insurance_name,
-                  :insurance_phone, :insurance_policy_id, :insurance_relation,
+                  :insurance_phone, :insurance_policy_number, :insurance_relation,
                   :insurance_type, :user_id
 
   before_save :update_searchable_name
@@ -74,7 +74,7 @@ class Patient < ActiveRecord::Base
   #    = p.input :insurance_insured_employer
   #              .small-6.columns
   #    = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation"
-  #    = p.input :insurance_policy_id
+  #    = p.input :insurance_policy_number
   #    = p.input :insurance_insured_work_phone
   #    = p.input :insurance_phone
 
@@ -101,7 +101,7 @@ class Patient < ActiveRecord::Base
               :insurance_insured_name => result.insurance_insured_name,
               :insurance_insured_employer => result.insurance_insured_employer,
               :insurance_relation => result.insurance_relation,
-              :insurance_policy_id => result.insurance_policy_id,
+              :insurance_policy_number => result.insurance_policy_number,
               :insurance_insured_work_phone => result.insurance_insured_work_phone,
               :insurance_phone => result.insurance_phone,
           }

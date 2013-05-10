@@ -79,7 +79,7 @@
               = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
             .small-6.columns
               = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
-              = p.input :insurance_policy_id, required: true, :input_html => {:autocomplete => 'off'}, label: "Policy ID Number"
+              = p.input :insurance_policy_number, required: true, :input_html => {:autocomplete => 'off'}, label: "Policy ID Number"
               = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
               = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Number"
 

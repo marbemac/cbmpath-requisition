@@ -1,6 +1,11 @@
 CbmpathRequisition::Application.routes.draw do
 
-  devise_for :users
+  root :to => 'home#welcome'
+
+  match 'admin', :to => 'admin/requisition_forms#index'
+
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   resources :users, :requisition_forms, :patients
 
@@ -8,8 +13,6 @@ CbmpathRequisition::Application.routes.draw do
     get 'patients' => 'patients#search'
     get 'doctors' => 'doctors#search'
   end
-
-  root :to => 'home#welcome'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

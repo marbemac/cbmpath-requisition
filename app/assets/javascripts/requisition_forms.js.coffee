@@ -114,7 +114,7 @@ jQuery ->
       $("#requisition_form_patient_attributes_insurance_name").val(suggestion.data.insurance_name)
       $("#requisition_form_patient_attributes_insurance_insured_name").val(suggestion.data.insurance_insured_name)
       $("#requisition_form_patient_attributes_insurance_group_number").val(suggestion.data.insurance_group_number)
-      $("#requisition_form_patient_attributes_insurance_policy_id").val(suggestion.data.insurance_policy_id)
+      $("#requisition_form_patient_attributes_insurance_policy_number").val(suggestion.data.insurance_policy_number)
       $("#requisition_form_patient_attributes_insurance_date_of_birth_1i").val(suggestion.data.insurance_date_of_birth[0])
       $("#requisition_form_patient_attributes_insurance_date_of_birth_2i").val(suggestion.data.insurance_date_of_birth[1])
       $("#requisition_form_patient_attributes_insurance_date_of_birth_3i").val(suggestion.data.insurance_date_of_birth[2])
