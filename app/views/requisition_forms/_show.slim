@@ -17,27 +17,27 @@
         .small-6.columns.referring-info.bt.bl.pad
           div.head
             b Referring/Ordering M.D.
-          div = @requisition_form.doctor.name
+          div = @requisition_form.doctor_name
 
       .row
         .small-12.columns.patient-info.bt.bl
           .row
             .small-5.columns.pad
               b Patient Last Name:
-              = " #{@requisition_form.patient.last_name}"
+              = " #{@requisition_form.patient_last_name}"
             .small-4.columns.pad
               b First:
-              = " #{@requisition_form.patient.first_name}"
+              = " #{@requisition_form.patient_first_name}"
             .small-3.columns.pad
               b MI:
-              = " #{@requisition_form.patient.middle_name}"
+              = " #{@requisition_form.patient_middle_name}"
           .row
             .small-6.columns.pad
               b Sex:
-              = " #{@requisition_form.patient.sex}"
+              = " #{@requisition_form.patient_sex}"
             .small-6.columns.pad
               b Date of Birth:
-              = " #{@requisition_form.patient.date_of_birth.strftime("%d/%m/%Y") if @requisition_form.patient.date_of_birth}"
+              = " #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y") if @requisition_form.patient_date_of_birth}"
 
     .small-5.columns.top-right.bt.br.bl
       .row
@@ -55,7 +55,7 @@
               .content = @requisition_form.collection_date.strftime("%d/%m/%Y") if @requisition_form.collection_date
             .small-12.columns.br.pad
               div.head Patient SSN#:
-              .content = @requisition_form.patient.ssn
+              .content = @requisition_form.patient_ssn
         .small-7.columns.pad
           .head ICD-9 Codes:
           .content = @requisition_form.icd9_codes.join(', ')

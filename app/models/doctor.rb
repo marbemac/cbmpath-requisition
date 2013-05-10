@@ -6,6 +6,7 @@
 #  id              :integer          not null, primary key
 #  name            :string(255)
 #  searchable_name :string(255)
+#  type            :string(255)
 #  updated_at      :datetime         not null
 #  user_id         :integer
 #
