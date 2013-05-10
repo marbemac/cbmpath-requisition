@@ -70,10 +70,10 @@
                 == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
                   - b.label { b.radio_button + b.text.html_safe }
             .small-8.columns
-              = p.input :insurance_name, required: true, :input_html => {:autocomplete => 'off'}
+              = p.input :insurance_name, :input_html => {:autocomplete => 'off', :class => "if-insured"}
           .row
             .small-6.columns
-              = p.input :insurance_insured_name, required: true, :input_html => {:autocomplete => 'off'}, label: "Insured's Name"
+              = p.input :insurance_insured_name, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Insured's Name"
               = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
               = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}, label: "Insured's Date of Birth"
               = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"

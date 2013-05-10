@@ -63,10 +63,10 @@
         .small-12.columns.bt.pad
           b.bottom Please attach demographic and insurance information sheet
 
-  = render "show_#{@requisition_form.form_type}_medical_history"
+  = render "requisition_forms/show_#{@requisition_form.form_type}_medical_history"
 
   - if @requisition_form.form_type == 'gyn'
-    = render "show_gyn_laboratory_tests"
+    = render "requisition_forms/show_gyn_laboratory_tests"
 
   - if ['general','gi'].include?(@requisition_form.form_type)
     .row
@@ -74,7 +74,7 @@
         b = 'Special requests: '
         span = @requisition_form.special_requests
 
-  = render "show_#{@requisition_form.form_type}_specimens"
+  = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
 
   - if @requisition_form.form_type == 'general'
-    = render "show_general_extra_fields"
+    = render "requisition_forms/show_general_extra_fields"
