@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509223657) do
+ActiveRecord::Schema.define(:version => 20130510173440) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -34,10 +34,21 @@ ActiveRecord::Schema.define(:version => 20130509223657) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "searchable_name"
+    t.string   "type"
   end
 
   add_index "doctors", ["searchable_name"], :name => "index_doctors_on_searchable_name"
   add_index "doctors", ["user_id"], :name => "index_doctors_on_user_id"
+
+  create_table "doctors_req", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "doctors_req", ["user_id"], :name => "index_doctors_req_on_user_id"
 
   create_table "patients", :force => true do |t|
     t.string   "first_name"
@@ -64,10 +75,40 @@ ActiveRecord::Schema.define(:version => 20130509223657) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.string   "searchable_name"
+    t.string   "type"
   end
 
   add_index "patients", ["searchable_name"], :name => "index_patients_on_searchable_name"
   add_index "patients", ["user_id"], :name => "index_patients_on_user_id"
+
+  create_table "patients_req", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.string   "sex"
+    t.date     "date_of_birth"
+    t.string   "ssn"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "insurance_type"
+    t.string   "insurance_name"
+    t.string   "insurance_insured_name"
+    t.string   "insurance_group_number"
+    t.date     "insurance_date_of_birth"
+    t.string   "insurance_insured_employer"
+    t.string   "insurance_relation"
+    t.string   "insurance_policy_id"
+    t.string   "insurance_phone"
+    t.string   "insurance_insured_work_phone"
+    t.string   "type"
+    t.integer  "user_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "patients_req", ["user_id"], :name => "index_patients_req_on_user_id"
 
   create_table "requisition_forms", :force => true do |t|
     t.integer  "doctor_id"
@@ -75,20 +116,48 @@ ActiveRecord::Schema.define(:version => 20130509223657) do
     t.text     "icd9_codes"
     t.integer  "patient_id"
     t.integer  "user_id"
-    t.text     "medical_history",  :default => "{}"
+    t.text     "medical_history",                      :default => "{}"
     t.text     "special_requests"
     t.text     "specimens"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
     t.date     "collection_date"
     t.string   "form_type"
-    t.text     "laboratory_tests", :default => "{}"
-    t.text     "general_fields",   :default => "{}"
+    t.text     "laboratory_tests",                     :default => "{}"
+    t.text     "general_fields",                       :default => "{}"
+    t.integer  "patient_req_id"
+    t.integer  "doctor_req_id"
+    t.integer  "doctor2_req_id"
+    t.string   "patient_first_name"
+    t.string   "patient_last_name"
+    t.string   "patient_middle_name"
+    t.string   "patient_sex"
+    t.date     "patient_date_of_birth"
+    t.string   "patient_ssn"
+    t.string   "patient_address"
+    t.string   "patient_city"
+    t.string   "patient_state"
+    t.string   "patient_zipcode"
+    t.string   "patient_insurance_type"
+    t.string   "patient_insurance_name"
+    t.string   "patient_insurance_insured_name"
+    t.string   "patient_insurance_group_number"
+    t.date     "patient_insurance_date_of_birth"
+    t.string   "patient_insurance_insured_employer"
+    t.string   "patient_insurance_relation"
+    t.string   "patient_insurance_policy_number"
+    t.string   "patient_insurance_phone"
+    t.string   "patient_insurance_insured_work_phone"
+    t.string   "doctor_name"
+    t.string   "doctor2_name"
   end
 
   add_index "requisition_forms", ["doctor2_id"], :name => "index_requisition_forms_on_doctor2_id"
+  add_index "requisition_forms", ["doctor2_req_id"], :name => "index_requisition_forms_on_doctor2_req_id"
   add_index "requisition_forms", ["doctor_id"], :name => "index_requisition_forms_on_doctor_id"
+  add_index "requisition_forms", ["doctor_req_id"], :name => "index_requisition_forms_on_doctor_req_id"
   add_index "requisition_forms", ["patient_id"], :name => "index_requisition_forms_on_patient_id"
+  add_index "requisition_forms", ["patient_req_id"], :name => "index_requisition_forms_on_patient_req_id"
   add_index "requisition_forms", ["user_id"], :name => "index_requisition_forms_on_user_id"
 
   create_table "users", :force => true do |t|
