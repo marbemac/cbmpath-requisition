@@ -180,7 +180,7 @@
   .form-inputs {
     margin: 0 0 10px;
     >.row {
-      border: 1px black solid ;
+      border: 1px black solid;
       border-bottom: none;
       >.columns {
         padding: 10px;
@@ -195,6 +195,10 @@
           float: left;
           margin: 16px 5px 1em
         }
+      }
+      .radio-group input,
+      .med-check {
+        margin-right: 5px;
       }
       .info {
       }

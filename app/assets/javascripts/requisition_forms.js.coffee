@@ -3,6 +3,7 @@ jQuery ->
 
   $('.requisition-form-form select').removeClass('date').addClass('my-date') # So the validator doesnt require a date string from each date select.
   $('.requisition-form-form').validate({
+                                        debug: true
                                         groups: {
                                           collection_date: ["requisition_form[collection_date(1i)]",
                                                             "requisition_form[collection_date(2i)]",
@@ -20,6 +21,16 @@ jQuery ->
                                           else
                                             error.insertAfter(element)
                                         })
+
+  # Check boxes
+  $('.insurance-info .radio-group input').change (e) ->
+    self = '#requisition_form_patient_attributes_insurance_type_insurance'
+    if $(self).is(':checked')
+      $('.requisition-form-form .if-insured').each () ->
+        $(this).addClass('required')
+    else
+      $('.requisition-form-form .if-insured').each () ->
+        $(this).removeClass('required')
 
   # Check boxes
   $('.medical-history-field .med-check').change (e) ->

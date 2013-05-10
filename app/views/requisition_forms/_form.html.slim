@@ -67,19 +67,19 @@
           .row
             .small-4.columns
               .radio-group
-                == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s do |b|
+                == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s, required: true do |b|
                   - b.label { b.radio_button + b.text.html_safe }
             .small-8.columns
-              = p.input :insurance_name, :input_html => {:autocomplete => 'off', :class => "if-insured"}
+              = p.input :insurance_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}
           .row
             .small-6.columns
-              = p.input :insurance_insured_name, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Insured's Name"
+              = p.input :insurance_insured_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Name"
               = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
-              = p.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}, label: "Insured's Date of Birth"
+              = p.input :insurance_date_of_birth, order: [:month, :day, :year], :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Date of Birth"
               = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
             .small-6.columns
               = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
-              = p.input :insurance_policy_number, required: true, :input_html => {:autocomplete => 'off'}, label: "Policy ID Number"
+              = p.input :insurance_policy_number, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Policy ID Number"
               = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
               = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Number"
 
