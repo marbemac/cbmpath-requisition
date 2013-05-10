@@ -3,7 +3,6 @@ jQuery ->
 
   $('.requisition-form-form select').removeClass('date').addClass('my-date') # So the validator doesnt require a date string from each date select.
   $('.requisition-form-form').validate({
-                                        debug: true
                                         groups: {
                                           collection_date: ["requisition_form[collection_date(1i)]",
                                                             "requisition_form[collection_date(2i)]",
