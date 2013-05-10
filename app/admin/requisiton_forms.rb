@@ -20,7 +20,7 @@ ActiveAdmin.register RequisitionForm do
     column :form_type
     column :created_at
     column do |b|
-      link_to "View", requisition_form_path(b)
+      (link_to("View HTML", requisition_form_path(b)) + '   ' + link_to("View PDF", requisition_form_path(b, :format => :pdf))).html_safe
     end
   end
 end
