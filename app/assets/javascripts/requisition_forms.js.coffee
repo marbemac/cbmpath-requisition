@@ -30,7 +30,8 @@ jQuery ->
         $(this).addClass('required')
     else
       $('.requisition-form-form .if-insured').each () ->
-        $(this).removeClass('required')
+        $(this).removeClass('required error').addClass('valid')
+        $(this).siblings('label.error').remove()
 
   # Check boxes
   $('.medical-history-field .med-check').change (e) ->
