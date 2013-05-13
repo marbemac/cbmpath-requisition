@@ -32,7 +32,7 @@ body id="#{params[:controller]}-#{params[:action]}" class="active_admin"
 
     - if signed_in?
       #mast-nav
-        a.brand href=user_path(current_user) CBM Pathology
+        a.brand href=root_path CBM Pathology
         .right
           = link_to "patients", admin_patients_path
           | &sdot;
