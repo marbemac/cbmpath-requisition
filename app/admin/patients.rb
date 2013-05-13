@@ -19,7 +19,7 @@ ActiveAdmin.register Patient do
       f.input :last_name
       f.input :middle_name
       f.input :sex
-      f.input :date_of_birth, :start_year => Time.now.year, :end_year => Time.now.year - 120
+      f.input :date_of_birth, order: [:month, :day, :year], :prompt => true, :start_year => Time.now.year, :end_year => Time.now.year - 120
       f.input :ssn
       f.input :address
       f.input :city
@@ -29,7 +29,7 @@ ActiveAdmin.register Patient do
       f.input :insurance_name
       f.input :insurance_insured_name, label: "Insured's Name"
       f.input :insurance_group_number, label: "Group Number"
-      f.input :insurance_date_of_birth, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, label: "Insured's Date of Birth"
+      f.input :insurance_date_of_birth, order: [:month, :day, :year], :prompt => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, label: "Insured's Date of Birth"
       f.input :insurance_insured_employer, label: "Insured's Employer"
       f.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
       f.input :insurance_policy_number, label: "Indsurance Policy ID"
