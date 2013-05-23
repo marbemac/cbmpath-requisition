@@ -2,9 +2,11 @@ CbmpathRequisition::Application.routes.draw do
 
   root :to => 'home#welcome'
 
-  match 'admin', :to => 'admin/requisition_forms#index'
+  scope 'admin' do
+    match '', :to => 'admin/requisition_forms#index'
+  end
 
-  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :users
   ActiveAdmin.routes(self)
 
   resources :users, :requisition_forms, :patients

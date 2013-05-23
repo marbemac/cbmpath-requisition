@@ -1,5 +1,5 @@
 ActiveAdmin.register Patient do
-  scope_to :current_user
+  scope_to :current_user, :unless => proc{ can?(:manage, :all) }
 
   actions :index, :edit, :show, :update
 

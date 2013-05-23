@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510173440) do
+ActiveRecord::Schema.define(:version => 20130523173752) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -49,9 +49,10 @@ ActiveRecord::Schema.define(:version => 20130510173440) do
   create_table "doctors", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "searchable_name"
+    t.integer  "cbm_doctor_identifier"
   end
 
   add_index "doctors", ["searchable_name"], :name => "index_doctors_on_searchable_name"
@@ -150,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20130510173440) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "cbm_user_identifier"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

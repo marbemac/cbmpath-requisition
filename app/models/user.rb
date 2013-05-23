@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  address                :string(255)
+#  cbm_user_identifier    :integer
 #  city                   :string(255)
 #  created_at             :datetime         not null
 #  current_sign_in_at     :datetime
@@ -32,7 +33,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :practice_name,
-                  :address, :city, :state, :zipcode
+                  :address, :city, :state, :zipcode, :cbm_user_identifier
+
+  validates_presence_of :cbm_user_identifier
 
   has_many :patients
   has_many :doctors

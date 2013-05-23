@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  address                :string(255)
+#  cbm_user_identifier    :integer
 #  city                   :string(255)
 #  created_at             :datetime         not null
 #  current_sign_in_at     :datetime

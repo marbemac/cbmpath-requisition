@@ -6,10 +6,8 @@
 #  created_at                           :datetime         not null
 #  doctor2_id                           :integer
 #  doctor2_name                         :string(255)
-#  doctor2_req_id                       :integer
 #  doctor_id                            :integer
 #  doctor_name                          :string(255)
-#  doctor_req_id                        :integer
 #  form_type                            :string(255)
 #  general_fields                       :text             default("{}")
 #  icd9_codes                           :text
@@ -33,13 +31,12 @@
 #  patient_insurance_type               :string(255)
 #  patient_last_name                    :string(255)
 #  patient_middle_name                  :string(255)
-#  patient_req_id                       :integer
 #  patient_sex                          :string(255)
 #  patient_ssn                          :string(255)
 #  patient_state                        :string(255)
 #  patient_zipcode                      :string(255)
 #  special_requests                     :text
-#  specimens                            :text
+#  specimens                            :text             default("{}")
 #  updated_at                           :datetime         not null
 #  user_id                              :integer
 #

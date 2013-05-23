@@ -2,22 +2,24 @@
 #
 # Table name: doctors
 #
-#  created_at      :datetime         not null
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  searchable_name :string(255)
-#  type            :string(255)
-#  updated_at      :datetime         not null
-#  user_id         :integer
+#  cbm_doctor_identifier :integer
+#  created_at            :datetime         not null
+#  id                    :integer          not null, primary key
+#  name                  :string(255)
+#  searchable_name       :string(255)
+#  updated_at            :datetime         not null
+#  user_id               :integer
 #
 
 class Doctor < ActiveRecord::Base
   belongs_to :user
   has_many :requisition_forms
 
-  attr_accessible :name, :user_id
+  attr_accessible :name, :user_id, :cbm_doctor_identifier
 
   before_save :update_searchable_name
+
+  validates_presence_of :cbm_doctor_identifier
 
   def update_searchable_name
     if name_changed? || !persisted?

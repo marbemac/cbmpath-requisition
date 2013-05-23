@@ -1,5 +1,5 @@
 ActiveAdmin.register RequisitionForm do
-  scope_to :current_user
+  scope_to :current_user, :unless => proc{ can?(:manage, :all) }
   actions :index
 
   action_item do

@@ -24,7 +24,6 @@
 #  sex                          :string(255)
 #  ssn                          :string(255)
 #  state                        :string(255)
-#  type                         :string(255)
 #  updated_at                   :datetime         not null
 #  user_id                      :integer
 #  zipcode                      :string(255)
