@@ -9,7 +9,8 @@ CbmpathRequisition::Application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
 
-  resources :users, :requisition_forms, :patients
+  resources :users
+  resources :requisition_forms, :only => [:show, :new, :create]
 
   scope 'search' do
     get 'patients' => 'patients#search'

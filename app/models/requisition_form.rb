@@ -52,7 +52,7 @@ class RequisitionForm < ActiveRecord::Base
   belongs_to :patient
   belongs_to :user
 
-  accepts_nested_attributes_for :doctor, :doctor2, :patient
+  accepts_nested_attributes_for :patient
 
   attr_protected :user_id
 

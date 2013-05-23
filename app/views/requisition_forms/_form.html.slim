@@ -11,15 +11,9 @@
         div Phone (301) 926 4707 Fax (301) 926 4708
         div www.CBMPATH.com
       .small-4.columns.doctors.br.bl
-        = f.simple_fields_for :doctor do |d|
-          = d.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
-          = d.input :name, label: "Referring / Ordering M.D.", required: true
-          = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
+        = f.input :doctor_id, label: "Referring / Ordering M.D.", collection: current_user.doctors, required: true
 
-        = f.simple_fields_for :doctor2 do |d|
-          = d.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
-          = d.input :name, label: "Additional M.D."
-          = d.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
+        = f.input :doctor2_id, label: "Additional M.D.", collection: current_user.doctors
 
         = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}, :start_year => Time.now.year, :end_year => 2008
 
