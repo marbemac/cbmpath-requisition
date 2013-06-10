@@ -1,3 +1,6 @@
+require 'net/ftp'
+require 'double_bag_ftps'
+
 class RequisitionFormsController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
@@ -69,6 +72,23 @@ class RequisitionFormsController < ApplicationController
 
     respond_to do |format|
       if @requisition_form.save
+
+        begin
+          file = File.open("/tmp/#{@requisition_form.id}.txt","w") do |f|
+            f.write(@requisition_form.to_json)
+          end
+          ftps = DoubleBagFTPS.new
+          ftps.debug_mode = true
+          ftps.ssl_context = DoubleBagFTPS.create_ssl_context(:verify_mode => OpenSSL::SSL::VERIFY_NONE)
+          ftps.connect('us1.hostedftp.com')
+          ftps.login("marbemac@gmail.com", "giants22")
+          ftps.passive = true
+          ftps.puttextfile("/tmp/#{@requisition_form.id}.txt")
+          ftps.quit()
+        rescue
+          Emailer.deliver_ftp_fail(@requisition_form.id)
+        end
+
         format.html { redirect_to @requisition_form, notice: 'Requisition form was successfully created.' }
         format.json { render json: @requisition_form, status: :created, location: @requisition_form }
       else
