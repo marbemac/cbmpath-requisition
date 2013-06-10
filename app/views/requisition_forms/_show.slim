@@ -1,80 +1,83 @@
 #requisition-form-show
-  .row
-    .small-7.columns
-      .row
-        .small-6.columns.top-left.pad
-          - if params[:format] == 'pdf'
-            div.logo = wicked_pdf_image_tag('logo.png')
-          - else
-            div.logo = image_tag('logo.png')
-          div
-            b Cytology, Biopsy, Microscopy
-          div 18207A Flower Hill Way
-          div Gaithersburg, MD 20879
-          div Phone 301.926.4707, Fax 301.926.4708
-          div www.cbmpath.com
+  .row.form-show-header
+    .small-6.columns
+      - if params[:format] == 'pdf'
+        div.logo = wicked_pdf_image_tag('logo.png')
+      - else
+        div.logo = image_tag('logo.png')
 
-        .small-6.columns.referring-info.bt.bl.pad
-          div.head
-            b Referring/Ordering M.D.
-          div = @requisition_form.doctor_name
+    .small-6.columns.right
+      div #{@requisition_form.form_type} Pathology Requisition Form
 
-      .row
-        .small-12.columns.patient-info.bt.bl
-          .row
-            .small-5.columns.pad
-              b Patient Last Name:
-              = " #{@requisition_form.patient_last_name}"
-            .small-4.columns.pad
-              b First:
-              = " #{@requisition_form.patient_first_name}"
-            .small-3.columns.pad
-              b MI:
-              = " #{@requisition_form.patient_middle_name}"
-          .row
-            .small-6.columns.pad
-              b Sex:
-              = " #{@requisition_form.patient_sex}"
-            .small-6.columns.pad
-              b Date of Birth:
-              = " #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y") if @requisition_form.patient_date_of_birth}"
+  .row.form-show-info
+    .small-6.columns
+      div 18207A Flower Hill Way
+      div Gaithersburg, MD 20879
+      div Phone 301.926.4707, Fax 301.926.4708
+      div www.cbmpath.com
+    .small-6.columns.right
+      div = @requisition_form.user.practice_name
+      div = @requisition_form.doctor_name
+      - if @requisition_form.doctor2
+        div = @requisition_form.doctor2_name
+      - if @requisition_form.collection_date
+        div = @requisition_form.collection_date.strftime("%d/%m/%Y")
 
-    .small-5.columns.top-right.bt.br.bl
-      .row
-        .small-12.columns.bb.pad
-          b.top #{@requisition_form.form_type} PATHOLOGY REQUISITION FORM
-      .row
-        .small-12.columns.bb.pad
-          span.head = "Additional MD: "
-          span.content = @requisition_form.doctor2 ? @requisition_form.doctor2.name : ''
-      .row
-        .small-5.columns
-          .row
-            .small-12.columns.bb.br.pad
-              .head Collection Date:
-              .content = @requisition_form.collection_date.strftime("%d/%m/%Y") if @requisition_form.collection_date
-            .small-12.columns.br.pad
-              div.head Patient SSN#:
-              .content = @requisition_form.patient_ssn
-        .small-7.columns.pad
-          .head ICD-9 Codes:
-          .content = @requisition_form.icd9_codes.join(', ')
-      .row
-        .small-12.columns.bt.pad
-          b.bottom Please attach demographic and insurance information sheet
+  .row.form-show-section
+    .small-3.columns.form-show-section__name
+      div ICD-9 Codes
+    .small-9.columns
+      div = @requisition_form.icd9_codes.join(', ')
 
-  = render "requisition_forms/show_#{@requisition_form.form_type}_medical_history"
+  .row.form-show-section
+    .small-3.columns.form-show-section__name
+      div Patient
+    .small-9.columns
+      .row
+        .small-4.columns
+          div = [@requisition_form.patient_first_name.capitalize, @requisition_form.patient_middle_name.capitalize, @requisition_form.patient_last_name.capitalize].join(' ')
+          div = @requisition_form.patient_address
+          div #{@requisition_form.patient_city} #{@requisition_form.patient_state}, #{@requisition_form.patient_zipcode}
+        .small-4.columns
+          - if @requisition_form.patient_date_of_birth
+            div DoB: #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}
+          div Gender: #{@requisition_form.patient_sex}
+          div SSN: #{@requisition_form.patient_ssn}
+        .small-4.columns
+
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Medical History
+    .small-9.columns
+      = render "requisition_forms/show_#{@requisition_form.form_type}_medical_history"
 
   - if @requisition_form.form_type == 'gyn'
-    = render "requisition_forms/show_gyn_laboratory_tests"
-
-  - if ['general','gi'].include?(@requisition_form.form_type)
-    .row
-      .small-12.columns.special-requests.bl.br.pad
-        b = 'Special requests: '
-        span = @requisition_form.special_requests
-
-  = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
+    .row.form-show-section
+      .small-3.columns.columns.form-show-section__name
+        div Laboratory Tests
+      .small-9.columns.free-list
+        = render "requisition_forms/show_gyn_laboratory_tests"
 
   - if @requisition_form.form_type == 'general'
     = render "requisition_forms/show_general_extra_fields"
+
+  - if ['general','gi'].include?(@requisition_form.form_type) && @requisition_form.special_requests.present?
+    .row.form-show-section
+      .small-3.columns.columns.form-show-section__name
+        div Special Requests
+      .small-9.columns
+        div = @requisition_form.special_requests
+
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Specimens
+    .small-9.columns
+      = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
+
+  .specimen-labels
+    - if @requisition_form.form_type == 'general'
+      - @requisition_form.medical_history['specimens'].each do |k,v|
+        .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{v}"
+    - else
+      - @requisition_form.specimens.each_with_index do |specimen, i|
+        .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{specimen[0]['source']}"

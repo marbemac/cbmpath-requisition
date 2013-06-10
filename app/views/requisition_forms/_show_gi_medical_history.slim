@@ -1,145 +1,95 @@
-.row
-  .small-12.columns.medical-history.ba
-    div.head Medical history
-    .row
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['abdominal_pain']['checked'] ? 'X' : ''
-          span
-          | Abdominal pain
-          - if @requisition_form.medical_history['abdominal_pain'] && !@requisition_form.medical_history['abdominal_pain']['location'].blank?
-            = " (#{@requisition_form.medical_history['abdominal_pain']['location']})"
-        .input
-          .box = @requisition_form.medical_history['anal_lesion'] ? 'X' : ''
-          span Anal Lesion
-        .input
-          .box = @requisition_form.medical_history['anemia'] ? 'X' : ''
-          span Anemia
-        .input
-          .box = @requisition_form.medical_history['barretts'] ? 'X' : ''
-          span Barrett's
-        .input
-          .box = @requisition_form.medical_history['bleeding'] ? 'X' : ''
-          span Bleeding #{@requisition_form.medical_history['bleeding'] && @requisition_form.medical_history['bleeding']['type'] ? '- '+@requisition_form.medical_history['bleeding']['type'] : ''}
-        .input
-          .box = @requisition_form.medical_history['cancer']['checked'] ? 'X' : ''
-          span
-            | Cancer
-            - if @requisition_form.medical_history['cancer']['checked']
-              .check-and-label
-                .box = @requisition_form.medical_history['cancer']['personal'] ? 'X' : ''
-                | Personal
-                = ", Type: #{@requisition_form.medical_history['cancer']['personal_type']}" unless @requisition_form.medical_history['cancer']['personal_type'].blank?
-              .check-and-label
-                .box = @requisition_form.medical_history['cancer']['family'] ? 'X' : ''
-                | Family
-                = ", Type: #{@requisition_form.medical_history['cancer']['family_type']}" unless @requisition_form.medical_history['cancer']['family_type'].blank?
-        .input
-          .box = @requisition_form.medical_history['colitis']['checked'] ? 'X' : ''
-          span
-            | Colitis #{@requisition_form.medical_history['colitis']['type'] ? '- ' + @requisition_form.medical_history['colitis']['type'] : ''}
-            = @requisition_form.medical_history['colitis']['other']
-        .input
-          .box = @requisition_form.medical_history['condyloma'] ? 'X' : ''
-          span Condyloma
-        .input
-          .box = @requisition_form.medical_history['constipation'] ? 'X' : ''
-          span Constipation
-        .input
-          .box = @requisition_form.medical_history['diarrhea_bloody'] ? 'X' : ''
-          span Diarrhea,bloody
-        .input
-          .box = @requisition_form.medical_history['diarrhea_watery'] ? 'X' : ''
-          span Diarrhea,watery
-        .input
-          .box = @requisition_form.medical_history['diverticulosis'] ? 'X' : ''
-          span Diverticulosis
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['dysphagia'] ? 'X' : ''
-          span Dysphagia
-        .input
-          .box = @requisition_form.medical_history['fistula_tract'] ? 'X' : ''
-          span Fistula Tract
-        .input
-          .box = @requisition_form.medical_history['fungi'] ? 'X' : ''
-          span Fungi(Candida)
-        .input
-          .box = @requisition_form.medical_history['gastritis'] ? 'X' : ''
-          span Gastritis
-        .input
-          .box = @requisition_form.medical_history['gred'] ? 'X' : ''
-          span GRED(Reflux)
-        .input
-          .box = @requisition_form.medical_history['heartburn'] ? 'X' : ''
-          span Heartburn
-        .input
-          .box = @requisition_form.medical_history['hemorrhoid'] ? 'X' : ''
-          span Hemorrhoid
-        .input
-          .box = @requisition_form.medical_history['history']['checked'] ? 'X' : ''
-          span History of: #{@requisition_form.medical_history['history']['checked'] ? @requisition_form.medical_history['history']['history'] : ''}
-        .input
-          .box = @requisition_form.medical_history['lymphoma'] ? 'X' : ''
-          span Lymphoma
-        .input
-          .box = @requisition_form.medical_history['malabsorption'] ? 'X' : ''
-          span Malabsorption
-        .input
-          .box = @requisition_form.medical_history['nausea'] ? 'X' : ''
-          span Nausea/ Vomiting
-        .input
-          .box = @requisition_form.medical_history['pilonidal_cyst'] ? 'X' : ''
-          span Pilonidal Cyst
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['polyp_site']['checked'] ? 'X' : ''
-          span Polyp site: #{@requisition_form.medical_history['polyp_site']['checked'] ? @requisition_form.medical_history['polyp_site']['polyp_site'] : ''}
-        .input
-          .box = @requisition_form.medical_history['screening_for']['checked'] ? 'X' : ''
-          span Screening for: #{@requisition_form.medical_history['screening_for']['checked'] ? @requisition_form.medical_history['screening_for']['screening_for'] : ''}
-        .input
-          .box = @requisition_form.medical_history['skin_tag'] ? 'X' : ''
-          span Skin Tag
-        .input
-          .box = @requisition_form.medical_history['weight_loss'] ? 'X' : ''
-          span Weight Loss
-        .input
-          .box = @requisition_form.medical_history['other']['checked'] ? 'X' : ''
-          span OTHER: #{@requisition_form.medical_history['other']['checked'] ? @requisition_form.medical_history['other']['other'] : ''}
-        .input
-          .box = @requisition_form.medical_history['rule_out']['checked'] ? 'X' : ''
-          span Rule Out:
-          .row.rule-out
-            .small-6.columns
-              .input
-                .box = @requisition_form.medical_history['rule_out']['barrets'] ? 'X' : ''
-                span Barret's
-              .input
-                .box = @requisition_form.medical_history['rule_out']['carcinoma'] ? 'X' : ''
-                span Carcinoma
-              .input
-                .box = @requisition_form.medical_history['rule_out']['celiac'] ? 'X' : ''
-                span Celiac
-              .input
-                .box = @requisition_form.medical_history['rule_out']['h_pylori'] ? 'X' : ''
-                span Carcinoma
-            .small-6.columns
-              .input
-                .box = @requisition_form.medical_history['rule_out']['dysplasia'] ? 'X' : ''
-                span Dyslplasia
-              .input
-                .box = @requisition_form.medical_history['rule_out']['esophagitis'] ? 'X' : ''
-                span Esophagitis
-              .input
-                .box = @requisition_form.medical_history['rule_out']['giardia'] ? 'X' : ''
-                span Giardia
-              .input
-                .box = @requisition_form.medical_history['rule_out']['colitis'] ? 'X' : ''
-                span H. Pylori
-            .small-12.columns
-              .input
-                .box = @requisition_form.medical_history['rule_out']['other'] ? 'X' : ''
-                span
-                | Other: &nbsp;
-                = @requisition_form.medical_history['rule_out']['other_text']
+.free-list
+  - if @requisition_form.medical_history['abdominal_pain']['checked']
+    div
+      | Abdominal pain
+      - if @requisition_form.medical_history['abdominal_pain'] && !@requisition_form.medical_history['abdominal_pain']['location'].blank?
+        = " (#{@requisition_form.medical_history['abdominal_pain']['location']})"
+  - if @requisition_form.medical_history['anal_lesion']
+    div Anal Lesion
+  - if @requisition_form.medical_history['anemia']
+    div Anemia
+  - if @requisition_form.medical_history['barretts']
+    div Barrett's
+  - if @requisition_form.medical_history['bleeding']
+    div Bleeding #{@requisition_form.medical_history['bleeding'] && @requisition_form.medical_history['bleeding']['type'] ? '- '+@requisition_form.medical_history['bleeding']['type'] : ''}
+  - if @requisition_form.medical_history['cancer']['checked']
+    div
+      | Cancer
+      - if @requisition_form.medical_history['cancer']['checked']
+        - if @requisition_form.medical_history['cancer']['personal']
+          = '; Personal'
+          = ", Type: #{@requisition_form.medical_history['cancer']['personal_type']}" unless @requisition_form.medical_history['cancer']['personal_type'].blank?
+        - if @requisition_form.medical_history['cancer']['family']
+          = '; Family'
+          = ", Type: #{@requisition_form.medical_history['cancer']['family_type']}" unless @requisition_form.medical_history['cancer']['family_type'].blank?
+  - if @requisition_form.medical_history['colitis']['checked']
+    div
+      | Colitis #{@requisition_form.medical_history['colitis']['type'] ? '- ' + @requisition_form.medical_history['colitis']['type'] : ''}
+      = @requisition_form.medical_history['colitis']['other']
+  - if @requisition_form.medical_history['condyloma']
+    div Condyloma
+  - if @requisition_form.medical_history['constipation']
+    div Constipation
+  - if @requisition_form.medical_history['diarrhea_bloody']
+    div Diarrhea,bloody
+  - if @requisition_form.medical_history['diarrhea_watery']
+    div Diarrhea,watery
+  - if @requisition_form.medical_history['diverticulosis']
+    div Diverticulosis
+  - if @requisition_form.medical_history['dysphagia']
+    div Dysphagia
+  - if @requisition_form.medical_history['fistula_tract']
+    div Fistula Tract
+  - if @requisition_form.medical_history['fungi']
+    div Fungi(Candida)
+  - if @requisition_form.medical_history['gastritis']
+    div Gastritis
+  - if @requisition_form.medical_history['gred']
+    div GRED(Reflux)
+  - if @requisition_form.medical_history['heartburn']
+    div Heartburn
+  - if @requisition_form.medical_history['hemorrhoid']
+    div Hemorrhoid
+  - if @requisition_form.medical_history['history']['checked']
+    div History of #{@requisition_form.medical_history['history']['checked'] ? @requisition_form.medical_history['history']['history'] : ''}
+  - if @requisition_form.medical_history['lymphoma']
+    div Lymphoma
+  - if @requisition_form.medical_history['malabsorption']
+    div Malabsorption
+  - if @requisition_form.medical_history['nausea']
+    div Nausea/ Vomiting
+  - if @requisition_form.medical_history['pilonidal_cyst']
+    div Pilonidal Cyst
+  - if @requisition_form.medical_history['polyp_site']['checked']
+    div Polyp site: #{@requisition_form.medical_history['polyp_site']['checked'] ? @requisition_form.medical_history['polyp_site']['polyp_site'] : ''}
+  - if @requisition_form.medical_history['screening_for']['checked']
+    div Screening for: #{@requisition_form.medical_history['screening_for']['checked'] ? @requisition_form.medical_history['screening_for']['screening_for'] : ''}
+  - if @requisition_form.medical_history['skin_tag']
+    div Skin Tag
+  - if @requisition_form.medical_history['weight_loss']
+    div Weight Loss
+  - if @requisition_form.medical_history['other']['checked']
+    div OTHER: #{@requisition_form.medical_history['other']['checked'] ? @requisition_form.medical_history['other']['other'] : ''}
+
+- if @requisition_form.medical_history['rule_out']['checked']
+  div
+    br
+    b = 'Rule Out: '
+    - if @requisition_form.medical_history['rule_out']['barrets']
+      = 'Barret\'s, '
+    - if @requisition_form.medical_history['rule_out']['carcinoma']
+      = 'Carcinoma, '
+    - if @requisition_form.medical_history['rule_out']['celiac']
+      = 'Celiac, '
+    - if @requisition_form.medical_history['rule_out']['h_pylori']
+      = 'Carcinoma, '
+    - if @requisition_form.medical_history['rule_out']['dysplasia']
+      = 'Dyslplasia, '
+    - if @requisition_form.medical_history['rule_out']['esophagitis']
+      = 'Esophagitis, '
+    - if @requisition_form.medical_history['rule_out']['giardia']
+      = 'Giardia, '
+    - if @requisition_form.medical_history['rule_out']['colitis']
+      = 'H. Pylori, '
+    - if @requisition_form.medical_history['rule_out']['other']
+      = "Other: #{@requisition_form.medical_history['rule_out']['other_text']};"

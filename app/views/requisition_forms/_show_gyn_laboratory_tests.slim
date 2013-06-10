@@ -1,26 +1,12 @@
-.row
-  .small-12.columns.laboratory-tests.ba
-    div.head Laboratory Tests
-    .row
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['high'] ? 'X' : ''
-          span Pap with High-Risk HPV;
-        .input
-          .box = @requisition_form.medical_history['high_16'] ? 'X' : ''
-          span Pap with High-Risk HPV; Reflex 16/18;
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['reflex'] ? 'X' : ''
-          span Pap w/reflex to High-Risk HPV;
-        .input
-          .box = @requisition_form.medical_history['reflex_16'] ? 'X' : ''
-          span Pap w/reflex High-Risk HPV; Reflex 16/18;
-      .small-4.columns
-        .input
-          .box = @requisition_form.medical_history['gc'] ? 'X' : ''
-          span GC/Chl/Trich;
-        .input
-          .box = @requisition_form.medical_history['other']['checked'] ? 'X' : ''
-          span
-            | Other: #{@requisition_form.medical_history['other']['text']}
+-if @requisition_form.medical_history['high']
+  div Pap with High-Risk HPV;
+- if @requisition_form.medical_history['high_16']
+  div Pap with High-Risk HPV; Reflex 16/18;
+-if @requisition_form.medical_history['reflex']
+  div Pap w/reflex to High-Risk HPV;
+- if @requisition_form.medical_history['reflex_16']
+  div Pap w/reflex High-Risk HPV; Reflex 16/18;
+- if @requisition_form.medical_history['gc']
+  div GC/Chl/Trich;
+- if @requisition_form.medical_history['other']['checked']
+  div Other: #{@requisition_form.medical_history['other']['text']}

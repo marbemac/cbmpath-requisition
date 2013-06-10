@@ -16,6 +16,5 @@ class Ability
       can :manage, Patient, :user_id => user.id
       can :manage, Doctor, :user_id => user.id
     end
-    #end
   end
 end
