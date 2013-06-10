@@ -58,5 +58,23 @@ module CbmpathRequisition
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # ActionMailer Config
+    # Setup for development - deliveries, errors raised
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    Rails.application.routes.default_url_options = config.action_mailer.default_url_options # because this is what Resque looks for
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
+    config.action_mailer.smtp_settings = {
+      :domain => 'cbmpath.com',
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true,
+      :user_name => 'marbemac',
+      :password => 'giants22'
+    }
   end
 end
