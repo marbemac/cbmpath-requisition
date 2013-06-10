@@ -1,113 +1,108 @@
-.show-general-fields
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b Fine Needle Aspiration (FNA) source:
+- if @requisition_form.general_fields['fna']['source'].present?
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div FNA Source
     .small-9.columns
-      span = @requisition_form.general_fields['other']['location']
+      div = @requisition_form.general_fields['fna']['source']
 
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b Cytology:
-    .small-9.columns
-      .input
-        .box = @requisition_form.general_fields['urine'] ? 'X' : ''
-        span Urine
-      .input
-        .box = @requisition_form.general_fields['brushing']['checked'] ? 'X' : ''
-        span
-        | Brushing, location: #{@requisition_form.general_fields['brushing']['location']}
-      .input
-        .box = @requisition_form.general_fields['washing']['checked'] ? 'X' : ''
-        span
-        | Washing, location: #{@requisition_form.general_fields['washing']['location']}
-      .input
-        .box = @requisition_form.general_fields['discharge']['checked'] ? 'X' : ''
-        span
-        | Discharge, location: #{@requisition_form.general_fields['discharge']['location']}
-      .input
-        .box = @requisition_form.general_fields['cytology_other']['checked'] ? 'X' : ''
-        span
-        | Other, location: #{@requisition_form.general_fields['cytology_other']['location']}
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Cytology
+    .small-9.columns.free-list
+      - if @requisition_form.general_fields['cytology']['urine']
+        div Urine
+      - if @requisition_form.general_fields['cytology']['brushing']['checked']
+        div Brushing, location: #{@requisition_form.general_fields['cytology']['brushing']['location']}
+      - if @requisition_form.general_fields['cytology']['washing']['checked']
+        div Washing, location: #{@requisition_form.general_fields['cytology']['washing']['location']}
+      - if @requisition_form.general_fields['cytology']['discharge']['checked']
+        div Discharge, location: #{@requisition_form.general_fields['cytology']['discharge']['location']}
+      - if @requisition_form.general_fields['cytology']['other']['checked']
+        div Other, location: #{@requisition_form.general_fields['cytology']['other']['location']}
 
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b Fresh Lymph Node:
-    .small-9.columns
-      .input
-        .box = @requisition_form.general_fields['histology'] ? 'X' : ''
-        span Histology
-      .input
-        .box = @requisition_form.general_fields['flow'] ? 'X' : ''
-        span Flow Cytometry
-      .input
-        .box = @requisition_form.general_fields['culture'] ? 'X' : ''
-        span Culture
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Fresh Lymph Node
+    .small-9.columns.free-list
+      - if @requisition_form.general_fields['fresh_lymph_node']['histology']
+        div Histology
+      - if @requisition_form.general_fields['fresh_lymph_node']['flow']
+        div Flow Cytometry
+      - if @requisition_form.general_fields['fresh_lymph_node']['culture']
+        div Culture
 
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b Cultures:
-    .small-9.columns
-      .input
-        .box = @requisition_form.general_fields['fungal'] ? 'X' : ''
-        span Fungal
-      .input
-        .box = @requisition_form.general_fields['afb'] ? 'X' : ''
-        span AFB
-      .input
-        .box = @requisition_form.general_fields['afb_tb'] ? 'X' : ''
-        span AFB / TB
-      .input
-        .box = @requisition_form.general_fields['aerobic'] ? 'X' : ''
-        span Aerobic
-      .input
-        .box = @requisition_form.general_fields['anaerobic'] ? 'X' : ''
-        span Anaerobic
-      .input
-        .box = @requisition_form.general_fields['cultures_other']['checked'] ? 'X' : ''
-        span
-          | Other: #{@requisition_form.general_fields['cultures_other']['text']}
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Cultures
+    .small-9.columns.free-list
+      - if @requisition_form.general_fields['cultures']['fungal']
+        div Fungal
+      - if @requisition_form.general_fields['cultures']['afb']
+        div AFB
+      - if @requisition_form.general_fields['cultures']['afb_tb']
+        div AFB / TB
+      - if @requisition_form.general_fields['cultures']['aerobic']
+        div Aerobic
+      - if @requisition_form.general_fields['cultures']['anaerobic']
+        div Anaerobic
+      - if @requisition_form.general_fields['cultures']['other']['checked']
+        div Other: #{@requisition_form.general_fields['cultures']['other']['text']}
 
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b Stool Studies:
-    .small-9.columns
-      .input
-        .box = @requisition_form.general_fields['complete'] ? 'X' : ''
-        span Complete
-      .input
-        .box = @requisition_form.general_fields['op'] ? 'X' : ''
-        span O&P
-      .input
-        .box = @requisition_form.general_fields['cs'] ? 'X' : ''
-        span C&S
-      .input
-        .box = @requisition_form.general_fields['giardia'] ? 'X' : ''
-        span Giardia
-      .input
-        .box = @requisition_form.general_fields['wbc'] ? 'X' : ''
-        span WBC
-      .input
-        .box = @requisition_form.general_fields['c_diff'] ? 'X' : ''
-        span c-Diff
-      .input
-        .box = @requisition_form.general_fields['stool_other']['checked'] ? 'X' : ''
-        span
-          | Other: #{@requisition_form.general_fields['stool_other']['text']}
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div Stool Studies
+    .small-9.columns.free-list
+      - if @requisition_form.general_fields['stool_studies']['complete']
+        div Complete
+      - if @requisition_form.general_fields['stool_studies']['op']
+        div O&P
+      - if @requisition_form.general_fields['stool_studies']['cs']
+        div C&S
+      - if @requisition_form.general_fields['stool_studies']['giardia']
+        div Giardia
+      - if @requisition_form.general_fields['stool_studies']['wbc']
+        div WBC
+      - if @requisition_form.general_fields['stool_studies']['c_diff']
+        div c-Diff
+      - if @requisition_form.general_fields['stool_studies']['other']['checked']
+        div Other: #{@requisition_form.general_fields['stool_studies']['other']['text']}
 
-  .row.bl.br.bb.pad
-    .small-3.columns
-      b DNA / Molecular Tests:
-    .small-9.columns
-      .input
-        .box = @requisition_form.general_fields['hpv'] ? 'X' : ''
-        span HPV
-      .input
-        .box = @requisition_form.general_fields['her2'] ? 'X' : ''
-        span HER2 / neu
-      .input
-        .box = @requisition_form.general_fields['dna_other']['checked'] ? 'X' : ''
-        span
-          | Other: #{@requisition_form.general_fields['dna_other']['text']}
-      .input
-        .box = @requisition_form.general_fields['blood_request'] ? 'X' : ''
-        span Blood Send Out Request (please include separate requisition form)
+  .row.form-show-section
+    .small-3.columns.columns.form-show-section__name
+      div DNA / Molecular Tests
+    .small-9.columns.free-list
+      - if @requisition_form.general_fields['dna_tests']['hpv']
+        div HPV
+      - if @requisition_form.general_fields['dna_tests']['her2']
+        div HER2 / neu
+      - if @requisition_form.general_fields['dna_tests']['other']['checked']
+        div Other: #{@requisition_form.general_fields['dna_tests']['other']['text']}
+
+  - if @requisition_form.general_fields['blood_request'].present?
+    .row.form-show-section
+      .small-3.columns.columns.form-show-section__name
+        div Blood Request
+      .small-9.columns
+        div YES
+
+
+
+/.show-general-fields
+
+/  .row.bl.br.bb.pad
+/    .small-3.columns
+/      b DNA / Molecular Tests:
+/    .small-9.columns
+/      .input
+/        .box = @requisition_form.general_fields['hpv'] ? 'X' : ''
+/        span HPV
+/      .input
+/        .box = @requisition_form.general_fields['her2'] ? 'X' : ''
+/        span HER2 / neu
+/      .input
+/        .box = @requisition_form.general_fields['dna_other']['checked'] ? 'X' : ''
+/        span
+/          | Other: #{@requisition_form.general_fields['dna_other']['text']}
+/      .input
+/        .box = @requisition_form.general_fields['blood_request'] ? 'X' : ''
+/        span Blood Send Out Request (please include separate requisition form)
