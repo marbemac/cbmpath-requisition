@@ -44,6 +44,6 @@ class User < ActiveRecord::Base
   before_create :use_practice_name
 
   def use_practice_name
-    self.username = practice_name
+    self.name  = practice_name
   end
 end
