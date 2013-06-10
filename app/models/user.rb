@@ -40,4 +40,10 @@ class User < ActiveRecord::Base
   has_many :patients
   has_many :doctors
   has_many :requisition_forms
+
+  before_create :use_practice_name
+
+  def use_practice_name
+    self.username = practice_name
+  end
 end
