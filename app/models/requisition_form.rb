@@ -143,7 +143,7 @@ class RequisitionForm < ActiveRecord::Base
             :phone => patient_insurance_phone,
             :date_of_birth => patient_insurance_date_of_birth,
             :relation => patient_insurance_relation,
-            :insured_empoloyer => patient_insurance_insured_employer,
+            :insured_employer => patient_insurance_insured_employer,
             :insured_name => patient_insurance_insured_name,
             :insured_work_phone => patient_insurance_insured_work_phone,
         },

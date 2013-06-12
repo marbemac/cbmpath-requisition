@@ -7,7 +7,7 @@
         div.logo = image_tag('logo.png')
 
     .small-6.columns.right
-      div #{@requisition_form.form_type} Pathology Requisition Form
+      div #{@requisition_form.form_type} Pathology Requisition Order
 
   .row.form-show-info
     .small-6.columns
@@ -44,6 +44,17 @@
           div Gender: #{@requisition_form.patient_sex}
           div SSN: #{@requisition_form.patient_ssn}
         .small-4.columns
+          div = @requisition_form.patient_insurance_type
+          div = @requisition_form.patient_insurance_name
+          - unless @requisition_form.patient_insurance_name.blank?
+            div Group #: #{@requisition_form.patient_insurance_group_number}
+            div Policy #: #{@requisition_form.patient_insurance_policy_number}
+            div Phone: #{@requisition_form.patient_insurance_phone}
+            div DoB: #{@requisition_form.patient_insurance_date_of_birth.strftime("%d/%m/%Y")}
+            div Relation: #{@requisition_form.patient_insurance_relation}
+            div Name: #{@requisition_form.patient_insurance_insured_name}
+            div Employer: #{@requisition_form.patient_insurance_insured_employer}
+            div Work Phone: #{@requisition_form.patient_insurance_insured_work_phone}
 
   .row.form-show-section
     .small-3.columns.columns.form-show-section__name
@@ -74,10 +85,10 @@
     .small-9.columns
       = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
 
-  .specimen-labels
-    - if @requisition_form.form_type == 'general'
-      - @requisition_form.medical_history['specimens'].each do |k,v|
-        .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{v}"
-    - else
-      - @requisition_form.specimens.each_with_index do |specimen, i|
-        .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{specimen[0]['source']}"
+.specimen-sticky-labels
+  - if @requisition_form.form_type == 'general'
+    - @requisition_form.medical_history['specimens'].each do |k,v|
+      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{v}"
+  - else
+    - @requisition_form.specimens.each_with_index do |specimen, i|
+      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{specimen[0]['source']}"

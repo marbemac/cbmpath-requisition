@@ -5,6 +5,7 @@
   margin: auto;
   position: relative;
   height: 100%;
+  padding-bottom: 144px;
 
   .columns {
     &.right {
@@ -284,11 +285,10 @@
   }
 }
 
-.specimen-labels {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.specimen-sticky-labels {
+  width: 100%;
+  max-width: 700px;
+  margin: -144px auto 0 auto;
 }
 .specimen-label {
   width: 25%;
