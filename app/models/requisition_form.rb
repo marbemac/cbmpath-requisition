@@ -98,21 +98,21 @@ class RequisitionForm < ActiveRecord::Base
   end
 
   def send_via_sftp
-    #begin
-    file = File.open("/tmp/#{created_at.to_i}_#{id}.txt","w") do |f|
-      f.write(to_json)
+    begin
+      file = File.open("/tmp/#{created_at.to_i}_#{id}.txt","w") do |f|
+        f.write(to_json)
+      end
+      ftps = DoubleBagFTPS.new
+      ftps.debug_mode = true
+      ftps.ssl_context = DoubleBagFTPS.create_ssl_context(:verify_mode => OpenSSL::SSL::VERIFY_NONE)
+      ftps.connect('us1.hostedftp.com')
+      ftps.login("marbemac@gmail.com", "cbm3905sftp")
+      ftps.passive = true
+      ftps.puttextfile("/tmp/#{created_at.to_i}_#{id}.txt")
+      ftps.quit()
+    rescue
+      Emailer.deliver_ftp_fail(id)
     end
-    ftps = DoubleBagFTPS.new
-    ftps.debug_mode = true
-    ftps.ssl_context = DoubleBagFTPS.create_ssl_context(:verify_mode => OpenSSL::SSL::VERIFY_NONE)
-    ftps.connect('us1.hostedftp.com')
-    ftps.login("marbemac@gmail.com", "cbm3905sftp")
-    ftps.passive = true
-    ftps.puttextfile("/tmp/#{created_at.to_i}_#{id}.txt")
-    ftps.quit()
-    #rescue
-    #  Emailer.deliver_ftp_fail(id)
-    #end
   end
 
   def as_json(options)
