@@ -85,10 +85,10 @@
     .small-9.columns
       = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
 
-.specimen-sticky-labels
-  - if @requisition_form.form_type == 'general'
-    - @requisition_form.medical_history['specimens'].each do |k,v|
-      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{v}"
-  - else
-    - @requisition_form.specimens.each_with_index do |specimen, i|
-      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{specimen[0]['source']}"
+/.specimen-sticky-labels
+/  - if @requisition_form.form_type == 'general'
+/    - @requisition_form.medical_history['specimens'].each do |k,v|
+/      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{v}"
+/  - else
+/    - @requisition_form.specimens.each_with_index do |specimen, i|
+/      .specimen-label = "#{@requisition_form.user.practice_name}, #{@requisition_form.patient_first_name} #{@requisition_form.patient_last_name}, #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}, #{@requisition_form.collection_date.strftime("%d/%m/%Y")}, #{specimen[0]['source']}"
