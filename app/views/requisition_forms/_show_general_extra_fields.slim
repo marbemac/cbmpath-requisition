@@ -84,25 +84,3 @@
         div Blood Request
       .small-9.columns
         div YES
-
-
-
-/.show-general-fields
-
-/  .row.bl.br.bb.pad
-/    .small-3.columns
-/      b DNA / Molecular Tests:
-/    .small-9.columns
-/      .input
-/        .box = @requisition_form.general_fields['hpv'] ? 'X' : ''
-/        span HPV
-/      .input
-/        .box = @requisition_form.general_fields['her2'] ? 'X' : ''
-/        span HER2 / neu
-/      .input
-/        .box = @requisition_form.general_fields['dna_other']['checked'] ? 'X' : ''
-/        span
-/          | Other: #{@requisition_form.general_fields['dna_other']['text']}
-/      .input
-/        .box = @requisition_form.general_fields['blood_request'] ? 'X' : ''
-/        span Blood Send Out Request (please include separate requisition form)

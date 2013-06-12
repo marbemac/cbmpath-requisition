@@ -4,6 +4,7 @@
   max-width: 700px;
   margin: auto;
   position: relative;
+  height: 100%;
 
   .columns {
     &.right {
@@ -285,12 +286,12 @@
 
 .specimen-labels {
   position: absolute;
-  top: 2512px;
-  left: 75px;
-  right: 75px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .specimen-label {
   width: 25%;
   display: inline-block;
-  height: 300px;
+  height: 72px;
 }
