@@ -2,6 +2,8 @@
   div Pap with High-Risk HPV;
 - if @requisition_form.medical_history['high_16']
   div Pap with High-Risk HPV; Reflex 16/18;
+-if @requisition_form.medical_history['pap_only']
+  div Pap only;
 -if @requisition_form.medical_history['reflex']
   div Pap w/reflex to High-Risk HPV;
 - if @requisition_form.medical_history['reflex_16']

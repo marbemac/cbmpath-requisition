@@ -72,6 +72,11 @@ class RequisitionForm < ActiveRecord::Base
       self.patient_state = patient.state
       self.patient_zipcode = patient.zipcode
 
+      self.patient_insurance_address = patient.insurance_address
+      self.patient_insurance_city = patient.insurance_city
+      self.patient_insurance_state = patient.insurance_state
+      self.patient_insurance_zipcode = patient.insurance_zipcode
+
       self.patient_insurance_type = patient.insurance_type
       self.patient_insurance_name = patient.insurance_name
       self.patient_insurance_insured_name = patient.insurance_insured_name

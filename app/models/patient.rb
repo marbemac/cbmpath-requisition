@@ -39,7 +39,8 @@ class Patient < ActiveRecord::Base
                   :insurance_insured_employer, :insurance_insured_name,
                   :insurance_insured_work_phone, :insurance_name,
                   :insurance_phone, :insurance_policy_number, :insurance_relation,
-                  :insurance_type, :user_id
+                  :insurance_type, :user_id, :insurance_address, :insurance_city,
+                  :insurance_state, :insurance_zipcode
 
   before_save :update_searchable_name
 

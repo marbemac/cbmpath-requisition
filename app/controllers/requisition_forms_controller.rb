@@ -22,7 +22,7 @@ class RequisitionFormsController < ApplicationController
   # GET /requisition_forms/new
   # GET /requisition_forms/new.json
   def new
-    @requisition_form = RequisitionForm.new
+    @requisition_form = RequisitionForm.new(:collection_date => Date.today)
     @requisition_form.patient = Patient.new
     #@requisition_form.doctor = Doctor.new
     #@requisition_form.doctor2 = Doctor.new
@@ -86,7 +86,7 @@ class RequisitionFormsController < ApplicationController
           ftps.puttextfile("/tmp/#{@requisition_form.id}.txt")
           ftps.quit()
         rescue
-          Emailer.deliver_ftp_fail(@requisition_form.id)
+          Emailer.ftp_fail(@requisition_form.id).deliver
         end
 
         format.html { redirect_to @requisition_form, notice: 'Requisition form was successfully created.' }

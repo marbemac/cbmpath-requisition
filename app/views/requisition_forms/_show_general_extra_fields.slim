@@ -1,4 +1,4 @@
-- if @requisition_form.general_fields['fna']['source'].present?
+- if @requisition_form.general_fields['fna'] && @requisition_form.general_fields['fna']['source'].present?
   .row.form-show-section
     .small-3.columns.columns.form-show-section__name
       div FNA Source

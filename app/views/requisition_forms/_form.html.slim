@@ -1,99 +1,113 @@
-= simple_form_for @requisition_form, :html => { :class => "requisition-form-form" } do |f|
-  = f.error_notification
+- if current_user.doctors.empty?
+  .no-doctors
+    | There are no M.D.'s associated with your account.
+    br
+    | Please contact CBM Pathology at (301) 926 4707 or cbmpath@aol.com
+- else
+  = simple_form_for @requisition_form, :html => { :class => "requisition-form-form" } do |f|
+    = f.error_notification
 
-  = f.input :form_type, as: :hidden, :input_html => {value: params[:type]}
-  .form-inputs
-    .row
-      .small-4.columns.info
-        = image_tag "logo.png"
-        div 18207A Flower Hill Way
-        div Gaithersburg, MD 20879
-        div Phone (301) 926 4707 Fax (301) 926 4708
-        div www.CBMPATH.com
-      .small-4.columns.doctors.br.bl
-        = f.input :doctor_id, label: "Referring / Ordering M.D.", collection: current_user.doctors, required: true
+    = f.input :form_type, as: :hidden, :input_html => {value: params[:type]}
+    .form-inputs
+      .row
+        .small-4.columns.info
+          = image_tag "logo.png"
+          div 18207A Flower Hill Way
+          div Gaithersburg, MD 20879
+          div Phone (301) 926 4707 Fax (301) 926 4708
+          div www.CBMPATH.com
+        .small-4.columns.doctors.br.bl
+          = f.input :doctor_id, label: "Referring / Ordering M.D.", collection: current_user.doctors, required: true
 
-        = f.input :doctor2_id, label: "Additional M.D.", collection: current_user.doctors
+          = f.input :doctor2_id, label: "Additional M.D.", collection: current_user.doctors
 
-        = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}, :start_year => Time.now.year, :end_year => 2008
+          = f.input :collection_date, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :input_html => {:autocomplete => 'off'}, :start_year => Time.now.year, :end_year => 2008
 
-      .small-4.columns.icd-9s.copy-parent
-        label for="requisition_form[icd9_codes][]" ICD-9 CODE(S):
-        input name="requisition_form[icd9_codes][]" type="text" class="copy-me"
-        .small.button.icd9-copy-button.before-me Add More
+        .small-4.columns.icd-9s.copy-parent
+          label for="requisition_form[icd9_codes][]" ICD-9 CODE(S):
+          input name="requisition_form[icd9_codes][]" type="text" class="copy-me"
+          .small.button.icd9-copy-button.before-me Add More
 
-    .row
-      = f.simple_fields_for :patient do |p|
-        = p.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
-        .small-6.columns.patient-info
-          = p.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
-          h4 Patient Information
-          .clear reset patient/insurance fields
-          .row
-            .small-4.columns
-              = p.input :first_name, required: true, :input_html => {:autocomplete => 'off'}
-            .small-3.columns
-              = p.input :middle_name, :input_html => {:autocomplete => 'off'}
-            .small-5.columns
-              = p.input :last_name, required: true, :input_html => {:autocomplete => 'off'}
-          .row
-            .small-3.columns
-              .radio-group
-                == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
-                  - b.label { (b.text == 'M' ? '*' : '').html_safe + b.radio_button + b.text.html_safe }
-            .small-6.columns
-              = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}
-            .small-3.columns
-              = p.input :ssn, :input_html => {:autocomplete => 'off'}
-          br
-          .row
-            .small-5.columns
-              = p.input :address, required: true, :input_html => {:autocomplete => 'off'}
-            .small-3.columns
-              = p.input :city, required: true, :input_html => {:autocomplete => 'off'}
-            .small-2.columns
-              = p.input :state, required: true, :input_html => {:autocomplete => 'off'}
-            .small-2.columns
-              = p.input :zipcode, required: true, :input_html => {:autocomplete => 'off'}
-        .small-6.columns.insurance-info.bl
-          h4 Insurance Information
-          .clear reset patient/insurance fields
-          .row
-            .small-4.columns
-              .radio-group
-                == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s, required: true do |b|
-                  - b.label { b.radio_button + b.text.html_safe }
-            .small-8.columns
-              = p.input :insurance_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}
-          .row
-            .small-6.columns
-              = p.input :insurance_insured_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Name"
-              = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
-              = p.input :insurance_date_of_birth, order: [:month, :day, :year], :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Date of Birth"
-              = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
-            .small-6.columns
-              = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
-              = p.input :insurance_policy_number, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Policy ID Number"
-              = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
-              = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Number"
+      .row
+        = f.simple_fields_for :patient do |p|
+          = p.input :user_id, as: :hidden, :input_html => {:value => current_user.id, :autocomplete => 'off'}
+          .small-6.columns.patient-info
+            = p.input :id, :as => :hidden, :input_html => {:autocomplete => 'off'}
+            h4 Patient Information
+            .clear reset patient/insurance fields
+            .row
+              .small-4.columns
+                = p.input :first_name, required: true, :input_html => {:autocomplete => 'off'}
+              .small-3.columns
+                = p.input :middle_name, :input_html => {:autocomplete => 'off'}
+              .small-5.columns
+                = p.input :last_name, required: true, :input_html => {:autocomplete => 'off'}
+            .row
+              .small-3.columns
+                .radio-group
+                  == p.collection_radio_buttons :sex, ['M', 'F'], :to_s, :to_s do |b|
+                    - b.label { (b.text == 'M' ? '*' : '').html_safe + b.radio_button + b.text.html_safe }
+              .small-6.columns
+                = p.input :date_of_birth, as: :date, order: [:month, :day, :year], required: true, :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off'}
+              .small-3.columns
+                = p.input :ssn, :input_html => {:autocomplete => 'off'}
+            br
+            .row
+              .small-5.columns
+                = p.input :address, required: true, :input_html => {:autocomplete => 'off'}
+              .small-3.columns
+                = p.input :city, required: true, :input_html => {:autocomplete => 'off'}
+              .small-2.columns
+                = p.input :state, required: true, :input_html => {:autocomplete => 'off'}
+              .small-2.columns
+                = p.input :zipcode, required: true, :input_html => {:autocomplete => 'off'}
+          .small-6.columns.insurance-info.bl
+            h4 Insurance Information
+            .clear reset patient/insurance fields
+            .row
+              .small-4.columns
+                .radio-group
+                  == p.collection_radio_buttons :insurance_type, ['Self', 'Insurance'], :to_s, :to_s, required: true do |b|
+                    - b.label { b.radio_button + b.text.html_safe }
+              .small-8.columns
+                = p.input :insurance_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}
+            .row
+              .small-6.columns
+                = p.input :insurance_insured_name, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Name"
+                = p.input :insurance_group_number, :input_html => {:autocomplete => 'off'}, label: "Group Number"
+                = p.input :insurance_date_of_birth, order: [:month, :day, :year], :prompt => true, :use_short_month => true, :start_year => Time.now.year, :end_year => Time.now.year - 120, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Date of Birth"
+                = p.input :insurance_insured_employer, :input_html => {:autocomplete => 'off'}, label: "Insured's Employer"
+              .small-6.columns
+                = p.input :insurance_relation, collection: %w(Self Spouse Child Other), prompt: "Select Relation", :input_html => {:autocomplete => 'off'}, label: "Relation to Patient"
+                = p.input :insurance_policy_number, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Policy ID Number"
+                = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
+                = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insurance Phone Number"
+              .small-5.columns
+                = p.input :insurance_address, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Address"
+              .small-3.columns
+                = p.input :insurance_city, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "City"
+              .small-2.columns
+                = p.input :insurance_state, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "State"
+              .small-2.columns
+                = p.input :insurance_zipcode, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Zipcode"
 
-    = render "form_#{params[:type]}_medical_history"
+      = render "form_#{params[:type]}_medical_history"
 
-    - if params[:type] == 'gyn'
-      = render "form_gyn_laboratory_tests"
+      - if params[:type] == 'gyn'
+        = render "form_gyn_laboratory_tests"
 
-    .row
-      .small-12.columns
-        = f.input :special_requests
+      .row
+        .small-12.columns
+          = f.input :special_requests
 
-    = render "form_#{params[:type]}_specimens"
+      = render "form_#{params[:type]}_specimens"
 
-    - if params[:type] == 'general'
-      = render "form_general_extra_fields"
+      - if params[:type] == 'general'
+        = render "form_general_extra_fields"
 
-  .form-actions
-    = f.button :submit, :class => "submit"
+    .form-actions
+      = f.button :submit, :class => "submit"
 
-/= form_for @requisition_form do |f|
-/  = f.fields_for :doctor do |d|
-/    = d.text_field :name
+  /= form_for @requisition_form do |f|
+  /  = f.fields_for :doctor do |d|
+  /    = d.text_field :name
