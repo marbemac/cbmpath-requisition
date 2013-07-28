@@ -7,7 +7,7 @@
         div.logo = image_tag('logo.png')
 
     .small-6.columns.right
-      div #{@requisition_form.form_type} Pathology Requisition Form
+      div #{@requisition_form.form_type} Pathology Requisition Order
 
   .row.form-show-info
     .small-6.columns
@@ -44,6 +44,17 @@
           div Gender: #{@requisition_form.patient_sex}
           div SSN: #{@requisition_form.patient_ssn}
         .small-4.columns
+          div = @requisition_form.patient_insurance_type
+          div = @requisition_form.patient_insurance_name
+          - unless @requisition_form.patient_insurance_name.blank?
+            div Group #: #{@requisition_form.patient_insurance_group_number}
+            div Policy #: #{@requisition_form.patient_insurance_policy_number}
+            div Phone: #{@requisition_form.patient_insurance_phone}
+            div DoB: #{@requisition_form.patient_insurance_date_of_birth.strftime("%d/%m/%Y")}
+            div Relation: #{@requisition_form.patient_insurance_relation}
+            div Name: #{@requisition_form.patient_insurance_insured_name}
+            div Employer: #{@requisition_form.patient_insurance_insured_employer}
+            div Work Phone: #{@requisition_form.patient_insurance_insured_work_phone}
 
   .row.form-show-section
     .small-3.columns.form-show-section__name
@@ -97,6 +108,7 @@
       div Specimens
     .small-9.columns
       = render "requisition_forms/show_#{@requisition_form.form_type}_specimens"
+
   /
   /.specimen-labels
   /  - if @requisition_form.form_type == 'general'

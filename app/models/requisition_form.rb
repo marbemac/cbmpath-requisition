@@ -41,6 +41,8 @@
 #  user_id                              :integer
 #
 
+require 'double_bag_ftps'
+
 class RequisitionForm < ActiveRecord::Base
   serialize :icd9_codes, JSON
   serialize :medical_history, JSON
@@ -98,5 +100,85 @@ class RequisitionForm < ActiveRecord::Base
     end
 
     save
+  end
+
+  def send_via_sftp
+    begin
+      file = File.open("/tmp/#{created_at.to_i}_#{id}.txt","w") do |f|
+        f.write(to_json)
+      end
+      ftps = DoubleBagFTPS.new
+      ftps.debug_mode = true
+      ftps.ssl_context = DoubleBagFTPS.create_ssl_context(:verify_mode => OpenSSL::SSL::VERIFY_NONE)
+      ftps.connect('us1.hostedftp.com')
+      ftps.login("marbemac@gmail.com", "cbm3905sftp")
+      ftps.passive = true
+      ftps.puttextfile("/tmp/#{created_at.to_i}_#{id}.txt")
+      ftps.quit()
+    rescue
+      Emailer.ftp_fail(id).deliver
+    end
+  end
+
+  def as_json(options)
+    data = {
+        :id => id,
+        :created_at => created_at,
+        :collection_date => collection_date,
+        :form_type => form_type,
+        :icd9_codes => icd9_codes,
+        :patient => {
+            :id => id,
+            :first_name => patient_first_name,
+            :middle_name => patient_middle_name,
+            :last_name => patient_last_name,
+            :date_of_birth => patient_date_of_birth,
+            :sex => patient_sex,
+            :ssn => patient_ssn,
+            :address => patient_address,
+            :city => patient_city,
+            :state => patient_state,
+            :zipcode => patient_zipcode
+        },
+        :insurance => {
+            :type => patient_insurance_type,
+            :name => patient_insurance_name,
+            :group_number => patient_insurance_group_number,
+            :policy_number => patient_insurance_policy_number,
+            :phone => patient_insurance_phone,
+            :date_of_birth => patient_insurance_date_of_birth,
+            :relation => patient_insurance_relation,
+            :insured_employer => patient_insurance_insured_employer,
+            :insured_name => patient_insurance_insured_name,
+            :insured_work_phone => patient_insurance_insured_work_phone,
+        },
+        :client => {
+            :id => user.id,
+            :cbm_id => user.cbm_user_identifier,
+            :name => user.practice_name
+        },
+        :doctor1 => {
+            :id => doctor.id,
+            :cbm_id => doctor.cbm_doctor_identifier,
+            :name => doctor.name
+        },
+        :general_fields => general_fields,
+        :laboratory_tests => laboratory_tests,
+        :medical_history => medical_history,
+        :special_requests => special_requests,
+        :specimens => specimens
+    }
+
+    if doctor2
+      data[:doctor2] = {
+          :id => doctor2.id,
+          :cbm_id => doctor.cbm_doctor_identifier,
+          :name => doctor.name
+      }
+    else
+      data[:doctor2] = nil
+    end
+
+    data
   end
 end

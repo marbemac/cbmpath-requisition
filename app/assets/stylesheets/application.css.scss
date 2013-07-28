@@ -15,6 +15,11 @@
 
 @import "requisition_forms";
 
+html,
+body {
+  height: 100%;
+}
+
 .columns {
   height: 100%;
 }
@@ -26,6 +31,7 @@
 #main-container {
   width: 960px;
   margin: auto;
+  height: 100%;
 }
 
 #welcome {
@@ -81,6 +87,7 @@
 
 #main-content {
   padding: 25px 0;
+  height: 100%;
 }
 
 #users-show {
