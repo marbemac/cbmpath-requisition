@@ -35,6 +35,10 @@ ActiveAdmin.register Patient do
       f.input :insurance_policy_number, label: "Indsurance Policy ID"
       f.input :insurance_phone, label: "Insured's Work Phone"
       f.input :insurance_insured_work_phone, label: "Insured's Work Number"
+      f.input :insurance_address, label: "Insured's Address"
+      f.input :insurance_city, label: "Insured's City"
+      f.input :insurance_state, label: "Insured's State"
+      f.input :insurance_zipcode, label: "Insured's Zipcode"
 
     end
     f.buttons

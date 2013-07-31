@@ -136,7 +136,7 @@ jQuery ->
       $("#requisition_form_patient_attributes_insurance_insured_employer").val(suggestion.data.insurance_insured_employer)
       $("#requisition_form_patient_attributes_insurance_phone").val(suggestion.data.insurance_phone)
 
-      $('.patient-info input,.patient-info select,.insurance-info input,.insurance-info select').attr('disabled','disabled')
+      $('.patient-info input,.patient-info select').attr('disabled','disabled')
       $('.patient-info .clear,.insurance-info .clear').show()
 
   $('#requisition_form_patient_attributes_first_name,#requisition_form_patient_attributes_middle_name,#requisition_form_patient_attributes_last_name').keydown (e) ->
