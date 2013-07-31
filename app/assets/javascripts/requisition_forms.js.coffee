@@ -135,6 +135,10 @@ jQuery ->
       $("#requisition_form_patient_attributes_insurance_insured_work_phone").val(suggestion.data.insurance_insured_work_phone)
       $("#requisition_form_patient_attributes_insurance_insured_employer").val(suggestion.data.insurance_insured_employer)
       $("#requisition_form_patient_attributes_insurance_phone").val(suggestion.data.insurance_phone)
+      $("#requisition_form_patient_attributes_insurance_address").val(suggestion.data.insurance_insured_address)
+      $("#requisition_form_patient_attributes_insurance_city").val(suggestion.data.insurance_insured_city)
+      $("#requisition_form_patient_attributes_insurance_state").val(suggestion.data.insurance_insured_state)
+      $("#requisition_form_patient_attributes_insurance_zipcode").val(suggestion.data.insurance_insured_zipcode)
 
       $('.patient-info input,.patient-info select').attr('disabled','disabled')
       $('.patient-info .clear,.insurance-info .clear').show()
