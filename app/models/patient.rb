@@ -105,10 +105,10 @@ class Patient < ActiveRecord::Base
               :insurance_policy_number => result.insurance_policy_number,
               :insurance_insured_work_phone => result.insurance_insured_work_phone,
               :insurance_phone => result.insurance_phone,
-              :insurance_insured_address => result.insurance_insured_address,
-              :insurance_insured_city => result.insurance_insured_city,
-              :insurance_insured_state => result.insurance_insured_state,
-              :insurance_insured_zipcode => result.insurance_insured_zipcode,
+              :insurance_insured_address => result.insurance_address,
+              :insurance_insured_city => result.insurance_city,
+              :insurance_insured_state => result.insurance_state,
+              :insurance_insured_zipcode => result.insurance_zipcode,
           }
       }
     end
