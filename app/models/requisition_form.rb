@@ -151,6 +151,10 @@ class RequisitionForm < ActiveRecord::Base
             :insured_employer => patient_insurance_insured_employer,
             :insured_name => patient_insurance_insured_name,
             :insured_work_phone => patient_insurance_insured_work_phone,
+            :insured_address => patient_insurance_insured_address,
+            :insured_city => patient_insurance_insured_city,
+            :insured_state => patient_insurance_insured_state,
+            :insured_zipcode => patient_insurance_insured_zipcode,
         },
         :client => {
             :id => user.id,
