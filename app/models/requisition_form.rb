@@ -126,7 +126,7 @@ class RequisitionForm < ActiveRecord::Base
         :created_at => created_at,
         :collection_date => collection_date,
         :form_type => form_type,
-        :icd9_codes => icd9_codes,
+        :icd9_codes => icd9_codes.map{|c| c unless c.blank?},
         :patient => {
             :id => id,
             :first_name => patient_first_name,

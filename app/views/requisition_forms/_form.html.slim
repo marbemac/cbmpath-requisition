@@ -83,13 +83,13 @@
                 = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
                 = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insurance Phone Number"
               .small-5.columns
-                = p.input :insurance_address, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Insured's Address"
+                = p.input :insurance_address, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Insured's Address"
               .small-3.columns
-                = p.input :insurance_city, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "City"
+                = p.input :insurance_city, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "City"
               .small-2.columns
-                = p.input :insurance_state, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "State"
+                = p.input :insurance_state, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "State"
               .small-2.columns
-                = p.input :insurance_zipcode, required: true, :input_html => {:autocomplete => 'off', :class => "if-insured required"}, label: "Zipcode"
+                = p.input :insurance_zipcode, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Zipcode"
 
       = render "form_#{params[:type]}_medical_history"
 

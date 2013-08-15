@@ -28,24 +28,6 @@ ActiveRecord::Schema.define(:version => 20130728213637) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
-  create_table "admin_users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
-
   create_table "doctors", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -100,13 +82,16 @@ ActiveRecord::Schema.define(:version => 20130728213637) do
     t.integer  "user_id"
     t.text     "medical_history",                      :default => "{}"
     t.text     "special_requests"
-    t.text     "specimens",                            :default => "{}"
+    t.text     "specimens"
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
     t.date     "collection_date"
     t.string   "form_type"
     t.text     "laboratory_tests",                     :default => "{}"
     t.text     "general_fields",                       :default => "{}"
+    t.integer  "patient_req_id"
+    t.integer  "doctor_req_id"
+    t.integer  "doctor2_req_id"
     t.string   "patient_first_name"
     t.string   "patient_last_name"
     t.string   "patient_middle_name"
@@ -136,8 +121,11 @@ ActiveRecord::Schema.define(:version => 20130728213637) do
   end
 
   add_index "requisition_forms", ["doctor2_id"], :name => "index_requisition_forms_on_doctor2_id"
+  add_index "requisition_forms", ["doctor2_req_id"], :name => "index_requisition_forms_on_doctor2_req_id"
   add_index "requisition_forms", ["doctor_id"], :name => "index_requisition_forms_on_doctor_id"
+  add_index "requisition_forms", ["doctor_req_id"], :name => "index_requisition_forms_on_doctor_req_id"
   add_index "requisition_forms", ["patient_id"], :name => "index_requisition_forms_on_patient_id"
+  add_index "requisition_forms", ["patient_req_id"], :name => "index_requisition_forms_on_patient_req_id"
   add_index "requisition_forms", ["user_id"], :name => "index_requisition_forms_on_user_id"
 
   create_table "users", :force => true do |t|

@@ -154,3 +154,9 @@ jQuery ->
 
   $('#new_requisition_form').submit (e) ->
     $('input,select').removeAttr('disabled')
+
+  $('#requisition_form_patient_attributes_insurance_type_self').click ->
+    $('#requisition_form_patient_attributes_insurance_insured_name').val("#{$('#requisition_form_patient_attributes_first_name').val()} #{$('#requisition_form_patient_attributes_last_name').val()}")
+    $('#requisition_form_patient_attributes_insurance_date_of_birth_2i').val($('#requisition_form_patient_attributes_date_of_birth_2i').val())
+    $('#requisition_form_patient_attributes_insurance_date_of_birth_3i').val($('#requisition_form_patient_attributes_date_of_birth_3i').val())
+    $('#requisition_form_patient_attributes_insurance_date_of_birth_1i').val($('#requisition_form_patient_attributes_date_of_birth_1i').val())
