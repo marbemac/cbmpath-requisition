@@ -43,18 +43,6 @@
             div DoB: #{@requisition_form.patient_date_of_birth.strftime("%d/%m/%Y")}
           div Gender: #{@requisition_form.patient_sex}
           div SSN: #{@requisition_form.patient_ssn}
-        .small-4.columns
-          div = @requisition_form.patient_insurance_type
-          div = @requisition_form.patient_insurance_name
-          - unless @requisition_form.patient_insurance_name.blank?
-            div Group #: #{@requisition_form.patient_insurance_group_number}
-            div Policy #: #{@requisition_form.patient_insurance_policy_number}
-            div Phone: #{@requisition_form.patient_insurance_phone}
-            div DoB: #{@requisition_form.patient_insurance_date_of_birth.strftime("%d/%m/%Y")}
-            div Relation: #{@requisition_form.patient_insurance_relation}
-            div Name: #{@requisition_form.patient_insurance_insured_name}
-            div Employer: #{@requisition_form.patient_insurance_insured_employer}
-            div Work Phone: #{@requisition_form.patient_insurance_insured_work_phone}
 
   .row.form-show-section
     .small-3.columns.form-show-section__name
@@ -74,8 +62,9 @@
             div = @requisition_form.patient_insurance_insured_work_phone
             - if @requisition_form.patient_insurance_date_of_birth
               div DoB: #{@requisition_form.patient_insurance_date_of_birth.strftime("%d/%m/%Y")}
-            div = @requisition_form.patient_insurance_address
-            div #{@requisition_form.patient_insurance_city} #{@requisition_form.patient_insurance_state}, #{@requisition_form.patient_insurance_zipcode}
+            - unless @requisition_form.patient_insurance_address.blank?
+              div = @requisition_form.patient_insurance_address
+              div #{@requisition_form.patient_insurance_city} #{@requisition_form.patient_insurance_state}, #{@requisition_form.patient_insurance_zipcode}
           .small-4.columns
             div Employer: #{@requisition_form.patient_insurance_insured_employer}
             div = @requisition_form.patient_insurance_phone
