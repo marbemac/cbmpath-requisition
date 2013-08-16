@@ -83,13 +83,13 @@
                 = p.input :insurance_insured_work_phone, :input_html => {:autocomplete => 'off'}, label: "Insured's Work Phone"
                 = p.input :insurance_phone, :input_html => {:autocomplete => 'off'}, label: "Insurance Phone Number"
               .small-5.columns
-                = p.input :insurance_address, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Insured's Address"
+                = p.input :insurance_address, :input_html => {:autocomplete => 'off'}, label: "Insured's Address"
               .small-3.columns
-                = p.input :insurance_city, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "City"
+                = p.input :insurance_city, :input_html => {:autocomplete => 'off'}, label: "City"
               .small-2.columns
-                = p.input :insurance_state, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "State"
+                = p.input :insurance_state, :input_html => {:autocomplete => 'off'}, label: "State"
               .small-2.columns
-                = p.input :insurance_zipcode, :input_html => {:autocomplete => 'off', :class => "if-insured"}, label: "Zipcode"
+                = p.input :insurance_zipcode, :input_html => {:autocomplete => 'off'}, label: "Zipcode"
 
       = render "form_#{params[:type]}_medical_history"
 
